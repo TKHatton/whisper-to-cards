@@ -1,8 +1,6 @@
 {
   "meta": {
-    "source": "outputs/transcript.json",
-    "max_chars": 1200,
-    "version": 1
+    "source": "outputs/transcript.json"
   },
   "sections": [
     {

@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "examples/lecture.mp3",
-    "datetime": "2025-10-03T19:31:08",
+    "datetime": "2025-10-05T04:15:57",
     "model": "small",
-    "language": "auto",
+    "language": "en",
     "device": "auto",
     "compute_type": "auto",
     "version": 1

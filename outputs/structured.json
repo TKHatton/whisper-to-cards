@@ -8,7 +8,6 @@
       "id": "sec_01",
       "title": "In the public space, we stand tall",
       "bullets": [
-        "In the public space, we stand tall.",
         "Love is the answer, a light for lazy to pay."
       ],
       "tldr": "In the public space, we stand tall.",
@@ -19,8 +18,7 @@
         }
       ],
       "cloze": [
-        "In the public space, we stand {{c1::tall}}",
-        "Love is the answer, a light for {{c1::lazy}} to pay."
+        "{{c1::Love}} is the answer, a light for lazy to pay."
       ]
     }
   ],

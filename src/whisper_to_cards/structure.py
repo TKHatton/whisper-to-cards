@@ -16,7 +16,7 @@ class StructuredSection:
 # add near the top
 _STOP_END = (".", "!", "?")
 
-def _clean_bullets(bullets):
+def _clean_bullets(bullets: List[str]) -> List[str]:
     seen = set()
     out = []
     for b in bullets:
@@ -29,7 +29,7 @@ def _clean_bullets(bullets):
         if key not in seen:
             seen.add(key)
             out.append(bb)
-    return out[:6]  # cap at 6
+    return out[:6]
 
 def _load_sections(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -80,18 +80,34 @@ def _extract_terms(text: str, max_items: int = 8) -> List[Dict[str, str]]:
     terms = [{"term": t, "def": ""} for t in candidates[:max_items]]
     return terms
 
-def _make_cloze(bullets: List[str], max_items: int = 4) -> List[str]:
-    """Create cloze deletions by hiding one key word (last significant token)."""
-    cloze = []
+_STOPWORDS = {
+    "the","a","an","and","or","for","to","of","in","on","at","is","are","be",
+    "was","were","this","that","with","as","by","from"
+}
+
+def _make_cloze(bullets: List[str], terms: List[Dict[str, str]], max_items: int = 4) -> List[str]:
+    cloze: List[str] = []
+    preferred = [t["term"] for t in terms if t.get("term")]
+    term_regexes = [re.compile(rf"\b{re.escape(t)}\b", flags=re.I) for t in preferred]
+
     for b in bullets:
-        words = b.split()
-        # pick last significant token
-        for i in range(len(words) - 1, -1, -1):
-            w = re.sub(r"[^\w\-]", "", words[i])
-            if len(w) >= 4:
-                words[i] = "{{c1::" + w + "}}"
-                cloze.append(" ".join(words))
+        new_b = None
+        # 1) try preferred terms
+        for t, rx in zip(preferred, term_regexes):
+            if rx.search(b):
+                new_b = rx.sub("{{c1::" + t + "}}", b, count=1)
                 break
+        # 2) fallback: last significant token
+        if not new_b:
+            words = b.split()
+            for i in range(len(words) - 1, -1, -1):
+                w = re.sub(r"[^\w\-]", "", words[i])
+                if len(w) >= 4 and w.lower() not in _STOPWORDS:
+                    words[i] = "{{c1::" + w + "}}"
+                    new_b = " ".join(words)
+                    break
+        if new_b:
+            cloze.append(new_b)
         if len(cloze) >= max_items:
             break
     return cloze
@@ -107,7 +123,7 @@ def structure_sections(sections_json: Path) -> Dict[str, Any]:
         bullets = [b for b in bullets if b.strip().lower() != tldr.strip().lower()]
         bullets = _clean_bullets(bullets)
         terms = _extract_terms(text)
-        cloze = _make_cloze(bullets)
+        cloze = _make_cloze(bullets, terms)
         structured.append(
             StructuredSection(
                 id=sec["id"], title=title, bullets=bullets, tldr=tldr, terms=terms, cloze=cloze
