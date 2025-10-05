@@ -7,9 +7,14 @@ from . import __version__
 from .asr import transcribe_audio, write_transcript
 from .segment import segment_transcript, write_sections
 from .structure import structure_sections
-from .cards import load_structured, write_deck_csv, build_apkg
 from .render import load_structured as load_structured_notes, write_html, write_pdf
 from .tts import build_section_audio
+from .cards import (
+    load_structured as load_cards_struct,
+    write_deck_csv,
+    build_apkg,
+    GENANKI,
+)
 
 app = typer.Typer(help="Whisper-to-Cards: lecture → dyslexia-friendly notes + Anki.")
 
@@ -111,23 +116,25 @@ def cards(
         ..., exists=True, readable=True, help="Path to outputs/structured.json"
     ),
     outdir: Path = typer.Option(Path("outputs"), "--outdir", "-o"),
-    deck_name: str = typer.Option("Whisper-to-Cards", "--deck-name"),
-    csv_only: bool = typer.Option(
-        False, "--csv-only", help="Skip .apkg build, write CSV only"
+    deck: str = typer.Option("Lecture Deck", "--deck", help="Deck name (for APKG)"),
+    apkg: bool = typer.Option(
+        True, "--apkg/--no-apkg", help="Also build .apkg if genanki is available"
     ),
 ):
-    """Create Anki deck files → deck.csv (+ deck.apkg unless --csv-only)."""
-    data = load_structured(structured)
+    """Export Anki deck(s): deck.csv (basic & cloze) and optionally deck.apkg."""
+    data = load_cards_struct(structured)
     outdir.mkdir(parents=True, exist_ok=True)
-
     csv_path = outdir / "deck.csv"
     write_deck_csv(data, csv_path)
-    typer.echo(f"📝 Wrote {csv_path}")
+    typer.echo(f"📇 Wrote {csv_path}")
 
-    if not csv_only:
-        pkg_path = outdir / "deck.apkg"
-        build_apkg(data, pkg_path, deck_name=deck_name)
-        typer.echo(f"📦 Wrote {pkg_path}")
+    if apkg:
+        if not GENANKI:
+            typer.echo("ℹ️  genanki not installed; skipping APKG.")
+        else:
+            apkg_path = outdir / "deck.apkg"
+            build_apkg(data, apkg_path, deck_name=deck)
+            typer.echo(f"🧩 Wrote {apkg_path}")
 
 
 @app.command()

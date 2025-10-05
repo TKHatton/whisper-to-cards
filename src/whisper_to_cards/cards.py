@@ -1,69 +1,97 @@
 from __future__ import annotations
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Dict, Any, List, Tuple
 import csv
 import json
-import time
-import random
 
-import genanki
+try:
+    import genanki  # optional
+
+    GENANKI = True
+except Exception:
+    GENANKI = False
+
 
 # ---------- I/O ----------
 
 
 def load_structured(path: Path) -> Dict[str, Any]:
+    """Read the structured.json produced earlier in the pipeline."""
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def ensure_outdir(p: Path) -> None:
-    p.mkdir(parents=True, exist_ok=True)
+# ---------- Transform ----------
 
 
-# ---------- CSV export (human-readable, easy diff) ----------
+def _rows_from_structured(data: Dict[str, Any]) -> Tuple[List[List[str]], List[str]]:
+    """
+    Build rows for a single 'deck.csv' (Basic cards) and a list of Cloze strings.
+    - Basic: TL;DR + each bullet become cards.
+    - Cloze: each cloze string ({{c1::...}}) will be used for APKG cloze notes.
+    """
+    basic_rows: List[List[str]] = []
+    cloze_texts: List[str] = []
+
+    for sec in data.get("sections", []):
+        title = (sec.get("title") or "").strip()
+        tldr = (sec.get("tldr") or "").strip()
+        bullets: List[str] = sec.get("bullets", []) or []
+        clozes: List[str] = sec.get("cloze", []) or []
+
+        if title and tldr:
+            basic_rows.append([f"{title} — TL;DR", tldr])
+
+        for i, b in enumerate(bullets, 1):
+            b = (b or "").strip()
+            if b:
+                basic_rows.append([f"{title} — Key point {i}", b])
+
+        for c in clozes:
+            c = (c or "").strip()
+            if c:
+                cloze_texts.append(c)
+
+    return basic_rows, cloze_texts
 
 
-def write_deck_csv(
-    structured: Dict[str, Any], out_csv: Path, tag_prefix: str = "w2c"
-) -> Path:
-    ensure_outdir(out_csv.parent)
-    rows: List[List[str]] = []
-    for sec in structured.get("sections", []):
-        sec_id = sec.get("id", "sec")
-        base_tags = [tag_prefix, f"section:{sec_id}"]
+# ---------- CSV ----------
 
-        # Basic cards from bullets
-        for b in sec.get("bullets", []):
-            front = b
-            back = sec.get("title", "")
-            tags = " ".join(base_tags + ["type:basic"])
-            rows.append(["Basic", front, back, tags])
 
-        # Cloze cards (already in cloze format)
-        for c in sec.get("cloze", []):
-            front = c
-            tags = " ".join(base_tags + ["type:cloze"])
-            rows.append(["Cloze", front, "", tags])
-
-        # Optional: glossary (Term → Def) as Basic cards
-        for t in sec.get("terms", []):
-            term, defin = t.get("term", "").strip(), t.get("def", "").strip()
-            if term:
-                tags = " ".join(base_tags + ["type:glossary"])
-                rows.append(["Basic", term, defin or sec.get("tldr", ""), tags])
-
+def write_deck_csv(data: Dict[str, Any], out_csv: Path) -> Path:
+    """
+    Write a single CSV with Basic cards. Columns: Front, Back.
+    (Cloze are used only for APKG — not written here.)
+    """
+    rows, _cloze = _rows_from_structured(data)
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
     with out_csv.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["Type", "Front", "Back", "Tags"])
+        w.writerow(["Front", "Back"])
         w.writerows(rows)
     return out_csv
 
 
-# ---------- .apkg export (genanki) ----------
+# ---------- APKG (optional) ----------
 
 
-def _basic_model(model_id: int) -> genanki.Model:
-    return genanki.Model(
-        model_id,
+def build_apkg(
+    data: Dict[str, Any], out_apkg: Path, deck_name: str = "Whisper-to-Cards"
+) -> Path:
+    """
+    Create an Anki .apkg with Basic + Cloze if genanki is available.
+    - Basic model: Front/Back from deck.csv logic.
+    - Cloze model: each cloze string becomes a cloze note.
+    """
+    if not GENANKI:
+        raise RuntimeError(
+            "genanki is not installed; run `poetry add genanki` to enable APKG export."
+        )
+
+    deck_id = abs(hash(deck_name)) % (10**10)
+    deck = genanki.Deck(deck_id, deck_name)
+
+    basic_model = genanki.Model(
+        1607392319,  # stable-ish id
         "W2C Basic",
         fields=[{"name": "Front"}, {"name": "Back"}],
         templates=[
@@ -73,66 +101,25 @@ def _basic_model(model_id: int) -> genanki.Model:
                 "afmt": "{{Front}}<hr id=answer>{{Back}}",
             }
         ],
-        css=".card{font-family:Lexend,Arial; font-size:18px; line-height:1.5;} hr{margin:12px 0;}",
     )
 
-
-def _cloze_model(model_id: int) -> genanki.Model:
-    return genanki.Model(
-        model_id,
+    cloze_model = genanki.Model(
+        998877661,
         "W2C Cloze",
         fields=[{"name": "Text"}],
         templates=[
             {"name": "Cloze", "qfmt": "{{cloze:Text}}", "afmt": "{{cloze:Text}}"}
         ],
         model_type=genanki.Model.CLOZE,
-        css=".card{font-family:Lexend,Arial; font-size:18px; line-height:1.5;}",
     )
 
+    basic_rows, cloze_texts = _rows_from_structured(data)
+    for fr, ba in basic_rows:
+        deck.add_note(genanki.Note(model=basic_model, fields=[fr, ba]))
+    for txt in cloze_texts:
+        deck.add_note(genanki.Note(model=cloze_model, fields=[txt]))
 
-def build_apkg(
-    structured: Dict[str, Any],
-    out_pkg: Path,
-    deck_name: str = "Whisper-to-Cards",
-    seed: int | None = None,
-) -> Path:
-    ensure_outdir(out_pkg.parent)
-    if seed is None:
-        seed = int(time.time()) ^ random.randint(0, 1_000_000)
-
-    deck_id = 10_000_000 + (seed % 9_000_000)
-    model_seed = 20_000_000 + (seed % 9_000_000)
-
-    basic_model = _basic_model(model_seed + 1)
-    cloze_model = _cloze_model(model_seed + 2)
-    deck = genanki.Deck(deck_id, deck_name)
-    pkg_media: List[str] = []
-
-    def add_note(model: genanki.Model, fields: List[str], tags: List[str]):
-        note = genanki.Note(model=model, fields=fields, tags=tags)
-        deck.add_note(note)
-
-    for sec in structured.get("sections", []):
-        sec_id = sec.get("id", "sec")
-        base_tags = ["w2c", f"section:{sec_id}"]
-
-        # Basic
-        for b in sec.get("bullets", []):
-            add_note(basic_model, [b, sec.get("title", "")], base_tags + ["type:basic"])
-
-        # Cloze (already formatted)
-        for c in sec.get("cloze", []):
-            add_note(cloze_model, [c], base_tags + ["type:cloze"])
-
-        # Glossary
-        for t in sec.get("terms", []):
-            term, defin = t.get("term", "").strip(), t.get("def", "").strip()
-            if term:
-                add_note(
-                    basic_model,
-                    [term, defin or sec.get("tldr", "")],
-                    base_tags + ["type:glossary"],
-                )
-
-    genanki.Package(deck, media_files=pkg_media).write_to_file(str(out_pkg))
-    return out_pkg
+    pkg = genanki.Package(deck)
+    out_apkg.parent.mkdir(parents=True, exist_ok=True)
+    pkg.write_to_file(str(out_apkg))
+    return out_apkg
