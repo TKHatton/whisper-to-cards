@@ -2,7 +2,9 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import List, Dict, Any
-import json, re
+import json
+import re
+
 
 @dataclass
 class StructuredSection:
@@ -13,8 +15,10 @@ class StructuredSection:
     terms: List[Dict[str, str]]
     cloze: List[str]
 
+
 # add near the top
 _STOP_END = (".", "!", "?")
+
 
 def _clean_bullets(bullets: List[str]) -> List[str]:
     seen = set()
@@ -31,13 +35,17 @@ def _clean_bullets(bullets: List[str]) -> List[str]:
             out.append(bb)
     return out[:6]
 
+
 def _load_sections(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
+
 _sentence_split = re.compile(r"(?<=[.!?])\s+")
+
 
 def _sentences(text: str) -> List[str]:
     return [s.strip() for s in _sentence_split.split(text) if s.strip()]
+
 
 def _make_bullets(text: str, max_items: int = 6, max_len: int = 140) -> List[str]:
     """Heuristic bullets: first N meaningful sentences; truncate gently."""
@@ -53,6 +61,7 @@ def _make_bullets(text: str, max_items: int = 6, max_len: int = 140) -> List[str
     # prefer leading-verb style (soft heuristic)
     return out
 
+
 def _make_tldr(text: str, max_len: int = 160) -> str:
     if not text:
         return ""
@@ -60,7 +69,9 @@ def _make_tldr(text: str, max_len: int = 160) -> str:
     s = re.sub(r"\s+", " ", first)
     return s if len(s) <= max_len else (s[: max_len - 1].rstrip() + "…")
 
+
 _np = re.compile(r"\b([A-Z][a-zA-Z0-9\-]*(?:\s+[A-Z][a-zA-Z0-9\-]*){0,3})\b")
+
 
 def _extract_terms(text: str, max_items: int = 8) -> List[Dict[str, str]]:
     """Very naive term extractor: capitalized noun-phrases; de-dup; keep short."""
@@ -80,12 +91,36 @@ def _extract_terms(text: str, max_items: int = 8) -> List[Dict[str, str]]:
     terms = [{"term": t, "def": ""} for t in candidates[:max_items]]
     return terms
 
+
 _STOPWORDS = {
-    "the","a","an","and","or","for","to","of","in","on","at","is","are","be",
-    "was","were","this","that","with","as","by","from"
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "for",
+    "to",
+    "of",
+    "in",
+    "on",
+    "at",
+    "is",
+    "are",
+    "be",
+    "was",
+    "were",
+    "this",
+    "that",
+    "with",
+    "as",
+    "by",
+    "from",
 }
 
-def _make_cloze(bullets: List[str], terms: List[Dict[str, str]], max_items: int = 4) -> List[str]:
+
+def _make_cloze(
+    bullets: List[str], terms: List[Dict[str, str]], max_items: int = 4
+) -> List[str]:
     cloze: List[str] = []
     preferred = [t["term"] for t in terms if t.get("term")]
     term_regexes = [re.compile(rf"\b{re.escape(t)}\b", flags=re.I) for t in preferred]
@@ -112,6 +147,7 @@ def _make_cloze(bullets: List[str], terms: List[Dict[str, str]], max_items: int 
             break
     return cloze
 
+
 def structure_sections(sections_json: Path) -> Dict[str, Any]:
     data = _load_sections(sections_json)
     structured: List[StructuredSection] = []
@@ -126,7 +162,12 @@ def structure_sections(sections_json: Path) -> Dict[str, Any]:
         cloze = _make_cloze(bullets, terms)
         structured.append(
             StructuredSection(
-                id=sec["id"], title=title, bullets=bullets, tldr=tldr, terms=terms, cloze=cloze
+                id=sec["id"],
+                title=title,
+                bullets=bullets,
+                tldr=tldr,
+                terms=terms,
+                cloze=cloze,
             )
         )
     return {
@@ -136,6 +177,7 @@ def structure_sections(sections_json: Path) -> Dict[str, Any]:
         "takeaways": _collect_takeaways(structured),
     }
 
+
 def _merge_glossary(items: List[StructuredSection]) -> List[Dict[str, str]]:
     g: Dict[str, str] = {}
     for s in items:
@@ -144,6 +186,7 @@ def _merge_glossary(items: List[StructuredSection]) -> List[Dict[str, str]]:
             if key and key not in g:
                 g[key] = t["def"]
     return [{"term": k, "def": v} for k, v in g.items()]
+
 
 def _collect_takeaways(items: List[StructuredSection]) -> List[str]:
     # one-line takeaway per section (use TL;DR)

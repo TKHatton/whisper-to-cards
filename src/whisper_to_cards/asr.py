@@ -7,12 +7,14 @@ import json
 
 from faster_whisper import WhisperModel
 
+
 @dataclass
 class Segment:
     start: float
     end: float
     text: str
     speaker: Optional[str] = None  # reserved for diarization later
+
 
 @dataclass
 class Transcript:
@@ -25,12 +27,13 @@ class Transcript:
             "segments": [asdict(s) for s in self.segments],
         }
 
+
 def transcribe_audio(
     input_path: Path,
     model_size: str = "small",
     language: Optional[str] = None,
-    device: str = "auto",       # "cpu" | "cuda" | "auto"
-    compute_type: str = "auto", # "int8" | "float16" | "auto" | ...
+    device: str = "auto",  # "cpu" | "cuda" | "auto"
+    compute_type: str = "auto",  # "int8" | "float16" | "auto" | ...
 ) -> Transcript:
     model = WhisperModel(model_size, device=device, compute_type=compute_type)
     segments_iter, _info = model.transcribe(
@@ -54,7 +57,10 @@ def transcribe_audio(
     }
     return Transcript(meta=meta, segments=segments)
 
+
 def write_transcript(transcript: Transcript, out_path: Path) -> Path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(transcript.to_dict(), ensure_ascii=False, indent=2), encoding="utf-8")
+    out_path.write_text(
+        json.dumps(transcript.to_dict(), ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     return out_path

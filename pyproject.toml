@@ -37,6 +37,9 @@ dev = [
 
 [tool.poetry]
 packages = [{ include = "whisper_to_cards", from = "src" }]
+include = [
+  { path = "src/whisper_to_cards/assets/fonts/*", format = "wheel" }
+]
 
 [project.scripts]
 w2c = "whisper_to_cards.cli:app"

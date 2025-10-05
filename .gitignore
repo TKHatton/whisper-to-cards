@@ -22,3 +22,6 @@ outputs/*
 
 # big artifacts
 *.apkg
+
+# build bundles
+/dist/
