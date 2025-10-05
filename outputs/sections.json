@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "source": "outputs/transcript.json",
+    "max_chars": 1200,
+    "version": 1
+  },
+  "sections": [
+    {
+      "id": "sec_01",
+      "title": "In the public space, we stand tall",
+      "start_idx": 0,
+      "end_idx": 1,
+      "text": "In the public space, we stand tall. Love is the answer, a light for lazy to pay.",
+      "timestamps": [
+        [
+          0.0,
+          5.03
+        ],
+        [
+          5.03,
+          23.54
+        ]
+      ]
+    }
+  ]
+}

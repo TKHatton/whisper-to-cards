@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "source": "examples/lecture.mp3",
+    "datetime": "2025-10-03T19:31:08",
+    "model": "small",
+    "language": "auto",
+    "device": "auto",
+    "compute_type": "auto",
+    "version": 1
+  },
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.03,
+      "text": "In the public space, we stand tall.",
+      "speaker": null
+    },
+    {
+      "start": 5.03,
+      "end": 23.54,
+      "text": "Love is the answer, a light for lazy to pay.",
+      "speaker": null
+    }
+  ]
+}

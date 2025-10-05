@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "source": "outputs/sections.json",
+    "version": 1
+  },
+  "sections": [
+    {
+      "id": "sec_01",
+      "title": "In the public space, we stand tall",
+      "bullets": [
+        "In the public space, we stand tall.",
+        "Love is the answer, a light for lazy to pay."
+      ],
+      "tldr": "In the public space, we stand tall.",
+      "terms": [
+        {
+          "term": "Love",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "In the public space, we stand {{c1::tall}}",
+        "Love is the answer, a light for {{c1::lazy}} to pay."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Love",
+      "def": ""
+    }
+  ],
+  "takeaways": [
+    "In the public space, we stand tall."
+  ]
+}
