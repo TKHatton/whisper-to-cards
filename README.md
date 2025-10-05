@@ -67,3 +67,29 @@ git add -A
 git commit -m "docs: README + gitignore; pipeline stable (ASR→segment→structure→Anki)"
 git push origin main
 ```
+
+### Export Anki
+```bash
+# CSV only
+w2c cards outputs/structured.json -o outputs --deck "My Lecture" --no-apkg
+
+# CSV + APKG (requires `genanki`)
+w2c cards outputs/structured.json -o outputs --deck "My Lecture" --apkg
+```
+
+## outputs: 
+outputs/deck.csv, outputs/deck.apkg
+```bash
+
+4) **Sanity smoke test (optional)**
+```bash
+poetry run python - <<'PY'
+from pathlib import Path
+import json
+d=json.load(open("outputs/structured.json"))
+assert d["sections"], "no sections found"
+print("sections:", len(d["sections"]))
+print("exists deck.csv:", Path("outputs/deck.csv").exists())
+print("exists deck.apkg:", Path("outputs/deck.apkg").exists())
+PY
+```
