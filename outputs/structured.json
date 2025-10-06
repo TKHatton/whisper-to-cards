@@ -6,29 +6,1191 @@
   "sections": [
     {
       "id": "sec_01",
-      "title": "In the public space, we stand tall",
+      "title": "What is going on everybody",
       "bullets": [
-        "Love is the answer, a light for lazy to pay."
+        "Welcome back to The Common Coder.",
+        "My name is Josh and in this video I'm going to be showing you how to use Git with Visual Studio Code.",
+        "So let's go ahead and get started."
       ],
-      "tldr": "In the public space, we stand tall.",
+      "tldr": "What is going on everybody?",
       "terms": [
         {
-          "term": "Love",
+          "term": "What",
+          "def": ""
+        },
+        {
+          "term": "Welcome",
+          "def": ""
+        },
+        {
+          "term": "The Common Coder",
+          "def": ""
+        },
+        {
+          "term": "Josh",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "Visual Studio Code",
           "def": ""
         }
       ],
       "cloze": [
-        "{{c1::Love}} is the answer, a light for lazy to pay."
+        "{{c1::Welcome}} back to The Common Coder.",
+        "My name is {{c1::Josh}} and in this video I'm going to be showing you how to use Git with Visual Studio Code.",
+        "So let's go ahead and get {{c1::started}}"
+      ]
+    },
+    {
+      "id": "sec_02",
+      "title": "All right, so before we get started, we do need to go over a couple of",
+      "bullets": [
+        "So the first thing that you'll need to do is make sure you have VS Code installed.",
+        "The next thing you'll need to do is make sure that you have Git installed.",
+        "And then optionally, depending on how far you want to go with this video, you'll need to make sure that you have a GitHub account created.",
+        "And you'll need to make sure you set up your SSH keys for GitHub so that way you can connect from VS Code or from Git to your GitHub accoun…."
+      ],
+      "tldr": "All right, so before we get started, we do need to go over a couple of prerequisites in order to follow along with this video.",
+      "terms": [
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "VS Code",
+          "def": ""
+        },
+        {
+          "term": "The",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "GitHub",
+          "def": ""
+        },
+        {
+          "term": "SSH",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So the first thing that you'll need to do is make sure you have {{c1::VS Code}} installed.",
+        "{{c1::The}} next thing you'll need to do is make sure that you have Git installed.",
+        "{{c1::And}} then optionally, depending on how far you want to go with this video, you'll need to make sure that you have a GitHub account created.",
+        "And you'll need to make sure you set up your SSH keys for GitHub so that way you can connect from {{c1::VS Code}} or from Git to your GitHub accoun…."
+      ]
+    },
+    {
+      "id": "sec_03",
+      "title": "So those parts are optional",
+      "bullets": [
+        "We're mainly going to be covering the Git tooling as it pertains to working with Git inside of VS Code.",
+        "But we are going to cover some GitHub-specific features like how to push a branch to GitHub, how to clone things like that.",
+        "So I'd recommend you have all of these set up.",
+        "And if you need any help with that, I have videos for every single one of these topics, which I'll link down in the description below.",
+        "Alright, so with all that out of the way, let's go ahead and start working with Git inside of Visual Studio Code."
+      ],
+      "tldr": "So those parts are optional.",
+      "terms": [
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "VS Code",
+          "def": ""
+        },
+        {
+          "term": "But",
+          "def": ""
+        },
+        {
+          "term": "GitHub-specific",
+          "def": ""
+        },
+        {
+          "term": "GitHub",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "Alright",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "We're mainly going to be covering the {{c1::Git}} tooling as it pertains to working with Git inside of VS Code.",
+        "{{c1::But}} we are going to cover some GitHub-specific features like how to push a branch to GitHub, how to clone things like that.",
+        "{{c1::So I}}'d recommend you have all of these set up.",
+        "{{c1::And}} if you need any help with that, I have videos for every single one of these topics, which I'll link down in the description below."
+      ]
+    },
+    {
+      "id": "sec_05",
+      "title": "And what we're going to do is create a folder for our project",
+      "bullets": [
+        "So when working with Visual Studio Code and with Git, your projects are literally just folders.",
+        "It's a collection of files and folders.",
+        "And Visual Studio Code can open these and you can work with those files inside of those folders.",
+        "And then Git basically initializes a repository inside of that folder and keeps track of those changes inside of a special folder called .g….",
+        "So it's a little bit out of scope of this course, but just want to let you know what's going on behind the scenes."
+      ],
+      "tldr": "And what we're going to do is create a folder for our project.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "Visual Studio Code",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "And Visual Studio Code",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So when working with Visual Studio Code {{c1::And}} with Git, your projects are literally just folders.",
+        "It's a collection of files {{c1::And}} folders.",
+        "{{c1::And}} Visual Studio Code can open these and you can work with those files inside of those folders.",
+        "{{c1::And}} then Git basically initializes a repository inside of that folder and keeps track of those changes inside of a special folder called .g…."
+      ]
+    },
+    {
+      "id": "sec_08",
+      "title": "Now I like to keep all my projects inside of a folder called code",
+      "bullets": [
+        "So I'm going to go ahead and cd into my code directory.",
+        "And inside of here, I'm going to go ahead and make a new directory using the makedir command.",
+        "And I'm going to call this vscode-git.",
+        "And then I'm going to go ahead and cd into that directory."
+      ],
+      "tldr": "Now I like to keep all my projects inside of a folder called code.",
+      "terms": [
+        {
+          "term": "Now I",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::So I}}'m going to go ahead and cd into my code directory.",
+        "{{c1::And}} inside of here, I'm going to go ahead and make a new directory using the makedir command.",
+        "{{c1::And}} I'm going to call this vscode-git.",
+        "{{c1::And}} then I'm going to go ahead and cd into that directory."
+      ]
+    },
+    {
+      "id": "sec_10",
+      "title": "And then I'm going to go ahead and open this folder inside of vscode",
+      "bullets": [
+        "And I can do that by typing code.",
+        "Now if you're working on Windows and you've installed Git and vscode, it should have installed that code command for you in the path.",
+        "If not, you might have to go back through your installation or manually add the code command into your computer's path.",
+        "And if you're on Mac, there's actually a very easy way to do that."
+      ],
+      "tldr": "And then I'm going to go ahead and open this folder inside of vscode.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "Now",
+          "def": ""
+        },
+        {
+          "term": "Windows",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "Mac",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} I can do that by typing code.",
+        "Now if you're working on Windows {{c1::And}} you've installed Git and vscode, it should have installed that code command for you in the path.",
+        "If not, you might have to go back through your installation or manually add the code command into your computer's {{c1::path}}",
+        "{{c1::And}} if you're on Mac, there's actually a very easy way to do that."
+      ]
+    },
+    {
+      "id": "sec_11",
+      "title": "You can do it from the command palette inside of vscode",
+      "bullets": [
+        "So now that I've opened this folder, you can see that there's no files in it here inside of my file explorer.",
+        "And what we want to do is go ahead and initialize this as a new Git repository.",
+        "To do that, what we can do is go ahead and go into the source control panel over here on the left."
+      ],
+      "tldr": "You can do it from the command palette inside of vscode.",
+      "terms": [
+        {
+          "term": "You",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So now that I've opened this folder, {{c1::You}} can see that there's no files in it here inside of my file explorer.",
+        "{{c1::And}} what we want to do is go ahead and initialize this as a new Git repository.",
+        "To do that, what we can do is go ahead {{c1::And}} go into the source control panel over here on the left."
+      ]
+    },
+    {
+      "id": "sec_12",
+      "title": "And you can see that we don't have a repository initialized",
+      "bullets": [
+        "Otherwise, we would see the status of our repository.",
+        "Instead, we get this big blue button that says initialize repository and a link to some documentation for vscode and Git source control.",
+        "And you can see if we're also connected to GitHub, we can also publish that repository, basically push the repository up to GitHub."
+      ],
+      "tldr": "And you can see that we don't have a repository initialized.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "Otherwise",
+          "def": ""
+        },
+        {
+          "term": "Instead",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "GitHub",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::Otherwise}}, we would see the status of our repository.",
+        "Instead, we get this big blue button that says initialize repository {{c1::And}} a link to some documentation for vscode and Git source control.",
+        "{{c1::And}} you can see if we're also connected to GitHub, we can also publish that repository, basically push the repository up to GitHub."
+      ]
+    },
+    {
+      "id": "sec_13",
+      "title": "So we're going to focus on repository creation, working with local fil",
+      "bullets": [
+        "And at the very end, we'll go ahead and talk about how to work with GitHub.",
+        "So what I'm going to do is go ahead and click this blue initialize repository button.",
+        "And you can see that it has changed the screen here.",
+        "And I have an option for my commit message.",
+        "I can publish my branch if I'm connected to GitHub."
+      ],
+      "tldr": "So we're going to focus on repository creation, working with local files.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "GitHub",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} at the very end, we'll go ahead and talk about how to work with GitHub.",
+        "So what I'm going to do is go ahead {{c1::And}} click this blue initialize repository button.",
+        "{{c1::And}} you can see that it has changed the screen here.",
+        "{{c1::And}} I have an option for my commit message."
+      ]
+    },
+    {
+      "id": "sec_15",
+      "title": "And then down here in the bottom left hand corner, you can see that ou",
+      "bullets": [
+        "And we're ready to start working with Git source control inside of vscode.",
+        "So clicking that button to initialize the repository is the equivalent of running the git init command inside of the command line.",
+        "And what I'm going to actually go ahead and do for the remainder of this video is open up the terminal.",
+        "So I can click on the terminal window up here at the top and click new terminal.",
+        "I can also press control tilde to toggle my terminal open and closed."
+      ],
+      "tldr": "And then down here in the bottom left hand corner, you can see that our repository has been initialized with a default branch called main.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "But",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "HTML",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} we're ready to start working with Git source control inside of vscode.",
+        "So clicking that button to initialize the repository is the equivalent of running the {{c1::Git}} init command inside of the command line.",
+        "{{c1::And}} what I'm going to actually go ahead and do for the remainder of this video is open up the terminal.",
+        "So I can click on the terminal window up here at the top {{c1::And}} click new terminal."
+      ]
+    },
+    {
+      "id": "sec_16",
+      "title": "And that's going to stub out a basic HTML file for me",
+      "bullets": [
+        "And I'll go ahead and say hello from VS code and git.",
+        "And I'm just going to go ahead and copy this and also put this inside of a paragraph inside of my body.",
+        "And that way we have some code to work with."
+      ],
+      "tldr": "And that's going to stub out a basic HTML file for me.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "HTML",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} I'll go ahead and say hello from VS code and git.",
+        "{{c1::And}} I'm just going to go ahead and copy this and also put this inside of a paragraph inside of my body.",
+        "{{c1::And}} that way we have some code to work with."
+      ]
+    },
+    {
+      "id": "sec_17",
+      "title": "now if we go back and look at the source control panel, you can see th",
+      "bullets": [
+        "now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and fold….",
+        "So git is all about tracking changes to your source code and letting you know what the status of those changes are.",
+        "And when we're happy with those changes, we can actually commit those changes as a snapshot essentially of what that file looks like at any…."
+      ],
+      "tldr": "now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and folders.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "now if we go back {{c1::And}} look at the source control panel, you can see that there are things happening inside as I work with my files and fold….",
+        "So git is all about tracking changes to your source code {{c1::And}} letting you know what the status of those changes are.",
+        "{{c1::And}} when we're happy with those changes, we can actually commit those changes as a snapshot essentially of what that file looks like at any…."
+      ]
+    },
+    {
+      "id": "sec_19",
+      "title": "So what's happened as of right now is I've created a file and we can s",
+      "bullets": [
+        "So what's happened as of right now is I've created a file and we can see over here on the left hand side, we have this u here, which indica….",
+        "It is untracked.",
+        "So the repository recognizes there's something there, but as of right now, it's not a tracked file.",
+        "So I can't see any history from, you know, versions of that file previously.",
+        "It's a brand new file.",
+        "I've never committed this file to the repository."
+      ],
+      "tldr": "So what's happened as of right now is I've created a file and we can see over here on the left hand side, we have this u here, which indicates that there's a n…",
+      "terms": [
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "What I",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So what's happened as of right now is I've created a file {{c1::And}} we can see over here on the left hand side, we have this u here, which indica….",
+        "It is {{c1::untracked}}",
+        "So the repository recognizes there's something there, but as of right now, it's not a tracked {{c1::file}}",
+        "{{c1::So I}} can't see any history from, you know, versions of that file previously."
+      ]
+    },
+    {
+      "id": "sec_23",
+      "title": "Okay, so this is the using that plus is the equivalent of running git",
+      "bullets": [
+        "And say if we had more than one file here on the upper level changes here, we can also use this plus button, which will stage all the chang….",
+        "So I've had multiple files.",
+        "Let's go ahead and just emulate that real quick here.",
+        "Let's go ahead and create a CSS file called styles.css.",
+        "And we'll go ahead and just link this style sheet using a link tag here."
+      ],
+      "tldr": "Okay, so this is the using that plus is the equivalent of running git add with either an individual file or a collection of files.",
+      "terms": [
+        {
+          "term": "Okay",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "Let",
+          "def": ""
+        },
+        {
+          "term": "CSS",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} say if we had more than one file here on the upper level changes here, we can also use this plus button, which will stage all the chang….",
+        "{{c1::So I}}'ve had multiple files.",
+        "Let's go ahead {{c1::And}} just emulate that real quick here.",
+        "Let's go ahead {{c1::And}} create a CSS file called styles.css."
+      ]
+    },
+    {
+      "id": "sec_25",
+      "title": "And it's going to be dot slash styles",
+      "bullets": [
+        "All right, so you can see now I have two files in my source control panel.",
+        "And I can stage them individually.",
+        "So that would be, you know, git add index HTML or git add styles.css.",
+        "But what I can do is use this upper level changes section here.",
+        "And I can stage all the files at the same time, which puts them inside of this staging area to be committed."
+      ],
+      "tldr": "And it's going to be dot slash styles.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "HTML",
+          "def": ""
+        },
+        {
+          "term": "But",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::All}} right, so you can see now I have two files in my source control panel.",
+        "{{c1::And}} I can stage them individually.",
+        "So that would be, you know, git add index {{c1::HTML}} or git add styles.css.",
+        "{{c1::But}} what I can do is use this upper level changes section here."
+      ]
+    },
+    {
+      "id": "sec_26",
+      "title": "So you can see now I can use this minus button either up at the top le",
+      "bullets": [
+        "So let's just go ahead and do them individually since there's only two.",
+        "And so with these files here, you can see I have a couple other options as well.",
+        "I can open the file.",
+        "So if I click on the file, I see the difference between the two versions.",
+        "So for example, if I look at the index HTML, you can see that here is what it started out as since I didn't have any file, there's nothing…."
+      ],
+      "tldr": "So you can see now I can use this minus button either up at the top level to unstage all my changes, or I can do each file individually.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "HTML",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So let's just go ahead {{c1::And}} do them individually since there's only two.",
+        "{{c1::And}} so with these files here, you can see I have a couple other options as well.",
+        "I can open the {{c1::file}}",
+        "So if I click on the file, I see the difference between the two {{c1::versions}}"
+      ]
+    },
+    {
+      "id": "sec_27",
+      "title": "So basically the difference between when I started and where I'm at, s",
+      "bullets": [
+        "So basically the difference between when I started and where I'm at, same thing with style CSS, there's nothing inside of here, which is wh….",
+        "So let's go ahead and open the file.",
+        "So I can go ahead and click the little open file button here, which will open the file so I can edit it.",
+        "And what I'm gonna do is just go ahead and change the background color.",
+        "So I'll just say body.",
+        "And we'll just change the background color to, we'll just pick one of these colors here, we'll change it to beige."
+      ],
+      "tldr": "So basically the difference between when I started and where I'm at, same thing with style CSS, there's nothing inside of here, which is why there's nothing he…",
+      "terms": [
+        {
+          "term": "CSS",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "This",
+          "def": ""
+        },
+        {
+          "term": "Now",
+          "def": ""
+        },
+        {
+          "term": "Let",
+          "def": ""
+        },
+        {
+          "term": "But",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So basically the difference between when I started and where I'm at, same thing with style {{c1::CSS}}, there's nothing inside of here, which is wh….",
+        "So let's go ahead {{c1::And}} open the file.",
+        "{{c1::So I}} can go ahead and click the little open file button here, which will open the file so I can edit it.",
+        "{{c1::And}} what I'm gonna do is just go ahead and change the background color."
+      ]
+    },
+    {
+      "id": "sec_28",
+      "title": "file looked like at your last commit",
+      "bullets": [
+        "All right, so now that we have our two files, we can go ahead and commit our changes.",
+        "So this is when we're ready to make a snapshot of these files at a particular point in time.",
+        "And so I'm happy with my index file.",
+        "I'm happy with my CSS.",
+        "I can actually preview this in my browser using my little extension that I have installed here."
+      ],
+      "tldr": "file looked like at your last commit.",
+      "terms": [
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "CSS",
+          "def": ""
+        },
+        {
+          "term": "VS Code",
+          "def": ""
+        },
+        {
+          "term": "Git",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "There",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::All}} right, so now that we have our two files, we can go ahead and commit our changes.",
+        "So this is when we're ready to make a snapshot of these files at a particular point in {{c1::time}}",
+        "{{c1::And}} so I'm happy with my index file.",
+        "I'm happy with my {{c1::CSS}}."
+      ]
+    },
+    {
+      "id": "sec_29",
+      "title": "button here",
+      "bullets": [
+        "And so this would be the equivalent of running git commit dash m.",
+        "And then in quotes, it would be initial commit.",
+        "And basically, this command is equivalent to typing this in the box and clicking commit.",
+        "So I'm going to go ahead and just delete this here."
+      ],
+      "tldr": "button here.",
+      "terms": [
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} so this would be the equivalent of running git commit dash m.",
+        "{{c1::And}} then in quotes, it would be initial commit.",
+        "{{c1::And}} basically, this command is equivalent to typing this in the box and clicking commit.",
+        "So I'm going to go ahead {{c1::And}} just delete this here."
+      ]
+    },
+    {
+      "id": "sec_30",
+      "title": "And I'm going to go ahead and commit these changes to my main branch",
+      "bullets": [
+        "So you can see that right down here.",
+        "Now before we look at modifying these files to see what that looks like in VS Code, I wanted to point out this menu right here on the top o….",
+        "And what this does is it gives you some options for some different views.",
+        "We can see some incoming changes and outgoing changes if we were connected to a remote repository, along with our various push, pull, clone….",
+        "So it's all right here inside of this menu."
+      ],
+      "tldr": "And I'm going to go ahead and commit these changes to my main branch.",
+      "terms": [
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "Now",
+          "def": ""
+        },
+        {
+          "term": "VS Code",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "However",
+          "def": ""
+        },
+        {
+          "term": "But I",
+          "def": ""
+        },
+        {
+          "term": "You",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So {{c1::You}} can see that right down here.",
+        "{{c1::Now}} before we look at modifying these files to see what that looks like in VS Code, I wanted to point out this menu right here on the top o….",
+        "{{c1::And}} what this does is it gives you some options for some different views.",
+        "We can see some incoming changes {{c1::And}} outgoing changes if we were connected to a remote repository, along with our various push, pull, clone…."
+      ]
+    },
+    {
+      "id": "sec_36",
+      "title": "So what I can do is go ahead and click undo last commit",
+      "bullets": [
+        "And you can see that it undid that commit.",
+        "And here are the changes in their modified state.",
+        "So you can see they have the little you back means basically meaning that they're untracked.",
+        "They're not staged anymore.",
+        "And let's just say instead of my background color being beige,."
+      ],
+      "tldr": "So what I can do is go ahead and click undo last commit.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "They",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} you can see that it undid that commit.",
+        "{{c1::And}} here are the changes in their modified state.",
+        "So you can see {{c1::They}} have the little you back means basically meaning that they're untracked.",
+        "{{c1::They}}'re not staged anymore."
+      ]
+    },
+    {
+      "id": "sec_38",
+      "title": "let's go ahead and make it Azure",
+      "bullets": [
+        "And then what we can do, I'll go ahead and use that menu again to just commit all of these changes.",
+        "So we'll stage and commit them at the same time.",
+        "So what I'm going to go ahead and do is click on commit, and then commit all.",
+        "And you can see that stage my changes and committed them with the message that was already inside of the box.",
+        "So when I undid the change, it put my commit message back."
+      ],
+      "tldr": "let's go ahead and make it Azure.",
+      "terms": [
+        {
+          "term": "Azure",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} then what we can do, I'll go ahead and use that menu again to just commit all of these changes.",
+        "So we'll stage {{c1::And}} commit them at the same time.",
+        "So what I'm going to go ahead {{c1::And}} do is click on commit, and then commit all.",
+        "{{c1::And}} you can see that stage my changes and committed them with the message that was already inside of the box."
+      ]
+    },
+    {
+      "id": "sec_39",
+      "title": "Now let's go ahead and jump back to our file explorer and just make a",
+      "bullets": [
+        "So let's just say on this hello from VS code and get, I wanted to add a few exclamation points.",
+        "I'm going to add those exclamation points and save.",
+        "And notice how instead of a you like we had before for the untracked file, since this file is now tracked by get, get knows about it, it kn….",
+        "So you can see that it puts this little m, which stands for modified."
+      ],
+      "tldr": "Now let's go ahead and jump back to our file explorer and just make a small change to our index HTML.",
+      "terms": [
+        {
+          "term": "Now",
+          "def": ""
+        },
+        {
+          "term": "HTML",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "So let's just say on this hello from VS code {{c1::And}} get, I wanted to add a few exclamation points.",
+        "I'm going to add those exclamation points {{c1::And}} save.",
+        "And notice how instead of a you like we had before for the untracked file, since this file is {{c1::Now}} tracked by get, get knows about it, it kn….",
+        "So you can see that it puts this little m, which stands for {{c1::modified}}"
+      ]
+    },
+    {
+      "id": "sec_41",
+      "title": "So if I go back here and see in the source control panel, again, there",
+      "bullets": [
+        "And then if I click on the file this time, you can see this is what the file looked like at my last commit.",
+        "So I didn't have the exclamation points.",
+        "And then on the right hand side, you can see that this is what it looks like currently before I've committed the change.",
+        "And you can see that we've added the exclamation points here.",
+        "So similar to what I did before, I need to go ahead and stage my change."
+      ],
+      "tldr": "So if I go back here and see in the source control panel, again, there's the m for modified.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "Right",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "Again",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::And}} then if I click on the file this time, you can see this is what the file looked like at my last commit.",
+        "{{c1::So I}} didn't have the exclamation points.",
+        "{{c1::And}} then on the right hand side, you can see that this is what it looks like currently before I've committed the change.",
+        "{{c1::And}} you can see that we've added the exclamation points here."
+      ]
+    },
+    {
+      "id": "sec_48",
+      "title": "I can use this little drop down for commit, commit and push or commit",
+      "bullets": [
+        "So I'll go ahead and just click the blue commit button.",
+        "And there we go.",
+        "So now I have committed that change.",
+        "And now I have two commits on my repository.",
+        "The next thing that we're going to look at is how to stash changes with VS code."
+      ],
+      "tldr": "I can use this little drop down for commit, commit and push or commit and sync if I was connected to get help, which I'm currently am not.",
+      "terms": [
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "The",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        },
+        {
+          "term": "You",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "{{c1::So I}}'ll go ahead and just click the blue commit button.",
+        "{{c1::And}} there we go.",
+        "So now I have committed that {{c1::change}}",
+        "{{c1::And}} now I have two commits on my repository."
+      ]
+    },
+    {
+      "id": "sec_54",
+      "title": "And let's just say that I need to work on something else and I'm not q",
+      "bullets": [
+        "I can basically store this file in a temporary location and then retrieve it back when I'm ready to do so.",
+        "And this concept is known as a stash inside of git and you usually run the git stash command.",
+        "So if I run git stash, that will basically save that working directory in a specific state.",
+        "And you can see I don't have that change anymore and my exclamation points are gone.",
+        "So we can do that with VS code without having to memorize the git stash command."
+      ],
+      "tldr": "And let's just say that I need to work on something else and I'm not quite ready to commit this change.",
+      "terms": [
+        {
+          "term": "And",
+          "def": ""
+        },
+        {
+          "term": "All",
+          "def": ""
+        },
+        {
+          "term": "Now",
+          "def": ""
+        },
+        {
+          "term": "So I",
+          "def": ""
+        },
+        {
+          "term": "And I",
+          "def": ""
+        }
+      ],
+      "cloze": [
+        "I can basically store this file in a temporary location {{c1::And}} then retrieve it back when I'm ready to do so.",
+        "{{c1::And}} this concept is known as a stash inside of git and you usually run the git stash command.",
+        "So if I run git stash, that will basically save that working directory in a specific {{c1::state}}",
+        "{{c1::And}} you can see I don't have that change anymore and my exclamation points are gone."
       ]
     }
   ],
   "glossary": [
     {
-      "term": "Love",
+      "term": "What",
+      "def": ""
+    },
+    {
+      "term": "Welcome",
+      "def": ""
+    },
+    {
+      "term": "The Common Coder",
+      "def": ""
+    },
+    {
+      "term": "Josh",
+      "def": ""
+    },
+    {
+      "term": "Git",
+      "def": ""
+    },
+    {
+      "term": "Visual Studio Code",
+      "def": ""
+    },
+    {
+      "term": "All",
+      "def": ""
+    },
+    {
+      "term": "VS Code",
+      "def": ""
+    },
+    {
+      "term": "The",
+      "def": ""
+    },
+    {
+      "term": "And",
+      "def": ""
+    },
+    {
+      "term": "GitHub",
+      "def": ""
+    },
+    {
+      "term": "SSH",
+      "def": ""
+    },
+    {
+      "term": "But",
+      "def": ""
+    },
+    {
+      "term": "GitHub-specific",
+      "def": ""
+    },
+    {
+      "term": "So I",
+      "def": ""
+    },
+    {
+      "term": "Alright",
+      "def": ""
+    },
+    {
+      "term": "And Visual Studio Code",
+      "def": ""
+    },
+    {
+      "term": "Now I",
+      "def": ""
+    },
+    {
+      "term": "And I",
+      "def": ""
+    },
+    {
+      "term": "Now",
+      "def": ""
+    },
+    {
+      "term": "Windows",
+      "def": ""
+    },
+    {
+      "term": "Mac",
+      "def": ""
+    },
+    {
+      "term": "You",
+      "def": ""
+    },
+    {
+      "term": "Otherwise",
+      "def": ""
+    },
+    {
+      "term": "Instead",
+      "def": ""
+    },
+    {
+      "term": "HTML",
+      "def": ""
+    },
+    {
+      "term": "What I",
+      "def": ""
+    },
+    {
+      "term": "Okay",
+      "def": ""
+    },
+    {
+      "term": "Let",
+      "def": ""
+    },
+    {
+      "term": "CSS",
+      "def": ""
+    },
+    {
+      "term": "This",
+      "def": ""
+    },
+    {
+      "term": "There",
+      "def": ""
+    },
+    {
+      "term": "However",
+      "def": ""
+    },
+    {
+      "term": "But I",
+      "def": ""
+    },
+    {
+      "term": "They",
+      "def": ""
+    },
+    {
+      "term": "Azure",
+      "def": ""
+    },
+    {
+      "term": "Right",
+      "def": ""
+    },
+    {
+      "term": "Again",
       "def": ""
     }
   ],
   "takeaways": [
-    "In the public space, we stand tall."
+    "What is going on everybody?",
+    "All right, so before we get started, we do need to go over a couple of prerequisites in order to follow along with this video.",
+    "So those parts are optional.",
+    "And what we're going to do is create a folder for our project.",
+    "Now I like to keep all my projects inside of a folder called code.",
+    "And then I'm going to go ahead and open this folder inside of vscode.",
+    "You can do it from the command palette inside of vscode.",
+    "And you can see that we don't have a repository initialized.",
+    "So we're going to focus on repository creation, working with local files.",
+    "And then down here in the bottom left hand corner, you can see that our repository has been initialized with a default branch called main.",
+    "And that's going to stub out a basic HTML file for me.",
+    "now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and folders.",
+    "So what's happened as of right now is I've created a file and we can see over here on the left hand side, we have this u here, which indicates that there's a n…",
+    "Okay, so this is the using that plus is the equivalent of running git add with either an individual file or a collection of files.",
+    "And it's going to be dot slash styles.",
+    "So you can see now I can use this minus button either up at the top level to unstage all my changes, or I can do each file individually.",
+    "So basically the difference between when I started and where I'm at, same thing with style CSS, there's nothing inside of here, which is why there's nothing he…",
+    "file looked like at your last commit.",
+    "button here.",
+    "And I'm going to go ahead and commit these changes to my main branch.",
+    "So what I can do is go ahead and click undo last commit.",
+    "let's go ahead and make it Azure.",
+    "Now let's go ahead and jump back to our file explorer and just make a small change to our index HTML.",
+    "So if I go back here and see in the source control panel, again, there's the m for modified.",
+    "I can use this little drop down for commit, commit and push or commit and sync if I was connected to get help, which I'm currently am not.",
+    "And let's just say that I need to work on something else and I'm not quite ready to commit this change."
   ]
 }

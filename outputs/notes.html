@@ -108,15 +108,390 @@ a { color: var(--accent); text-decoration: underline; }
 
     
     <section class="section" aria-labelledby="sec_01">
-      <h2 id="sec_01">In the public space, we stand tall</h2>
-      <div class="tldr"><b>TL;DR:</b> In the public space, we stand tall.</div>
-      <p><audio controls preload='none' src='outputs/audio/sec_01.mp3' aria-label='Audio for sec_01'></audio></p>
+      <h2 id="sec_01">What is going on everybody</h2>
+      <div class="tldr"><b>TL;DR:</b> What is going on everybody?</div>
+      
       <h3>Key points</h3>
-      <ul><li>Love is the answer, a light for lazy to pay.</li></ul>
+      <ul><li>Welcome back to The Common Coder.</li><li>My name is Josh and in this video I&#x27;m going to be showing you how to use Git with Visual Studio Code.</li><li>So let&#x27;s go ahead and get started.</li></ul>
       
         <h3>Glossary</h3>
         <dl class='glossary'>
-          <dt>Love</dt><dd></dd>
+          <dt>What</dt><dd></dd><dt>Welcome</dt><dd></dd><dt>The Common Coder</dt><dd></dd><dt>Josh</dt><dd></dd><dt>Git</dt><dd></dd><dt>Visual Studio Code</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_02">
+      <h2 id="sec_02">All right, so before we get started, we do need to go over a couple of</h2>
+      <div class="tldr"><b>TL;DR:</b> All right, so before we get started, we do need to go over a couple of prerequisites in order to follow along with this video.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So the first thing that you&#x27;ll need to do is make sure you have VS Code installed.</li><li>The next thing you&#x27;ll need to do is make sure that you have Git installed.</li><li>And then optionally, depending on how far you want to go with this video, you&#x27;ll need to make sure that you have a GitHub account created.</li><li>And you&#x27;ll need to make sure you set up your SSH keys for GitHub so that way you can connect from VS Code or from Git to your GitHub accoun….</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>All</dt><dd></dd><dt>VS Code</dt><dd></dd><dt>The</dt><dd></dd><dt>Git</dt><dd></dd><dt>And</dt><dd></dd><dt>GitHub</dt><dd></dd><dt>SSH</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_03">
+      <h2 id="sec_03">So those parts are optional</h2>
+      <div class="tldr"><b>TL;DR:</b> So those parts are optional.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>We&#x27;re mainly going to be covering the Git tooling as it pertains to working with Git inside of VS Code.</li><li>But we are going to cover some GitHub-specific features like how to push a branch to GitHub, how to clone things like that.</li><li>So I&#x27;d recommend you have all of these set up.</li><li>And if you need any help with that, I have videos for every single one of these topics, which I&#x27;ll link down in the description below.</li><li>Alright, so with all that out of the way, let&#x27;s go ahead and start working with Git inside of Visual Studio Code.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>Git</dt><dd></dd><dt>VS Code</dt><dd></dd><dt>But</dt><dd></dd><dt>GitHub-specific</dt><dd></dd><dt>GitHub</dt><dd></dd><dt>So I</dt><dd></dd><dt>And</dt><dd></dd><dt>Alright</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_05">
+      <h2 id="sec_05">And what we&#x27;re going to do is create a folder for our project</h2>
+      <div class="tldr"><b>TL;DR:</b> And what we&#x27;re going to do is create a folder for our project.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So when working with Visual Studio Code and with Git, your projects are literally just folders.</li><li>It&#x27;s a collection of files and folders.</li><li>And Visual Studio Code can open these and you can work with those files inside of those folders.</li><li>And then Git basically initializes a repository inside of that folder and keeps track of those changes inside of a special folder called .g….</li><li>So it&#x27;s a little bit out of scope of this course, but just want to let you know what&#x27;s going on behind the scenes.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>Visual Studio Code</dt><dd></dd><dt>Git</dt><dd></dd><dt>And Visual Studio Code</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_08">
+      <h2 id="sec_08">Now I like to keep all my projects inside of a folder called code</h2>
+      <div class="tldr"><b>TL;DR:</b> Now I like to keep all my projects inside of a folder called code.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So I&#x27;m going to go ahead and cd into my code directory.</li><li>And inside of here, I&#x27;m going to go ahead and make a new directory using the makedir command.</li><li>And I&#x27;m going to call this vscode-git.</li><li>And then I&#x27;m going to go ahead and cd into that directory.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>Now I</dt><dd></dd><dt>So I</dt><dd></dd><dt>And</dt><dd></dd><dt>And I</dt><dd></dd><dt>All</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_10">
+      <h2 id="sec_10">And then I&#x27;m going to go ahead and open this folder inside of vscode</h2>
+      <div class="tldr"><b>TL;DR:</b> And then I&#x27;m going to go ahead and open this folder inside of vscode.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And I can do that by typing code.</li><li>Now if you&#x27;re working on Windows and you&#x27;ve installed Git and vscode, it should have installed that code command for you in the path.</li><li>If not, you might have to go back through your installation or manually add the code command into your computer&#x27;s path.</li><li>And if you&#x27;re on Mac, there&#x27;s actually a very easy way to do that.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>And I</dt><dd></dd><dt>All</dt><dd></dd><dt>Now</dt><dd></dd><dt>Windows</dt><dd></dd><dt>Git</dt><dd></dd><dt>Mac</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_11">
+      <h2 id="sec_11">You can do it from the command palette inside of vscode</h2>
+      <div class="tldr"><b>TL;DR:</b> You can do it from the command palette inside of vscode.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So now that I&#x27;ve opened this folder, you can see that there&#x27;s no files in it here inside of my file explorer.</li><li>And what we want to do is go ahead and initialize this as a new Git repository.</li><li>To do that, what we can do is go ahead and go into the source control panel over here on the left.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>You</dt><dd></dd><dt>All</dt><dd></dd><dt>And</dt><dd></dd><dt>Git</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_12">
+      <h2 id="sec_12">And you can see that we don&#x27;t have a repository initialized</h2>
+      <div class="tldr"><b>TL;DR:</b> And you can see that we don&#x27;t have a repository initialized.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>Otherwise, we would see the status of our repository.</li><li>Instead, we get this big blue button that says initialize repository and a link to some documentation for vscode and Git source control.</li><li>And you can see if we&#x27;re also connected to GitHub, we can also publish that repository, basically push the repository up to GitHub.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>Otherwise</dt><dd></dd><dt>Instead</dt><dd></dd><dt>Git</dt><dd></dd><dt>GitHub</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_13">
+      <h2 id="sec_13">So we&#x27;re going to focus on repository creation, working with local fil</h2>
+      <div class="tldr"><b>TL;DR:</b> So we&#x27;re going to focus on repository creation, working with local files.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And at the very end, we&#x27;ll go ahead and talk about how to work with GitHub.</li><li>So what I&#x27;m going to do is go ahead and click this blue initialize repository button.</li><li>And you can see that it has changed the screen here.</li><li>And I have an option for my commit message.</li><li>I can publish my branch if I&#x27;m connected to GitHub.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>GitHub</dt><dd></dd><dt>And I</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_15">
+      <h2 id="sec_15">And then down here in the bottom left hand corner, you can see that ou</h2>
+      <div class="tldr"><b>TL;DR:</b> And then down here in the bottom left hand corner, you can see that our repository has been initialized with a default branch called main.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And we&#x27;re ready to start working with Git source control inside of vscode.</li><li>So clicking that button to initialize the repository is the equivalent of running the git init command inside of the command line.</li><li>And what I&#x27;m going to actually go ahead and do for the remainder of this video is open up the terminal.</li><li>So I can click on the terminal window up here at the top and click new terminal.</li><li>I can also press control tilde to toggle my terminal open and closed.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>Git</dt><dd></dd><dt>So I</dt><dd></dd><dt>But</dt><dd></dd><dt>All</dt><dd></dd><dt>HTML</dt><dd></dd><dt>And I</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_16">
+      <h2 id="sec_16">And that&#x27;s going to stub out a basic HTML file for me</h2>
+      <div class="tldr"><b>TL;DR:</b> And that&#x27;s going to stub out a basic HTML file for me.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And I&#x27;ll go ahead and say hello from VS code and git.</li><li>And I&#x27;m just going to go ahead and copy this and also put this inside of a paragraph inside of my body.</li><li>And that way we have some code to work with.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>HTML</dt><dd></dd><dt>And I</dt><dd></dd><dt>All</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_17">
+      <h2 id="sec_17">now if we go back and look at the source control panel, you can see th</h2>
+      <div class="tldr"><b>TL;DR:</b> now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and folders.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and fold….</li><li>So git is all about tracking changes to your source code and letting you know what the status of those changes are.</li><li>And when we&#x27;re happy with those changes, we can actually commit those changes as a snapshot essentially of what that file looks like at any….</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_19">
+      <h2 id="sec_19">So what&#x27;s happened as of right now is I&#x27;ve created a file and we can s</h2>
+      <div class="tldr"><b>TL;DR:</b> So what&#x27;s happened as of right now is I&#x27;ve created a file and we can see over here on the left hand side, we have this u here, which indicates that there&#x27;s a n…</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So what&#x27;s happened as of right now is I&#x27;ve created a file and we can see over here on the left hand side, we have this u here, which indica….</li><li>It is untracked.</li><li>So the repository recognizes there&#x27;s something there, but as of right now, it&#x27;s not a tracked file.</li><li>So I can&#x27;t see any history from, you know, versions of that file previously.</li><li>It&#x27;s a brand new file.</li><li>I&#x27;ve never committed this file to the repository.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>So I</dt><dd></dd><dt>What I</dt><dd></dd><dt>And</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_23">
+      <h2 id="sec_23">Okay, so this is the using that plus is the equivalent of running git</h2>
+      <div class="tldr"><b>TL;DR:</b> Okay, so this is the using that plus is the equivalent of running git add with either an individual file or a collection of files.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And say if we had more than one file here on the upper level changes here, we can also use this plus button, which will stage all the chang….</li><li>So I&#x27;ve had multiple files.</li><li>Let&#x27;s go ahead and just emulate that real quick here.</li><li>Let&#x27;s go ahead and create a CSS file called styles.css.</li><li>And we&#x27;ll go ahead and just link this style sheet using a link tag here.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>Okay</dt><dd></dd><dt>And</dt><dd></dd><dt>So I</dt><dd></dd><dt>Let</dt><dd></dd><dt>CSS</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_25">
+      <h2 id="sec_25">And it&#x27;s going to be dot slash styles</h2>
+      <div class="tldr"><b>TL;DR:</b> And it&#x27;s going to be dot slash styles.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>All right, so you can see now I have two files in my source control panel.</li><li>And I can stage them individually.</li><li>So that would be, you know, git add index HTML or git add styles.css.</li><li>But what I can do is use this upper level changes section here.</li><li>And I can stage all the files at the same time, which puts them inside of this staging area to be committed.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>All</dt><dd></dd><dt>And I</dt><dd></dd><dt>HTML</dt><dd></dd><dt>But</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_26">
+      <h2 id="sec_26">So you can see now I can use this minus button either up at the top le</h2>
+      <div class="tldr"><b>TL;DR:</b> So you can see now I can use this minus button either up at the top level to unstage all my changes, or I can do each file individually.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So let&#x27;s just go ahead and do them individually since there&#x27;s only two.</li><li>And so with these files here, you can see I have a couple other options as well.</li><li>I can open the file.</li><li>So if I click on the file, I see the difference between the two versions.</li><li>So for example, if I look at the index HTML, you can see that here is what it started out as since I didn&#x27;t have any file, there&#x27;s nothing….</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>HTML</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_27">
+      <h2 id="sec_27">So basically the difference between when I started and where I&#x27;m at, s</h2>
+      <div class="tldr"><b>TL;DR:</b> So basically the difference between when I started and where I&#x27;m at, same thing with style CSS, there&#x27;s nothing inside of here, which is why there&#x27;s nothing he…</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So basically the difference between when I started and where I&#x27;m at, same thing with style CSS, there&#x27;s nothing inside of here, which is wh….</li><li>So let&#x27;s go ahead and open the file.</li><li>So I can go ahead and click the little open file button here, which will open the file so I can edit it.</li><li>And what I&#x27;m gonna do is just go ahead and change the background color.</li><li>So I&#x27;ll just say body.</li><li>And we&#x27;ll just change the background color to, we&#x27;ll just pick one of these colors here, we&#x27;ll change it to beige.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>CSS</dt><dd></dd><dt>So I</dt><dd></dd><dt>And</dt><dd></dd><dt>All</dt><dd></dd><dt>This</dt><dd></dd><dt>Now</dt><dd></dd><dt>Let</dt><dd></dd><dt>But</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_28">
+      <h2 id="sec_28">file looked like at your last commit</h2>
+      <div class="tldr"><b>TL;DR:</b> file looked like at your last commit.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>All right, so now that we have our two files, we can go ahead and commit our changes.</li><li>So this is when we&#x27;re ready to make a snapshot of these files at a particular point in time.</li><li>And so I&#x27;m happy with my index file.</li><li>I&#x27;m happy with my CSS.</li><li>I can actually preview this in my browser using my little extension that I have installed here.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>All</dt><dd></dd><dt>And</dt><dd></dd><dt>CSS</dt><dd></dd><dt>VS Code</dt><dd></dd><dt>Git</dt><dd></dd><dt>So I</dt><dd></dd><dt>And I</dt><dd></dd><dt>There</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_29">
+      <h2 id="sec_29">button here</h2>
+      <div class="tldr"><b>TL;DR:</b> button here.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And so this would be the equivalent of running git commit dash m.</li><li>And then in quotes, it would be initial commit.</li><li>And basically, this command is equivalent to typing this in the box and clicking commit.</li><li>So I&#x27;m going to go ahead and just delete this here.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>All</dt><dd></dd><dt>And</dt><dd></dd><dt>So I</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_30">
+      <h2 id="sec_30">And I&#x27;m going to go ahead and commit these changes to my main branch</h2>
+      <div class="tldr"><b>TL;DR:</b> And I&#x27;m going to go ahead and commit these changes to my main branch.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So you can see that right down here.</li><li>Now before we look at modifying these files to see what that looks like in VS Code, I wanted to point out this menu right here on the top o….</li><li>And what this does is it gives you some options for some different views.</li><li>We can see some incoming changes and outgoing changes if we were connected to a remote repository, along with our various push, pull, clone….</li><li>So it&#x27;s all right here inside of this menu.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And I</dt><dd></dd><dt>All</dt><dd></dd><dt>Now</dt><dd></dd><dt>VS Code</dt><dd></dd><dt>And</dt><dd></dd><dt>However</dt><dd></dd><dt>But I</dt><dd></dd><dt>You</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_36">
+      <h2 id="sec_36">So what I can do is go ahead and click undo last commit</h2>
+      <div class="tldr"><b>TL;DR:</b> So what I can do is go ahead and click undo last commit.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And you can see that it undid that commit.</li><li>And here are the changes in their modified state.</li><li>So you can see they have the little you back means basically meaning that they&#x27;re untracked.</li><li>They&#x27;re not staged anymore.</li><li>And let&#x27;s just say instead of my background color being beige,.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>They</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_38">
+      <h2 id="sec_38">let&#x27;s go ahead and make it Azure</h2>
+      <div class="tldr"><b>TL;DR:</b> let&#x27;s go ahead and make it Azure.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And then what we can do, I&#x27;ll go ahead and use that menu again to just commit all of these changes.</li><li>So we&#x27;ll stage and commit them at the same time.</li><li>So what I&#x27;m going to go ahead and do is click on commit, and then commit all.</li><li>And you can see that stage my changes and committed them with the message that was already inside of the box.</li><li>So when I undid the change, it put my commit message back.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>Azure</dt><dd></dd><dt>And</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_39">
+      <h2 id="sec_39">Now let&#x27;s go ahead and jump back to our file explorer and just make a</h2>
+      <div class="tldr"><b>TL;DR:</b> Now let&#x27;s go ahead and jump back to our file explorer and just make a small change to our index HTML.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So let&#x27;s just say on this hello from VS code and get, I wanted to add a few exclamation points.</li><li>I&#x27;m going to add those exclamation points and save.</li><li>And notice how instead of a you like we had before for the untracked file, since this file is now tracked by get, get knows about it, it kn….</li><li>So you can see that it puts this little m, which stands for modified.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>Now</dt><dd></dd><dt>HTML</dt><dd></dd><dt>And</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_41">
+      <h2 id="sec_41">So if I go back here and see in the source control panel, again, there</h2>
+      <div class="tldr"><b>TL;DR:</b> So if I go back here and see in the source control panel, again, there&#x27;s the m for modified.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>And then if I click on the file this time, you can see this is what the file looked like at my last commit.</li><li>So I didn&#x27;t have the exclamation points.</li><li>And then on the right hand side, you can see that this is what it looks like currently before I&#x27;ve committed the change.</li><li>And you can see that we&#x27;ve added the exclamation points here.</li><li>So similar to what I did before, I need to go ahead and stage my change.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>Right</dt><dd></dd><dt>So I</dt><dd></dd><dt>All</dt><dd></dd><dt>Again</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_48">
+      <h2 id="sec_48">I can use this little drop down for commit, commit and push or commit</h2>
+      <div class="tldr"><b>TL;DR:</b> I can use this little drop down for commit, commit and push or commit and sync if I was connected to get help, which I&#x27;m currently am not.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>So I&#x27;ll go ahead and just click the blue commit button.</li><li>And there we go.</li><li>So now I have committed that change.</li><li>And now I have two commits on my repository.</li><li>The next thing that we&#x27;re going to look at is how to stash changes with VS code.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>So I</dt><dd></dd><dt>And</dt><dd></dd><dt>All</dt><dd></dd><dt>The</dt><dd></dd><dt>And I</dt><dd></dd><dt>You</dt><dd></dd>
+        </dl>
+        
+    </section>
+    
+
+    <section class="section" aria-labelledby="sec_54">
+      <h2 id="sec_54">And let&#x27;s just say that I need to work on something else and I&#x27;m not q</h2>
+      <div class="tldr"><b>TL;DR:</b> And let&#x27;s just say that I need to work on something else and I&#x27;m not quite ready to commit this change.</div>
+      
+      <h3>Key points</h3>
+      <ul><li>I can basically store this file in a temporary location and then retrieve it back when I&#x27;m ready to do so.</li><li>And this concept is known as a stash inside of git and you usually run the git stash command.</li><li>So if I run git stash, that will basically save that working directory in a specific state.</li><li>And you can see I don&#x27;t have that change anymore and my exclamation points are gone.</li><li>So we can do that with VS code without having to memorize the git stash command.</li></ul>
+      
+        <h3>Glossary</h3>
+        <dl class='glossary'>
+          <dt>And</dt><dd></dd><dt>All</dt><dd></dd><dt>Now</dt><dd></dd><dt>So I</dt><dd></dd><dt>And I</dt><dd></dd>
         </dl>
         
     </section>

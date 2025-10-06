@@ -1,3 +1,144 @@
 Front,Back
-"In the public space, we stand tall — TL;DR","In the public space, we stand tall."
-"In the public space, we stand tall — Key point 1","Love is the answer, a light for lazy to pay."
+What is going on everybody — TL;DR,What is going on everybody?
+What is going on everybody — Key point 1,Welcome back to The Common Coder.
+What is going on everybody — Key point 2,My name is Josh and in this video I'm going to be showing you how to use Git with Visual Studio Code.
+What is going on everybody — Key point 3,So let's go ahead and get started.
+"All right, so before we get started, we do need to go over a couple of — TL;DR","All right, so before we get started, we do need to go over a couple of prerequisites in order to follow along with this video."
+"All right, so before we get started, we do need to go over a couple of — Key point 1",So the first thing that you'll need to do is make sure you have VS Code installed.
+"All right, so before we get started, we do need to go over a couple of — Key point 2",The next thing you'll need to do is make sure that you have Git installed.
+"All right, so before we get started, we do need to go over a couple of — Key point 3","And then optionally, depending on how far you want to go with this video, you'll need to make sure that you have a GitHub account created."
+"All right, so before we get started, we do need to go over a couple of — Key point 4",And you'll need to make sure you set up your SSH keys for GitHub so that way you can connect from VS Code or from Git to your GitHub accoun….
+So those parts are optional — TL;DR,So those parts are optional.
+So those parts are optional — Key point 1,We're mainly going to be covering the Git tooling as it pertains to working with Git inside of VS Code.
+So those parts are optional — Key point 2,"But we are going to cover some GitHub-specific features like how to push a branch to GitHub, how to clone things like that."
+So those parts are optional — Key point 3,So I'd recommend you have all of these set up.
+So those parts are optional — Key point 4,"And if you need any help with that, I have videos for every single one of these topics, which I'll link down in the description below."
+So those parts are optional — Key point 5,"Alright, so with all that out of the way, let's go ahead and start working with Git inside of Visual Studio Code."
+And what we're going to do is create a folder for our project — TL;DR,And what we're going to do is create a folder for our project.
+And what we're going to do is create a folder for our project — Key point 1,"So when working with Visual Studio Code and with Git, your projects are literally just folders."
+And what we're going to do is create a folder for our project — Key point 2,It's a collection of files and folders.
+And what we're going to do is create a folder for our project — Key point 3,And Visual Studio Code can open these and you can work with those files inside of those folders.
+And what we're going to do is create a folder for our project — Key point 4,And then Git basically initializes a repository inside of that folder and keeps track of those changes inside of a special folder called .g….
+And what we're going to do is create a folder for our project — Key point 5,"So it's a little bit out of scope of this course, but just want to let you know what's going on behind the scenes."
+Now I like to keep all my projects inside of a folder called code — TL;DR,Now I like to keep all my projects inside of a folder called code.
+Now I like to keep all my projects inside of a folder called code — Key point 1,So I'm going to go ahead and cd into my code directory.
+Now I like to keep all my projects inside of a folder called code — Key point 2,"And inside of here, I'm going to go ahead and make a new directory using the makedir command."
+Now I like to keep all my projects inside of a folder called code — Key point 3,And I'm going to call this vscode-git.
+Now I like to keep all my projects inside of a folder called code — Key point 4,And then I'm going to go ahead and cd into that directory.
+And then I'm going to go ahead and open this folder inside of vscode — TL;DR,And then I'm going to go ahead and open this folder inside of vscode.
+And then I'm going to go ahead and open this folder inside of vscode — Key point 1,And I can do that by typing code.
+And then I'm going to go ahead and open this folder inside of vscode — Key point 2,"Now if you're working on Windows and you've installed Git and vscode, it should have installed that code command for you in the path."
+And then I'm going to go ahead and open this folder inside of vscode — Key point 3,"If not, you might have to go back through your installation or manually add the code command into your computer's path."
+And then I'm going to go ahead and open this folder inside of vscode — Key point 4,"And if you're on Mac, there's actually a very easy way to do that."
+You can do it from the command palette inside of vscode — TL;DR,You can do it from the command palette inside of vscode.
+You can do it from the command palette inside of vscode — Key point 1,"So now that I've opened this folder, you can see that there's no files in it here inside of my file explorer."
+You can do it from the command palette inside of vscode — Key point 2,And what we want to do is go ahead and initialize this as a new Git repository.
+You can do it from the command palette inside of vscode — Key point 3,"To do that, what we can do is go ahead and go into the source control panel over here on the left."
+And you can see that we don't have a repository initialized — TL;DR,And you can see that we don't have a repository initialized.
+And you can see that we don't have a repository initialized — Key point 1,"Otherwise, we would see the status of our repository."
+And you can see that we don't have a repository initialized — Key point 2,"Instead, we get this big blue button that says initialize repository and a link to some documentation for vscode and Git source control."
+And you can see that we don't have a repository initialized — Key point 3,"And you can see if we're also connected to GitHub, we can also publish that repository, basically push the repository up to GitHub."
+"So we're going to focus on repository creation, working with local fil — TL;DR","So we're going to focus on repository creation, working with local files."
+"So we're going to focus on repository creation, working with local fil — Key point 1","And at the very end, we'll go ahead and talk about how to work with GitHub."
+"So we're going to focus on repository creation, working with local fil — Key point 2",So what I'm going to do is go ahead and click this blue initialize repository button.
+"So we're going to focus on repository creation, working with local fil — Key point 3",And you can see that it has changed the screen here.
+"So we're going to focus on repository creation, working with local fil — Key point 4",And I have an option for my commit message.
+"So we're going to focus on repository creation, working with local fil — Key point 5",I can publish my branch if I'm connected to GitHub.
+"And then down here in the bottom left hand corner, you can see that ou — TL;DR","And then down here in the bottom left hand corner, you can see that our repository has been initialized with a default branch called main."
+"And then down here in the bottom left hand corner, you can see that ou — Key point 1",And we're ready to start working with Git source control inside of vscode.
+"And then down here in the bottom left hand corner, you can see that ou — Key point 2",So clicking that button to initialize the repository is the equivalent of running the git init command inside of the command line.
+"And then down here in the bottom left hand corner, you can see that ou — Key point 3",And what I'm going to actually go ahead and do for the remainder of this video is open up the terminal.
+"And then down here in the bottom left hand corner, you can see that ou — Key point 4",So I can click on the terminal window up here at the top and click new terminal.
+"And then down here in the bottom left hand corner, you can see that ou — Key point 5",I can also press control tilde to toggle my terminal open and closed.
+And that's going to stub out a basic HTML file for me — TL;DR,And that's going to stub out a basic HTML file for me.
+And that's going to stub out a basic HTML file for me — Key point 1,And I'll go ahead and say hello from VS code and git.
+And that's going to stub out a basic HTML file for me — Key point 2,And I'm just going to go ahead and copy this and also put this inside of a paragraph inside of my body.
+And that's going to stub out a basic HTML file for me — Key point 3,And that way we have some code to work with.
+"now if we go back and look at the source control panel, you can see th — TL;DR","now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and folders."
+"now if we go back and look at the source control panel, you can see th — Key point 1","now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and fold…."
+"now if we go back and look at the source control panel, you can see th — Key point 2",So git is all about tracking changes to your source code and letting you know what the status of those changes are.
+"now if we go back and look at the source control panel, you can see th — Key point 3","And when we're happy with those changes, we can actually commit those changes as a snapshot essentially of what that file looks like at any…."
+So what's happened as of right now is I've created a file and we can s — TL;DR,"So what's happened as of right now is I've created a file and we can see over here on the left hand side, we have this u here, which indicates that there's a n…"
+So what's happened as of right now is I've created a file and we can s — Key point 1,"So what's happened as of right now is I've created a file and we can see over here on the left hand side, we have this u here, which indica…."
+So what's happened as of right now is I've created a file and we can s — Key point 2,It is untracked.
+So what's happened as of right now is I've created a file and we can s — Key point 3,"So the repository recognizes there's something there, but as of right now, it's not a tracked file."
+So what's happened as of right now is I've created a file and we can s — Key point 4,"So I can't see any history from, you know, versions of that file previously."
+So what's happened as of right now is I've created a file and we can s — Key point 5,It's a brand new file.
+So what's happened as of right now is I've created a file and we can s — Key point 6,I've never committed this file to the repository.
+"Okay, so this is the using that plus is the equivalent of running git — TL;DR","Okay, so this is the using that plus is the equivalent of running git add with either an individual file or a collection of files."
+"Okay, so this is the using that plus is the equivalent of running git — Key point 1","And say if we had more than one file here on the upper level changes here, we can also use this plus button, which will stage all the chang…."
+"Okay, so this is the using that plus is the equivalent of running git — Key point 2",So I've had multiple files.
+"Okay, so this is the using that plus is the equivalent of running git — Key point 3",Let's go ahead and just emulate that real quick here.
+"Okay, so this is the using that plus is the equivalent of running git — Key point 4",Let's go ahead and create a CSS file called styles.css.
+"Okay, so this is the using that plus is the equivalent of running git — Key point 5",And we'll go ahead and just link this style sheet using a link tag here.
+And it's going to be dot slash styles — TL;DR,And it's going to be dot slash styles.
+And it's going to be dot slash styles — Key point 1,"All right, so you can see now I have two files in my source control panel."
+And it's going to be dot slash styles — Key point 2,And I can stage them individually.
+And it's going to be dot slash styles — Key point 3,"So that would be, you know, git add index HTML or git add styles.css."
+And it's going to be dot slash styles — Key point 4,But what I can do is use this upper level changes section here.
+And it's going to be dot slash styles — Key point 5,"And I can stage all the files at the same time, which puts them inside of this staging area to be committed."
+So you can see now I can use this minus button either up at the top le — TL;DR,"So you can see now I can use this minus button either up at the top level to unstage all my changes, or I can do each file individually."
+So you can see now I can use this minus button either up at the top le — Key point 1,So let's just go ahead and do them individually since there's only two.
+So you can see now I can use this minus button either up at the top le — Key point 2,"And so with these files here, you can see I have a couple other options as well."
+So you can see now I can use this minus button either up at the top le — Key point 3,I can open the file.
+So you can see now I can use this minus button either up at the top le — Key point 4,"So if I click on the file, I see the difference between the two versions."
+So you can see now I can use this minus button either up at the top le — Key point 5,"So for example, if I look at the index HTML, you can see that here is what it started out as since I didn't have any file, there's nothing…."
+"So basically the difference between when I started and where I'm at, s — TL;DR","So basically the difference between when I started and where I'm at, same thing with style CSS, there's nothing inside of here, which is why there's nothing he…"
+"So basically the difference between when I started and where I'm at, s — Key point 1","So basically the difference between when I started and where I'm at, same thing with style CSS, there's nothing inside of here, which is wh…."
+"So basically the difference between when I started and where I'm at, s — Key point 2",So let's go ahead and open the file.
+"So basically the difference between when I started and where I'm at, s — Key point 3","So I can go ahead and click the little open file button here, which will open the file so I can edit it."
+"So basically the difference between when I started and where I'm at, s — Key point 4",And what I'm gonna do is just go ahead and change the background color.
+"So basically the difference between when I started and where I'm at, s — Key point 5",So I'll just say body.
+"So basically the difference between when I started and where I'm at, s — Key point 6","And we'll just change the background color to, we'll just pick one of these colors here, we'll change it to beige."
+file looked like at your last commit — TL;DR,file looked like at your last commit.
+file looked like at your last commit — Key point 1,"All right, so now that we have our two files, we can go ahead and commit our changes."
+file looked like at your last commit — Key point 2,So this is when we're ready to make a snapshot of these files at a particular point in time.
+file looked like at your last commit — Key point 3,And so I'm happy with my index file.
+file looked like at your last commit — Key point 4,I'm happy with my CSS.
+file looked like at your last commit — Key point 5,I can actually preview this in my browser using my little extension that I have installed here.
+button here — TL;DR,button here.
+button here — Key point 1,And so this would be the equivalent of running git commit dash m.
+button here — Key point 2,"And then in quotes, it would be initial commit."
+button here — Key point 3,"And basically, this command is equivalent to typing this in the box and clicking commit."
+button here — Key point 4,So I'm going to go ahead and just delete this here.
+And I'm going to go ahead and commit these changes to my main branch — TL;DR,And I'm going to go ahead and commit these changes to my main branch.
+And I'm going to go ahead and commit these changes to my main branch — Key point 1,So you can see that right down here.
+And I'm going to go ahead and commit these changes to my main branch — Key point 2,"Now before we look at modifying these files to see what that looks like in VS Code, I wanted to point out this menu right here on the top o…."
+And I'm going to go ahead and commit these changes to my main branch — Key point 3,And what this does is it gives you some options for some different views.
+And I'm going to go ahead and commit these changes to my main branch — Key point 4,"We can see some incoming changes and outgoing changes if we were connected to a remote repository, along with our various push, pull, clone…."
+And I'm going to go ahead and commit these changes to my main branch — Key point 5,So it's all right here inside of this menu.
+So what I can do is go ahead and click undo last commit — TL;DR,So what I can do is go ahead and click undo last commit.
+So what I can do is go ahead and click undo last commit — Key point 1,And you can see that it undid that commit.
+So what I can do is go ahead and click undo last commit — Key point 2,And here are the changes in their modified state.
+So what I can do is go ahead and click undo last commit — Key point 3,So you can see they have the little you back means basically meaning that they're untracked.
+So what I can do is go ahead and click undo last commit — Key point 4,They're not staged anymore.
+So what I can do is go ahead and click undo last commit — Key point 5,"And let's just say instead of my background color being beige,."
+let's go ahead and make it Azure — TL;DR,let's go ahead and make it Azure.
+let's go ahead and make it Azure — Key point 1,"And then what we can do, I'll go ahead and use that menu again to just commit all of these changes."
+let's go ahead and make it Azure — Key point 2,So we'll stage and commit them at the same time.
+let's go ahead and make it Azure — Key point 3,"So what I'm going to go ahead and do is click on commit, and then commit all."
+let's go ahead and make it Azure — Key point 4,And you can see that stage my changes and committed them with the message that was already inside of the box.
+let's go ahead and make it Azure — Key point 5,"So when I undid the change, it put my commit message back."
+Now let's go ahead and jump back to our file explorer and just make a — TL;DR,Now let's go ahead and jump back to our file explorer and just make a small change to our index HTML.
+Now let's go ahead and jump back to our file explorer and just make a — Key point 1,"So let's just say on this hello from VS code and get, I wanted to add a few exclamation points."
+Now let's go ahead and jump back to our file explorer and just make a — Key point 2,I'm going to add those exclamation points and save.
+Now let's go ahead and jump back to our file explorer and just make a — Key point 3,"And notice how instead of a you like we had before for the untracked file, since this file is now tracked by get, get knows about it, it kn…."
+Now let's go ahead and jump back to our file explorer and just make a — Key point 4,"So you can see that it puts this little m, which stands for modified."
+"So if I go back here and see in the source control panel, again, there — TL;DR","So if I go back here and see in the source control panel, again, there's the m for modified."
+"So if I go back here and see in the source control panel, again, there — Key point 1","And then if I click on the file this time, you can see this is what the file looked like at my last commit."
+"So if I go back here and see in the source control panel, again, there — Key point 2",So I didn't have the exclamation points.
+"So if I go back here and see in the source control panel, again, there — Key point 3","And then on the right hand side, you can see that this is what it looks like currently before I've committed the change."
+"So if I go back here and see in the source control panel, again, there — Key point 4",And you can see that we've added the exclamation points here.
+"So if I go back here and see in the source control panel, again, there — Key point 5","So similar to what I did before, I need to go ahead and stage my change."
+"I can use this little drop down for commit, commit and push or commit — TL;DR","I can use this little drop down for commit, commit and push or commit and sync if I was connected to get help, which I'm currently am not."
+"I can use this little drop down for commit, commit and push or commit — Key point 1",So I'll go ahead and just click the blue commit button.
+"I can use this little drop down for commit, commit and push or commit — Key point 2",And there we go.
+"I can use this little drop down for commit, commit and push or commit — Key point 3",So now I have committed that change.
+"I can use this little drop down for commit, commit and push or commit — Key point 4",And now I have two commits on my repository.
+"I can use this little drop down for commit, commit and push or commit — Key point 5",The next thing that we're going to look at is how to stash changes with VS code.
+And let's just say that I need to work on something else and I'm not q — TL;DR,And let's just say that I need to work on something else and I'm not quite ready to commit this change.
+And let's just say that I need to work on something else and I'm not q — Key point 1,I can basically store this file in a temporary location and then retrieve it back when I'm ready to do so.
+And let's just say that I need to work on something else and I'm not q — Key point 2,And this concept is known as a stash inside of git and you usually run the git stash command.
+And let's just say that I need to work on something else and I'm not q — Key point 3,"So if I run git stash, that will basically save that working directory in a specific state."
+And let's just say that I need to work on something else and I'm not q — Key point 4,And you can see I don't have that change anymore and my exclamation points are gone.
+And let's just say that I need to work on something else and I'm not q — Key point 5,So we can do that with VS code without having to memorize the git stash command.
