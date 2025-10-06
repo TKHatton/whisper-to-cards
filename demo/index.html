@@ -34,9 +34,9 @@
     <section class="card">
       <h2 style="margin-top:0">Notes Preview</h2>
       <!-- IMPORTANT: served from repo root, demo is one folder down ➜ use ../ -->
-      <iframe src="outputs/notes.html" title="Notes preview"></iframe>
+      <iframe id="notesFrame" title="Notes preview" style="width:100%;height:72vh;border:0;background:#0b0f1f"></iframe>
       <div class="btns" style="margin-top:10px">
-        <a href="../outputs/notes.html" target="_blank">Open Notes in New Tab</a>
+        <a id="notesLink" target="_blank">Open Notes in New Tab</a>
         <a href="../outputs/notes.pdf">Download PDF</a>
         <a href="../outputs/deck.csv">Download deck.csv</a>
         <a href="../outputs/deck.apkg">Download Anki (.apkg)</a>
@@ -81,5 +81,21 @@
       </ul>
     </aside>
   </main>
+  <script>
+    (function () {
+      // Decide base path: '' for local (/demo/...), '/whisper-to-cards' for Pages
+      const parts = location.pathname.split('/').filter(Boolean);
+      const base  = (parts[0] === 'demo') ? '' : ('/' + (parts[0] || ''));
+
+      const notesUrl = base + '/outputs/notes.html';
+
+      const frame = document.getElementById('notesFrame');
+      const link  = document.getElementById('notesLink');
+
+      if (frame) frame.src = notesUrl;
+      if (link)  link.href = notesUrl;
+    })();
+  </script>
 </body>
 </html>
+
