@@ -1,95 +1,105 @@
 # Whisper-to-Cards
-Lecture → dyslexia-friendly notes + Anki, as an OSS pipeline.
 
-## Requirements
-- Python 3.12+
-- Poetry 2.x
-- FFmpeg (for audio decoding)
+Turn audio (talks, lectures, tutorials) into **accessible notes** + **tagged, actionable flashcards** (Anki).
+Works in **GitHub Codespaces** and publishes a public /**demo**/ page via GitHub Pages.
 
-## Install
-```bash
-poetry install
-# If you’re in a fresh env, also ensure the package is editable:
-poetry run pip install -e .
+**Live demo:** https://tkhatton.github.io/whisper-to-cards/  
+**Repo:** https://github.com/TKHatton/whisper-to-cards
+
+
+## Quick Start (TL;DR)
+
+1. Put audio in inputs/ (mp3/m4a/wav).
+2. Process one file:
+```
+scripts/run_one.sh "inputs/YourFile.mp3" "Odin :: Foundations" small
 ```
 
-## Run the pipeline
-```bash
-poetry install
-poetry run w2c asr examples/lecture.mp3 -o outputs -m small
-poetry run w2c segment outputs/transcript.json -o outputs --max-chars 1200
-poetry run w2c structure outputs/sections.json -o outputs
-poetry run w2c cards outputs/structured.json -o outputs --deck-name "My Lecture Deck"
+3. Make a deck (pick one):
+
+```
+poetry run python scripts/make_decks.py --mode ds
+# or
+poetry run python scripts/make_decks.py --mode git
 ```
 
-## Quick start (end-to-end)
+4. (Optional) Publish demo:
 
-```bash
-
-# 1) Transcribe audio → outputs/transcript.json
-poetry run w2c asr examples/lecture.mp3 -o outputs -m small
-
-# 2) Segment transcript → outputs/sections.json
-poetry run w2c segment outputs/transcript.json -o outputs --max-chars 1200
-
-# 3) Structure sections → outputs/structured.json
-poetry run w2c structure outputs/sections.json -o outputs
-
-# 4) Make Anki deck → outputs/deck.csv (+ deck.apkg)
-poetry run w2c cards outputs/structured.json -o outputs --deck-name "My Lecture Deck"
+```
+scripts/publish.sh
 ```
 
-## Output files
-outputs/transcript.json – raw ASR segments with timestamps
+## One-Time Setup
 
-outputs/sections.json – merged, topic-sized sections
+These are already added in this repo. If anything’s missing, re-create from the chat.
+```
+chmod +x scripts/run_one.sh
+chmod +x scripts/make_decks.py
+# (optional) if you have publish.sh and auto_run.py:
+chmod +x scripts/publish.sh
+```
 
-outputs/structured.json – bullets, TL;DR, glossary, cloze
+For .apkg export (optional):
+poetry add genanki
 
-outputs/deck.csv, outputs/deck.apkg – import into Anki
+## What the scripts do
 
-## Tips
+`scripts/run_one.sh <audio> "<Deck Name>" <model>`
 
-Better accuracy: use a bigger model: -m medium (slower).
+Runs ASR → segment → structure → render → bundle.
 
-Force language if you know it: --language en.
+* `model`: `small` (fast, default) or `medium` (more accurate).
 
-If you change source code, reinstall editable: poetry run pip install -e .
+`scripts/make_decks.py --mode ds|git`
+
+Builds **tagged Anki decks** from your run:
+
+* `--mode ds`: Data Structures (definitions, when-to-use, safe Big-O).
+
+* `--mode git`: Git/VS Code (how-to, commands, concepts).
+    
+* Outputs: `outputs/*.csv` and (if `genanki` installed) `outputs/*.apkg`.
+
+* `scripts/publish.sh` (optional)
+Copies your featured deck to `outputs/deck.apkg`, bundles `outputs/`, and pushes so `/demo/` updates.
+
+## Automatic Mode (Drop-a-file → Runs)
+
+Leave this watcher running in one terminal tab:
+
+```
+poetry run python scripts/auto_run.py
+```
+
+Now **whenever you add/modify** an audio file in `inputs/`, it will:
+
+* run `run_one.sh` on that file,
+
+* generate a DS deck by default (change to `git` inside `auto_run.py`),
+
+* (optionally) publish (uncomment the line inside `auto_run.py`).
+
+    The watcher stays idle when no new files appear. Stop with **Ctrl+C**.
+
+
+## Demo Site (GitHub Pages)
+
+    Local/Codespaces: open the forwarded port URL → `/demo/`.
+
+    Public: `https://tkhatton.github.io/whisper-to-cards/demo/`
+
+    The demo iframe reads `outputs/notes.html`; buttons download PDF/CSV/APKG/ZIP.
+
+## Troubleshooting
+
+* Script says “Usage: … path/to/audio.mp3” → you didn’t pass a real file path.
+
+* Nothing happens in watcher → add/modify a file in `inputs/`.
+
+* 404 in demo iframe → ensure `outputs/notes.html` is committed & Pages is deployed.
+
+* Windows line endings → `sed -i 's/\r$//' scripts/*.sh`
+
+* Force add generated files (ignored by `.gitignore`):
+    `git add -f outputs/ dist/`
 ---
-
-## `.gitignore` reminder
-Make sure your `.gitignore` (at repo root) ignores artifacts:
----
-
-## Commit & push (safe sequence)
-```bash
-git add -A
-git commit -m "docs: README + gitignore; pipeline stable (ASR→segment→structure→Anki)"
-git push origin main
-```
-
-### Export Anki
-```bash
-# CSV only
-w2c cards outputs/structured.json -o outputs --deck "My Lecture" --no-apkg
-
-# CSV + APKG (requires `genanki`)
-w2c cards outputs/structured.json -o outputs --deck "My Lecture" --apkg
-```
-
-## outputs: 
-outputs/deck.csv, outputs/deck.apkg
-```bash
-
-4) **Sanity smoke test (optional)**
-```bash
-poetry run python - <<'PY'
-from pathlib import Path
-import json
-d=json.load(open("outputs/structured.json"))
-assert d["sections"], "no sections found"
-print("sections:", len(d["sections"]))
-print("exists deck.csv:", Path("outputs/deck.csv").exists())
-print("exists deck.apkg:", Path("outputs/deck.apkg").exists())
-PY
-```

@@ -24,38 +24,38 @@
     },
     {
       "id": "sec_02",
-      "title": "All right, so before we get started, we do need to go over a couple of",
+      "title": "All right, so before we get started we do need to go over a couple pre",
       "start_idx": 2,
       "end_idx": 8,
-      "text": "All right, so before we get started, we do need to go over a couple of prerequisites in order to follow along with this video. So the first thing that you'll need to do is make sure you have VS Code installed. The next thing you'll need to do is make sure that you have Git installed. And then optionally, depending on how far you want to go with this video, you'll need to make sure that you have a GitHub account created. And you'll need to make sure you set up your SSH keys for GitHub so that way you can connect from VS Code or from Git to your GitHub account, so that way you can upload code to VS Code and download it to your machine.",
+      "text": "All right, so before we get started we do need to go over a couple prerequisites in order to follow along with this video. So the first thing that you'll need to do is make sure you have VS Code installed. The next thing you'll need to do is make sure that you have Git installed and then optionally depending on how far you want to go with this video you'll need to make sure that you have a GitHub account created and you'll need to make sure you set up your SSH keys for GitHub so that way you can connect from VS Code or from Git to your GitHub account so that way you can upload code to VS Code and download it to your machine.",
       "timestamps": [
         [
-          12.3,
-          15.58
+          12.29,
+          15.57
         ],
         [
-          15.58,
-          18.94
+          15.57,
+          18.93
         ],
         [
-          18.94,
-          23.18
+          18.93,
+          23.17
         ],
         [
-          23.18,
-          27.74
+          23.17,
+          27.73
         ],
         [
-          27.74,
-          31.34
+          27.73,
+          31.33
         ],
         [
-          31.34,
-          36.78
+          31.33,
+          36.77
         ],
         [
-          36.78,
-          43.1
+          36.77,
+          43.09
         ]
       ]
     },
@@ -63,979 +63,907 @@
       "id": "sec_03",
       "title": "So those parts are optional",
       "start_idx": 9,
-      "end_idx": 15,
-      "text": "So those parts are optional. We're mainly going to be covering the Git tooling as it pertains to working with Git inside of VS Code. But we are going to cover some GitHub-specific features like how to push a branch to GitHub, how to clone things like that. So I'd recommend you have all of these set up. And if you need any help with that, I have videos for every single one of these topics, which I'll link down in the description below. Alright, so with all that out of the way, let's go ahead and start working with Git inside of Visual Studio Code. So the first thing I'm going to do is go ahead and open up a terminal.",
+      "end_idx": 21,
+      "text": "So those parts are optional. We're mainly going to be covering the Git tooling as it pertains to working with Git inside of VS Code but we are going to cover some GitHub specific features like how to push a branch to GitHub, how to clone things like that. So I'd recommend you have all of these set up and if you need any help with that I have videos for every single one of these topics which I'll link down in the description below. All right so with all that out of the way let's go ahead and start working with Git inside of Visual Studio Code. So the first thing I'm going to do is go ahead and open up a terminal and what we're going to do is create a folder for our project. So when working with Visual Studio Code and with Git your projects are literally just folders. It's a collection of files and folders and Visual Studio Code can open these and you can work with those files inside of those folders and then Git basically initializes a repository inside of that folder and keeps track of those changes inside of a special folder called .git. So it's a little bit out of scope of this course but just want to let you know what's going on behind the scenes and at the end of the day it's literally just a",
       "timestamps": [
         [
-          43.1,
-          47.58
+          43.09,
+          47.57
         ],
         [
-          47.58,
-          53.18
+          47.57,
+          53.17
         ],
         [
-          53.18,
-          58.86
+          53.17,
+          58.85
         ],
         [
-          58.86,
-          62.46
+          58.85,
+          62.85
         ],
         [
-          62.46,
-          65.58
+          62.85,
+          66.69
         ],
         [
-          65.58,
-          69.42
+          66.69,
+          71.41
         ],
         [
-          69.42,
-          73.5
+          71.41,
+          75.49
+        ],
+        [
+          75.49,
+          80.53
+        ],
+        [
+          80.53,
+          85.17
+        ],
+        [
+          85.17,
+          89.89
+        ],
+        [
+          89.89,
+          95.25
+        ],
+        [
+          95.25,
+          100.05
+        ],
+        [
+          100.05,
+          104.53
+        ]
+      ]
+    },
+    {
+      "id": "sec_04",
+      "title": "collection of files and folders",
+      "start_idx": 22,
+      "end_idx": 25,
+      "text": "collection of files and folders. So what we're going to do is go ahead and create a new folder for our project. Now I like to keep all my projects inside of a folder called code so I'm going to go ahead and cd into my code directory and inside of here I'm going to go ahead and make a new directory using the makedir command and I'm going to call this vscode-git.",
+      "timestamps": [
+        [
+          104.53,
+          108.93
+        ],
+        [
+          108.93,
+          112.77
+        ],
+        [
+          112.77,
+          115.97
+        ],
+        [
+          115.97,
+          122.21
         ]
       ]
     },
     {
       "id": "sec_05",
-      "title": "And what we're going to do is create a folder for our project",
-      "start_idx": 16,
-      "end_idx": 23,
-      "text": "And what we're going to do is create a folder for our project. So when working with Visual Studio Code and with Git, your projects are literally just folders. It's a collection of files and folders. And Visual Studio Code can open these and you can work with those files inside of those folders. And then Git basically initializes a repository inside of that folder and keeps track of those changes inside of a special folder called .git. So it's a little bit out of scope of this course, but just want to let you know what's going on behind the scenes. And at the end of the day, it's literally just a collection of files and folders. So what we're going to do is go ahead and create a new folder for our project.",
+      "title": "All right and then I'm going to go ahead and cd into that directory so",
+      "start_idx": 26,
+      "end_idx": 38,
+      "text": "All right and then I'm going to go ahead and cd into that directory so vscode-git and then I'm going to go ahead and open this folder inside of vscode and I can do that by typing code. All right now if you're working on Windows and you've installed Git and vscode it should have installed that code command for you in the path. If not you might have to go back through your installation or manually add the code command into your computer's path and if you're on mac there's actually a very easy way to do that you can do it from the command palette inside of vscode. All right so now that I've opened this folder you can see that there's no files in it here inside of my file explorer and what we want to do is go ahead and initialize this as a new git repository. To do that what we can do is go ahead and go into the source control panel over here on the left and you can see that we don't have a repository initialized otherwise we would see the status of our repository. Instead we get this big blue button that says initialize repository and a link to some documentation for vscode and git source control and you can see if we're also connected to github we can also publish that repository basically push the repository up to",
       "timestamps": [
         [
-          73.5,
-          77.66
+          124.22,
+          129.18
         ],
         [
-          77.66,
-          82.78
+          129.9,
+          133.5
         ],
         [
-          82.78,
-          87.5
+          133.5,
+          140.54
         ],
         [
-          87.5,
-          93.42
+          140.62,
+          145.66
         ],
         [
-          93.42,
-          98.14
+          145.66,
+          151.58
         ],
         [
-          98.14,
-          102.78
+          151.58,
+          155.66
         ],
         [
-          102.78,
-          106.22
+          155.66,
+          159.98
         ],
         [
-          106.22,
-          109.9
+          159.98,
+          165.26
+        ],
+        [
+          165.26,
+          171.58
+        ],
+        [
+          171.58,
+          177.26
+        ],
+        [
+          177.26,
+          183.02
+        ],
+        [
+          183.02,
+          188.94
+        ],
+        [
+          188.94,
+          194.62
+        ]
+      ]
+    },
+    {
+      "id": "sec_06",
+      "title": "github",
+      "start_idx": 39,
+      "end_idx": 52,
+      "text": "github. So we're going to focus on repository creation working with local files and at the very end we'll go ahead and talk about how to work with github. So what I'm going to do is go ahead and click this blue initialize repository button and you can see that it has changed the screen here and I have an option for my commit message. I can publish my branch if I'm connected to github and then down here in the bottom left hand corner you can see that our repository has been initialized with a default branch called main and we are ready to start working with git source control inside of vscode. So clicking that button to initialize the repository is the equivalent of running the git init command inside of the command line and what I'm gonna actually go ahead and do for the remainder of this video is open up the terminal so I can click on the terminal window up here at the top and click new terminal. I can also press control tilde to toggle my terminal open and closed but basically what we just did is the equivalent of running git init which will initialize a brand new repository. All right so the next thing that we're going to do is go ahead and add some files so I'm going to go ahead and just add an html file. To do that I'm going to go up to my source control panel I'm going to click on",
+      "timestamps": [
+        [
+          194.62,
+          199.42
+        ],
+        [
+          199.42,
+          202.94
+        ],
+        [
+          202.94,
+          209.5
+        ],
+        [
+          209.5,
+          215.9
+        ],
+        [
+          215.9,
+          220.22
+        ],
+        [
+          220.22,
+          224.38
+        ],
+        [
+          224.94,
+          230.54
+        ],
+        [
+          230.54,
+          234.78
+        ],
+        [
+          234.78,
+          239.82
+        ],
+        [
+          239.82,
+          243.26
+        ],
+        [
+          243.26,
+          248.46
+        ],
+        [
+          248.46,
+          253.18
+        ],
+        [
+          253.18,
+          256.3
+        ],
+        [
+          256.3,
+          261.02
+        ]
+      ]
+    },
+    {
+      "id": "sec_07",
+      "title": "the little plus file button here that says new file and I'm going to g",
+      "start_idx": 53,
+      "end_idx": 66,
+      "text": "the little plus file button here that says new file and I'm going to go ahead and just call this index.html and I'm going to go ahead and give this file some contents using an emit snippet so I'm going to go ahead and just press the exclamation mark and hit enter and that's going to stub out a basic html file for me and I'll go ahead and say hello from vscode and git and I'm just gonna go ahead and copy this and also put this inside of a paragraph inside of my body and that way we have some code to work with. All right now if we go back and look at the source control panel you can see that there are things happening inside as I work with my files and folders so git is all about tracking changes to your source code and letting you know what the status of those changes are and when we're happy with those changes we can actually commit those changes as a snapshot essentially of what that file looks like at any given point in time. So what's happened as of right now is I've created a file and we can see over here on the left hand side we have this u here which indicates that there's a new file inside of git but is not included as part of the repository it is untracked so the repository recognizes there's something there but as of right now it's not a tracked file so I",
+      "timestamps": [
+        [
+          261.02,
+          265.58
+        ],
+        [
+          265.58,
+          270.46
+        ],
+        [
+          270.46,
+          275.74
+        ],
+        [
+          275.74,
+          283.42
+        ],
+        [
+          284.22,
+          289.26
+        ],
+        [
+          289.26,
+          292.54
+        ],
+        [
+          292.54,
+          297.42
+        ],
+        [
+          297.42,
+          303.26
+        ],
+        [
+          303.26,
+          307.02
+        ],
+        [
+          307.02,
+          311.98
+        ],
+        [
+          311.98,
+          316.22
+        ],
+        [
+          316.22,
+          321.74
+        ],
+        [
+          321.74,
+          327.98
+        ],
+        [
+          327.98,
+          332.62
         ]
       ]
     },
     {
       "id": "sec_08",
-      "title": "Now I like to keep all my projects inside of a folder called code",
-      "start_idx": 24,
-      "end_idx": 27,
-      "text": "Now I like to keep all my projects inside of a folder called code. So I'm going to go ahead and cd into my code directory. And inside of here, I'm going to go ahead and make a new directory using the makedir command. And I'm going to call this vscode-git. All right. And then I'm going to go ahead and cd into that directory. So vscode-git.",
+      "title": "can't see any history from you know versions of that file previously i",
+      "start_idx": 67,
+      "end_idx": 75,
+      "text": "can't see any history from you know versions of that file previously it's a brand new file I've never committed this file to the repository so it knows that it's a brand new file so what I can go ahead and do is go ahead and commit this change to do that what I can do is click this little plus button and this will stage my change and if we were using the terminal this would be the equivalent of running git add and then my file name or we can stage all of our changes using the dot or the dash a okay so this is the using that plus is the equivalent of running git add with either an individual file or a collection of files and say if we had more than one file here on the upper level changes here we can also use this plus button which will stage all the changes so I've had multiple files let's go ahead and just emulate that real quick here",
       "timestamps": [
         [
-          109.9,
-          113.02
+          332.62,
+          338.3
         ],
         [
-          113.02,
-          117.58
+          338.3,
+          343.9
         ],
         [
-          117.58,
-          122.22
+          343.9,
+          349.02
         ],
         [
-          124.21,
-          129.89
+          349.02,
+          353.58
+        ],
+        [
+          353.58,
+          361.02
+        ],
+        [
+          361.1,
+          366.54
+        ],
+        [
+          366.54,
+          371.58
+        ],
+        [
+          372.3,
+          377.1
+        ],
+        [
+          377.1,
+          381.34
+        ]
+      ]
+    },
+    {
+      "id": "sec_09",
+      "title": "let's go ahead and create a css file call it styles",
+      "start_idx": 76,
+      "end_idx": 88,
+      "text": "let's go ahead and create a css file call it styles.css and we'll go ahead and just link this style sheet using a link tag here and it's going to be dot slash styles all right so you can see now I have two files in my source control panel and I can stage them individually so that would be you know git add index html or git add styles.css but what I can do is use this upper level changes section here and I can stage all the files at the same time which puts them inside of this staging area to be committed okay and so this is where you would put these files once we're happy with our changes we can go ahead and commit these snapshots essentially of our files uh to git all right so before we do anything else I'm going to go ahead and unstage the changes so you can see now I can use this minus button either up at the top level to unstage all my changes or I can do each file individually so let's just go ahead and do individually since there's only two and so with these files here you can see I have a couple other options as well I can open the file so if I click on the file I see the difference between the two versions so for example if I look at the index html you can see that here is what it started out as since I",
+      "timestamps": [
+        [
+          381.34,
+          387.34
+        ],
+        [
+          387.34,
+          394.86
+        ],
+        [
+          394.86,
+          400.94
+        ],
+        [
+          400.94,
+          407.58
+        ],
+        [
+          407.58,
+          413.1
+        ],
+        [
+          413.1,
+          418.7
+        ],
+        [
+          418.7,
+          425.42
+        ],
+        [
+          425.42,
+          428.54
+        ],
+        [
+          428.54,
+          433.58
+        ],
+        [
+          433.58,
+          438.7
+        ],
+        [
+          438.7,
+          443.74
+        ],
+        [
+          443.74,
+          447.66
+        ],
+        [
+          447.66,
+          452.46
         ]
       ]
     },
     {
       "id": "sec_10",
-      "title": "And then I'm going to go ahead and open this folder inside of vscode",
-      "start_idx": 28,
-      "end_idx": 32,
-      "text": "And then I'm going to go ahead and open this folder inside of vscode. And I can do that by typing code. All right. Now if you're working on Windows and you've installed Git and vscode, it should have installed that code command for you in the path. If not, you might have to go back through your installation or manually add the code command into your computer's path. And if you're on Mac, there's actually a very easy way to do that.",
+      "title": "didn't have any file there's nothing there and this is the current ver",
+      "start_idx": 89,
+      "end_idx": 103,
+      "text": "didn't have any file there's nothing there and this is the current version of it so basically the difference between when I started and where I'm at same thing with style css there's nothing inside of here which is why there's nothing here on the right hand side so let's go ahead and open the file so I can go ahead and click the little open file button here which will open the file so I can edit it and what I'm gonna do is just go ahead and change the background color so I'll just say body and we'll just change the background color to uh we'll just pick one of these colors here we'll change it to beige all right so if I save that and then now if I click on the file again you can see file didn't exist before so there's no changes there on the right hand side this is my current version of the code now again we haven't committed anything right so it just knows that this file didn't exist before it currently exists this is the difference between the two let's just say I messed up and I don't want this css file uh I can use this discard changes which in this case is going to delete the file since it's brand new but if you ever make any change and you want to revert those changes you can revert those changes using this button here and it will take you back to whatever that file looked like at your last commit all right so now that we have our two files we can go ahead and commit our changes",
       "timestamps": [
         [
-          129.89,
-          133.33
+          452.46,
+          457.42
         ],
         [
-          133.33,
-          139.41
+          457.42,
+          461.74
         ],
         [
-          139.41,
-          144.77
+          461.74,
+          465.5
         ],
         [
-          144.77,
-          149.01
+          465.58,
+          470.06
         ],
         [
-          149.01,
-          153.73
-        ]
-      ]
-    },
-    {
-      "id": "sec_11",
-      "title": "You can do it from the command palette inside of vscode",
-      "start_idx": 33,
-      "end_idx": 36,
-      "text": "You can do it from the command palette inside of vscode. All right. So now that I've opened this folder, you can see that there's no files in it here inside of my file explorer. And what we want to do is go ahead and initialize this as a new Git repository. To do that, what we can do is go ahead and go into the source control panel over here on the left.",
-      "timestamps": [
-        [
-          153.73,
-          157.49
+          470.06,
+          475.02
         ],
         [
-          157.49,
-          162.45
+          475.02,
+          481.34
         ],
         [
-          162.45,
-          168.21
+          481.34,
+          485.66
         ],
         [
-          168.21,
-          172.93
+          485.66,
+          489.58
+        ],
+        [
+          489.58,
+          495.26
+        ],
+        [
+          495.26,
+          499.74
+        ],
+        [
+          499.74,
+          505.5
+        ],
+        [
+          505.5,
+          509.98
+        ],
+        [
+          509.98,
+          514.22
+        ],
+        [
+          514.22,
+          518.14
+        ],
+        [
+          518.14,
+          522.86
         ]
       ]
     },
     {
       "id": "sec_12",
-      "title": "And you can see that we don't have a repository initialized",
-      "start_idx": 37,
-      "end_idx": 40,
-      "text": "And you can see that we don't have a repository initialized. Otherwise, we would see the status of our repository. Instead, we get this big blue button that says initialize repository and a link to some documentation for vscode and Git source control. And you can see if we're also connected to GitHub, we can also publish that repository, basically push the repository up to GitHub.",
+      "title": "so this is when we're ready to make a snapshot of these files at a par",
+      "start_idx": 104,
+      "end_idx": 116,
+      "text": "so this is when we're ready to make a snapshot of these files at a particular point in time and so I'm happy with my index file I'm happy with my css I can actually preview this in my browser using my little extension that I have installed here and you can see that it just says hello from vs code and git I have a beige colored background here and so this is exactly what I want so I'm gonna go ahead and commit these file changes so I'm gonna go ahead and close my browser and close all my open editor windows and inside of my source control panel I'm gonna go ahead and use the upper changes menu here to go ahead and stage this change and I'm staging both changes are basically staging all of my changes and you can see the u changes to an a and so this means it's basically been added to the source control system so this is index added so for this to be part of my repository's commit history I need to go ahead and commit these changes so what I'm going to do is go ahead and type in a commit message and I'm going to go ahead and call this my initial commit there we go so initial commit and I can go ahead and use this blue button here all right and so this would be the equivalent of running git commit dash m",
       "timestamps": [
         [
-          172.93,
-          178.29
+          522.86,
+          527.34
         ],
         [
-          178.29,
-          183.73
+          527.34,
+          534.54
         ],
         [
-          183.73,
-          189.33
+          534.54,
+          538.46
         ],
         [
-          189.33,
-          195.33
+          538.46,
+          544.06
+        ],
+        [
+          544.06,
+          548.38
+        ],
+        [
+          548.38,
+          554.22
+        ],
+        [
+          554.22,
+          560.22
+        ],
+        [
+          560.22,
+          564.46
+        ],
+        [
+          564.46,
+          569.58
+        ],
+        [
+          569.58,
+          575.1
+        ],
+        [
+          575.1,
+          578.86
+        ],
+        [
+          578.86,
+          585.02
+        ],
+        [
+          585.02,
+          591.5
         ]
       ]
     },
     {
       "id": "sec_13",
-      "title": "So we're going to focus on repository creation, working with local fil",
-      "start_idx": 41,
-      "end_idx": 44,
-      "text": "So we're going to focus on repository creation, working with local files. And at the very end, we'll go ahead and talk about how to work with GitHub. So what I'm going to do is go ahead and click this blue initialize repository button. And you can see that it has changed the screen here. And I have an option for my commit message. I can publish my branch if I'm connected to GitHub.",
+      "title": "and then in quotes it would be initial commit and basically this comma",
+      "start_idx": 117,
+      "end_idx": 130,
+      "text": "and then in quotes it would be initial commit and basically this command is equivalent to typing this in the box and clicking commit so I'm gonna go ahead and just delete this here and I'm gonna go ahead and commit these changes to my main branch all right so you can see that right down here all right now before we look at modifying these files to see what that looks like in vs code wanted to point out this menu right here on the top of the source control panel and what this does is it gives you some options for some different views we can see some incoming changes and outgoing changes if we were connected to a remote repository along with our various push pull clone and fetch commands so it's all right here inside of this menu however for working with a local repository we'll mainly be looking at this section down here which is kind of our branch section we have a commit section here we can stash our changes which we'll look at here in a minute but I wanted to point out this commit menu and we have some options here so in addition to that blue commit button that we saw we can also use the menu to commit either all of our changes you know see if we hadn't staged anything yet we just want to commit all of our files so stage them and commit them all at the same time we can use this commit",
       "timestamps": [
         [
-          195.41,
-          199.57
+          591.5,
+          596.7
         ],
         [
-          199.57,
-          203.25
+          596.78,
+          600.86
         ],
         [
-          203.25,
-          209.57
+          600.86,
+          605.82
         ],
         [
-          209.57,
-          215.97
+          605.82,
+          610.62
+        ],
+        [
+          610.62,
+          615.34
+        ],
+        [
+          615.34,
+          619.66
+        ],
+        [
+          619.66,
+          624.38
+        ],
+        [
+          624.46,
+          628.7
+        ],
+        [
+          629.26,
+          634.46
+        ],
+        [
+          634.46,
+          639.98
+        ],
+        [
+          639.98,
+          645.5
+        ],
+        [
+          645.5,
+          650.14
+        ],
+        [
+          650.14,
+          655.58
+        ],
+        [
+          655.58,
+          660.3
+        ]
+      ]
+    },
+    {
+      "id": "sec_14",
+      "title": "all and we can also undo our last commit so it's one of the things in",
+      "start_idx": 131,
+      "end_idx": 138,
+      "text": "all and we can also undo our last commit so it's one of the things in git that gets kind of confusing sometimes you might want to revert your previous commit vs code makes that really easy so let's just say I wanted to make a small change I messed up on my commit I don't really want to create another one even though it's not really a problem doing that but let's just say I want to undo that last commit and you know make an additional change so what I can do is go ahead and click undo last commit and you can see that it undid that commit and here are the changes in their modified state so you can see they have the little u back means basically meaning that they're untracked they're not staged anymore and let's just say instead of my background color being beige",
+      "timestamps": [
+        [
+          660.3,
+          665.26
+        ],
+        [
+          665.26,
+          670.62
+        ],
+        [
+          670.62,
+          675.58
+        ],
+        [
+          675.58,
+          679.42
+        ],
+        [
+          679.42,
+          683.58
+        ],
+        [
+          683.58,
+          689.58
+        ],
+        [
+          689.58,
+          694.14
+        ],
+        [
+          695.26,
+          699.5
         ]
       ]
     },
     {
       "id": "sec_15",
-      "title": "And then down here in the bottom left hand corner, you can see that ou",
-      "start_idx": 45,
-      "end_idx": 57,
-      "text": "And then down here in the bottom left hand corner, you can see that our repository has been initialized with a default branch called main. And we're ready to start working with Git source control inside of vscode. So clicking that button to initialize the repository is the equivalent of running the git init command inside of the command line. And what I'm going to actually go ahead and do for the remainder of this video is open up the terminal. So I can click on the terminal window up here at the top and click new terminal. I can also press control tilde to toggle my terminal open and closed. But basically what we just did is the equivalent of running git init, which will initialize a brand new repository. All right, so the next thing that we're going to do is go ahead and add some files. So I'm going to go ahead and just add an HTML file to do that. I'm going to go up to my source control panel. I'm going to click on the little plus file button here that says new file. And I'm going to go ahead and just call this index.html. And I'm going to go ahead and give this file some contents using an imit snippet. So I'm going to go ahead and just press the exclamation mark and hit enter.",
+      "title": "let's go ahead and make it azure and then what we can do I'll go ahead",
+      "start_idx": 139,
+      "end_idx": 151,
+      "text": "let's go ahead and make it azure and then what we can do I'll go ahead and use that menu again to just commit all of these changes so we'll stage and commit them at the same time so I'm going to go ahead and do is click on commit and then commit all and you can see that staged my changes and committed them with the message that was already inside of the box so when I undid the change it put my commit message back so some really cool features inside of this menu now let's go ahead and jump back to our file explorer and just make a small change to our index HTML so let's just say on this hello from vs code in git I wanted to add a few exclamation points I'm gonna go ahead and add those exclamation points and save and notice how instead of a you like we had before for the untracked file since this file is now tracked by git git knows about it it knows that as I make changes to it now it needs to be included as part of the repository so you can see that it puts this little m which stands for modified so if I go back here and see in the source control panel again there's the m for modified and then if I click on the file this time you can see this is what the file looked like at my last commit right so I didn't have the exclamation",
       "timestamps": [
         [
-          215.97,
-          220.21
+          699.5,
+          703.9
         ],
         [
-          220.21,
-          224.37
+          703.9,
+          708.06
         ],
         [
-          224.93,
-          230.53
+          708.06,
+          714.06
         ],
         [
-          230.53,
-          234.93
+          714.06,
+          718.46
         ],
         [
-          234.93,
-          240.37
+          718.46,
+          724.46
         ],
         [
-          240.37,
-          244.85
+          724.46,
+          730.46
         ],
         [
-          244.85,
-          249.49
+          731.18,
+          736.06
         ],
         [
-          249.49,
-          253.25
+          736.06,
+          741.42
         ],
         [
-          253.33,
-          256.85
+          741.42,
+          747.82
         ],
         [
-          256.85,
-          261.09
+          747.82,
+          752.46
         ],
         [
-          261.09,
-          265.25
+          752.46,
+          758.14
         ],
         [
-          265.25,
-          269.65
+          758.14,
+          762.94
         ],
         [
-          269.65,
-          275.25
+          762.94,
+          768.14
         ]
       ]
     },
     {
       "id": "sec_16",
-      "title": "And that's going to stub out a basic HTML file for me",
-      "start_idx": 58,
-      "end_idx": 60,
-      "text": "And that's going to stub out a basic HTML file for me. And I'll go ahead and say hello from VS code and git. And I'm just going to go ahead and copy this and also put this inside of a paragraph inside of my body. And that way we have some code to work with. All right,",
+      "title": "points and then on the right hand side you can see that this is what i",
+      "start_idx": 152,
+      "end_idx": 167,
+      "text": "points and then on the right hand side you can see that this is what it looks like currently before I've committed the change all right and you can see that we've added the exclamation points here so similar to what I did before I need to go ahead and stage my change so I'm gonna go ahead and click the little plus button to stage it and then I'm gonna go ahead and just say add punctuation to text all right and so that's my commit message again I can click the blue commit button I can use this little drop down for commit I commit and push or commit and sync if I was connected to GitHub which I am currently am not so I'll go ahead and just click the blue commit button and there we go so now I have committed that change and now I have two commits on my repository all right the next thing that we're gonna look at is how to stash changes with vs code so what I'm gonna go ahead and do here is go to my file explorer and I'm gonna go ahead and just make a change here and just add a few more exclamation points I'm gonna go ahead and click save and see that we have our modified indicator here you can see the same thing inside of the source control panel and let's just say that I need to work on something else and I'm not quite ready to commit this change I can basically store this file in a temporary location and then retrieve it back when I'm ready to do so and this concept is known as a stash inside of git and you usually run the git stash command",
       "timestamps": [
         [
-          275.25,
-          280.85
+          768.14,
+          772.54
         ],
         [
-          280.85,
-          287.49
+          772.54,
+          776.62
         ],
         [
-          287.49,
-          291.17
-        ]
-      ]
-    },
-    {
-      "id": "sec_17",
-      "title": "now if we go back and look at the source control panel, you can see th",
-      "start_idx": 61,
-      "end_idx": 65,
-      "text": "now if we go back and look at the source control panel, you can see that there are things happening inside as I work with my files and folders. So git is all about tracking changes to your source code and letting you know what the status of those changes are. And when we're happy with those changes, we can actually commit those changes as a snapshot essentially of what that file looks like at any given point in time.",
-      "timestamps": [
-        [
-          291.17,
-          294.69
+          776.62,
+          780.38
         ],
         [
-          294.69,
-          300.69
+          780.38,
+          784.22
         ],
         [
-          300.69,
-          305.57
+          784.22,
+          791.18
         ],
         [
-          305.57,
-          309.41
+          791.26,
+          796.94
         ],
         [
-          309.41,
-          313.09
+          796.94,
+          801.02
+        ],
+        [
+          801.02,
+          806.3
+        ],
+        [
+          806.3,
+          811.1
+        ],
+        [
+          811.1,
+          817.26
+        ],
+        [
+          817.26,
+          821.82
+        ],
+        [
+          821.82,
+          826.38
+        ],
+        [
+          826.38,
+          830.7
+        ],
+        [
+          830.7,
+          835.42
+        ],
+        [
+          835.42,
+          841.1
+        ],
+        [
+          841.1,
+          846.78
         ]
       ]
     },
     {
       "id": "sec_19",
-      "title": "So what's happened as of right now is I've created a file and we can s",
-      "start_idx": 66,
-      "end_idx": 75,
-      "text": "So what's happened as of right now is I've created a file and we can see over here on the left hand side, we have this u here, which indicates that there's a new file inside of git but is not included as part of the repository. It is untracked. So the repository recognizes there's something there, but as of right now, it's not a tracked file. So I can't see any history from, you know, versions of that file previously. It's a brand new file. I've never committed this file to the repository. So it knows that it's a brand new file. So what I can go ahead and do is go ahead and commit this change to do that. What I can do is click this little plus button and this will stage my change. And if we were using the terminal, this would be the equivalent of running git add and then my file name, or we can stage all of our changes using the dot or the dash a.",
+      "title": "so if I run git stash that will basically save that working directory",
+      "start_idx": 168,
+      "end_idx": 173,
+      "text": "so if I run git stash that will basically save that working directory in a specific state and you can see I don't have that change anymore and my exclamation points are gone so we can do that with vs code without having to memorize the git stash command I'm gonna go ahead and just bring back that stash by running git stash pop all right now to do this with vs code all we have to do is use the little menu up here at the top go down to our stash section and then there is a lot of different options for the different stashes so I can just stash just like I did before",
       "timestamps": [
         [
-          313.09,
-          317.65
+          846.78,
+          853.47
         ],
         [
-          317.65,
-          323.89
+          853.47,
+          857.63
         ],
         [
-          323.89,
-          329.09
+          857.63,
+          861.39
         ],
         [
-          329.09,
-          333.57
+          861.39,
+          867.95
         ],
         [
-          333.57,
-          337.97
+          867.95,
+          872.51
         ],
         [
-          337.97,
-          342.45
-        ],
-        [
-          343.09,
-          347.17
-        ],
-        [
-          347.17,
-          351.33
-        ],
-        [
-          351.33,
-          355.25
-        ],
-        [
-          355.25,
-          363.25
+          872.51,
+          876.43
         ]
       ]
     },
     {
-      "id": "sec_23",
-      "title": "Okay, so this is the using that plus is the equivalent of running git",
-      "start_idx": 76,
-      "end_idx": 81,
-      "text": "Okay, so this is the using that plus is the equivalent of running git add with either an individual file or a collection of files. And say if we had more than one file here on the upper level changes here, we can also use this plus button, which will stage all the changes. So I've had multiple files. Let's go ahead and just emulate that real quick here. Let's go ahead and create a CSS file called styles.css. And we'll go ahead and just link this style sheet using a link tag here.",
+      "id": "sec_20",
+      "title": "so I'm gonna click on this and I can provide a stash message if I want",
+      "start_idx": 174,
+      "end_idx": 186,
+      "text": "so I'm gonna click on this and I can provide a stash message if I want to or I can just hit enter and you can see that changes are gone no pending changes and if I want to bring that back from the stash I can go back to my menu click on stash and then I can do pop latest stash so basically the stashing mechanism for git works like a stack so you push things onto the stack and then you pop them off so what I'm gonna go ahead and do is pop off my latest stash which will bring my code back I can do the same thing again I can go up to stash stash it again this time I'm gonna put a message so I'll just call this test stash and what's cool about this is I can go into my stash menu and let's just say I had more than one stash and kind of lost track of that you know various stashes that I've done I can actually click this pop stash and it will show me the various stashes that are inside of my stash area and you can see there is my test stash and I can go ahead and bring that back just by clicking on it so even though it functions similarly to a stack which is typically going to be last and first out so the last thing that you push in is going to be the first thing that you pop out you can actually have multiple stashes",
       "timestamps": [
         [
-          363.25,
-          366.53
+          876.43,
+          881.79
         ],
         [
-          366.53,
-          370.77
+          881.79,
+          886.67
         ],
         [
-          370.77,
-          376.13
+          886.67,
+          894.11
         ],
         [
-          376.13,
-          379.73
+          894.11,
+          900.75
         ],
         [
-          379.73,
-          386.13
+          900.75,
+          905.36
         ],
         [
-          386.13,
-          389.97
+          905.36,
+          910.32
+        ],
+        [
+          910.32,
+          916.1
+        ],
+        [
+          916.1,
+          921.94
+        ],
+        [
+          921.94,
+          926.26
+        ],
+        [
+          926.26,
+          932.66
+        ],
+        [
+          932.66,
+          936.34
+        ],
+        [
+          936.34,
+          941.38
+        ],
+        [
+          941.38,
+          946.5
         ]
       ]
     },
     {
-      "id": "sec_25",
-      "title": "And it's going to be dot slash styles",
-      "start_idx": 82,
-      "end_idx": 88,
-      "text": "And it's going to be dot slash styles. All right, so you can see now I have two files in my source control panel. And I can stage them individually. So that would be, you know, git add index HTML or git add styles.css. But what I can do is use this upper level changes section here. And I can stage all the files at the same time, which puts them inside of this staging area to be committed. And so this is where you would put these files once we're happy with our changes, we can go ahead and commit these snapshots essentially of our files to git. All right, so before we do anything else, I'm going to go ahead and unstage the changes.",
-      "timestamps": [
-        [
-          391.12,
-          396.72
-        ],
-        [
-          396.72,
-          401.2
-        ],
-        [
-          401.2,
-          407.6
-        ],
-        [
-          407.6,
-          413.12
-        ],
-        [
-          413.12,
-          418.24
-        ],
-        [
-          418.32,
-          423.6
-        ],
-        [
-          424.4,
-          428.32
-        ]
-      ]
-    },
-    {
-      "id": "sec_26",
-      "title": "So you can see now I can use this minus button either up at the top le",
-      "start_idx": 89,
-      "end_idx": 94,
-      "text": "So you can see now I can use this minus button either up at the top level to unstage all my changes, or I can do each file individually. So let's just go ahead and do them individually since there's only two. And so with these files here, you can see I have a couple other options as well. I can open the file. So if I click on the file, I see the difference between the two versions. So for example, if I look at the index HTML, you can see that here is what it started out as since I didn't have any file, there's nothing there. And this is the current version of it.",
-      "timestamps": [
-        [
-          428.32,
-          432.8
-        ],
-        [
-          432.8,
-          438.4
-        ],
-        [
-          438.4,
-          442.32
-        ],
-        [
-          442.32,
-          447.04
-        ],
-        [
-          447.04,
-          451.92
-        ],
-        [
-          451.92,
-          457.04
-        ]
-      ]
-    },
-    {
-      "id": "sec_27",
-      "title": "So basically the difference between when I started and where I'm at, s",
-      "start_idx": 95,
-      "end_idx": 107,
-      "text": "So basically the difference between when I started and where I'm at, same thing with style CSS, there's nothing inside of here, which is why there's nothing here on the right hand side. So let's go ahead and open the file. So I can go ahead and click the little open file button here, which will open the file so I can edit it. And what I'm gonna do is just go ahead and change the background color. So I'll just say body. And we'll just change the background color to, we'll just pick one of these colors here, we'll change it to beige. All right, so if I save that, and then now if I click on the file again, you can see file didn't exist before. So there's no changes there on the right hand side. This is my current version of the code. Now again, we haven't committed anything, right? So it just knows that this file didn't exist before it currently exists. This is the difference between the two. Let's just say I messed up and I don't want this CSS file, I can use this discard changes, which in this case is going to delete the file since it's brand new. But if you ever make any change and you want to revert those changes, you can revert those changes using this button here, and it will take you back to whatever that",
-      "timestamps": [
-        [
-          457.04,
-          460.64
-        ],
-        [
-          460.64,
-          463.84
-        ],
-        [
-          463.84,
-          468.96
-        ],
-        [
-          468.96,
-          472.32
-        ],
-        [
-          472.32,
-          477.76
-        ],
-        [
-          477.76,
-          484.08
-        ],
-        [
-          484.08,
-          488.08
-        ],
-        [
-          488.08,
-          493.28
-        ],
-        [
-          493.28,
-          497.44
-        ],
-        [
-          497.44,
-          501.68
-        ],
-        [
-          501.68,
-          507.68
-        ],
-        [
-          507.68,
-          512.32
-        ],
-        [
-          512.32,
-          516.72
-        ]
-      ]
-    },
-    {
-      "id": "sec_28",
-      "title": "file looked like at your last commit",
-      "start_idx": 108,
-      "end_idx": 121,
-      "text": "file looked like at your last commit. All right, so now that we have our two files, we can go ahead and commit our changes. So this is when we're ready to make a snapshot of these files at a particular point in time. And so I'm happy with my index file. I'm happy with my CSS. I can actually preview this in my browser using my little extension that I have installed here. And you can see that it just says hello from VS Code and Git. I have a beige colored background here. And so this is exactly what I want. So I want to go ahead and commit these file changes. So I'm going to go ahead and close my browser and close all my open editor windows. And inside of my source control panel, I'm going to go ahead and use the upper changes menu here to go ahead and stage this change. And I'm staging both changes or basically staging all of my changes. And you can see the U changes to an A. And so this means it's basically been added to the source control system. So this is index added. So for this to be part of my repositories commit history, I need to go ahead and commit these changes. So what I'm going to do is go ahead and type in a commit message. And I'm going to go ahead and call this my initial commit. There we go. So initial commit. And I can go ahead and use this blue",
-      "timestamps": [
-        [
-          516.72,
-          520.64
-        ],
-        [
-          520.64,
-          524.64
-        ],
-        [
-          524.64,
-          530.16
-        ],
-        [
-          530.16,
-          536.64
-        ],
-        [
-          536.64,
-          541.92
-        ],
-        [
-          541.92,
-          545.52
-        ],
-        [
-          546.4,
-          550.56
-        ],
-        [
-          550.56,
-          556.0
-        ],
-        [
-          556.0,
-          561.52
-        ],
-        [
-          561.52,
-          566.32
-        ],
-        [
-          566.32,
-          571.04
-        ],
-        [
-          571.04,
-          576.08
-        ],
-        [
-          576.08,
-          579.52
-        ],
-        [
-          579.52,
-          585.6
-        ]
-      ]
-    },
-    {
-      "id": "sec_29",
-      "title": "button here",
-      "start_idx": 122,
-      "end_idx": 124,
-      "text": "button here. All right. And so this would be the equivalent of running git commit dash m. And then in quotes, it would be initial commit. And basically, this command is equivalent to typing this in the box and clicking commit. So I'm going to go ahead and just delete this here.",
-      "timestamps": [
-        [
-          585.6,
-          591.76
-        ],
-        [
-          591.76,
-          596.72
-        ],
-        [
-          596.72,
-          600.32
-        ]
-      ]
-    },
-    {
-      "id": "sec_30",
-      "title": "And I'm going to go ahead and commit these changes to my main branch",
-      "start_idx": 125,
-      "end_idx": 142,
-      "text": "And I'm going to go ahead and commit these changes to my main branch. So you can see that right down here. All right. Now before we look at modifying these files to see what that looks like in VS Code, I wanted to point out this menu right here on the top of the source control panel. And what this does is it gives you some options for some different views. We can see some incoming changes and outgoing changes if we were connected to a remote repository, along with our various push, pull, clone and fetch commands. So it's all right here inside of this menu. However, for the working with a local repository, we'll mainly be looking at this section down here, which is kind of our branch section. We have a commit section here, we can stash our changes, which we'll look at here in a minute. But I wanted to point out this commit menu. And we have some options here. So in addition to that blue commit button that we saw, we can also use the menu to commit either all of our changes. You know, say we hadn't staged anything yet, and we just want to commit all of our files. So stage them and commit them all at the same time, we can use this commit all we can also undo our last commit. So it's one of the things in Git that gets kind of confusing. Sometimes you might want to revert your previous commit. VS Code makes that really easy. So let's just say I wanted to make a small change. I messed up on my commit. I don't really want to create another one, even though it's not really a problem doing that. But let's just say I want to undo that last commit and, you know, make an additional change.",
-      "timestamps": [
-        [
-          600.32,
-          604.72
-        ],
-        [
-          604.72,
-          609.28
-        ],
-        [
-          609.28,
-          614.16
-        ],
-        [
-          614.16,
-          618.88
-        ],
-        [
-          618.88,
-          623.12
-        ],
-        [
-          623.12,
-          628.32
-        ],
-        [
-          628.32,
-          633.04
-        ],
-        [
-          633.04,
-          638.8
-        ],
-        [
-          638.8,
-          642.0
-        ],
-        [
-          642.0,
-          647.68
-        ],
-        [
-          647.68,
-          652.24
-        ],
-        [
-          653.12,
-          656.88
-        ],
-        [
-          656.88,
-          661.12
-        ],
-        [
-          661.12,
-          665.2
-        ],
-        [
-          665.2,
-          670.4
-        ],
-        [
-          670.4,
-          674.72
-        ],
-        [
-          674.72,
-          678.08
-        ],
-        [
-          678.08,
-          682.16
-        ]
-      ]
-    },
-    {
-      "id": "sec_36",
-      "title": "So what I can do is go ahead and click undo last commit",
-      "start_idx": 143,
-      "end_idx": 146,
-      "text": "So what I can do is go ahead and click undo last commit. And you can see that it undid that commit. And here are the changes in their modified state. So you can see they have the little you back means basically meaning that they're untracked. They're not staged anymore. And let's just say instead of my background color being beige,",
-      "timestamps": [
-        [
-          682.16,
-          685.92
-        ],
-        [
-          685.92,
-          691.12
-        ],
-        [
-          691.12,
-          694.16
-        ],
-        [
-          695.28,
-          699.44
-        ]
-      ]
-    },
-    {
-      "id": "sec_38",
-      "title": "let's go ahead and make it Azure",
-      "start_idx": 147,
-      "end_idx": 152,
-      "text": "let's go ahead and make it Azure. And then what we can do, I'll go ahead and use that menu again to just commit all of these changes. So we'll stage and commit them at the same time. So what I'm going to go ahead and do is click on commit, and then commit all. And you can see that stage my changes and committed them with the message that was already inside of the box. So when I undid the change, it put my commit message back. So some really cool features inside of this menu.",
-      "timestamps": [
-        [
-          699.52,
-          703.36
-        ],
-        [
-          703.36,
-          707.12
-        ],
-        [
-          707.12,
-          711.76
-        ],
-        [
-          711.76,
-          715.28
-        ],
-        [
-          715.28,
-          718.48
-        ],
-        [
-          718.48,
-          723.52
-        ]
-      ]
-    },
-    {
-      "id": "sec_39",
-      "title": "Now let's go ahead and jump back to our file explorer and just make a",
-      "start_idx": 153,
-      "end_idx": 159,
-      "text": "Now let's go ahead and jump back to our file explorer and just make a small change to our index HTML. So let's just say on this hello from VS code and get, I wanted to add a few exclamation points. I'm going to add those exclamation points and save. And notice how instead of a you like we had before for the untracked file, since this file is now tracked by get, get knows about it, it knows that as I make changes to it now, it needs to be included as part of the repository. So you can see that it puts this little m, which stands for modified.",
-      "timestamps": [
-        [
-          723.52,
-          727.44
-        ],
-        [
-          727.44,
-          733.28
-        ],
-        [
-          733.28,
-          737.28
-        ],
-        [
-          737.28,
-          742.8
-        ],
-        [
-          742.8,
-          746.64
-        ],
-        [
-          747.28,
-          751.28
-        ],
-        [
-          751.28,
-          755.36
-        ]
-      ]
-    },
-    {
-      "id": "sec_41",
-      "title": "So if I go back here and see in the source control panel, again, there",
-      "start_idx": 160,
-      "end_idx": 169,
-      "text": "So if I go back here and see in the source control panel, again, there's the m for modified. And then if I click on the file this time, you can see this is what the file looked like at my last commit. Right. So I didn't have the exclamation points. And then on the right hand side, you can see that this is what it looks like currently before I've committed the change. All right. And you can see that we've added the exclamation points here. So similar to what I did before, I need to go ahead and stage my change. So I'm going to go ahead and click the little plus button to stage it. And then I'm going to go ahead and just say, add punctuation to text. All right. And so that's my commit message. Again, I can click the blue commit button.",
-      "timestamps": [
-        [
-          755.44,
-          759.2
-        ],
-        [
-          759.2,
-          762.72
-        ],
-        [
-          762.72,
-          766.64
-        ],
-        [
-          766.64,
-          770.24
-        ],
-        [
-          770.24,
-          774.32
-        ],
-        [
-          774.32,
-          777.2
-        ],
-        [
-          777.2,
-          780.24
-        ],
-        [
-          780.24,
-          783.28
-        ],
-        [
-          783.28,
-          788.48
-        ],
-        [
-          789.2,
-          792.72
-        ]
-      ]
-    },
-    {
-      "id": "sec_48",
-      "title": "I can use this little drop down for commit, commit and push or commit",
-      "start_idx": 170,
-      "end_idx": 178,
-      "text": "I can use this little drop down for commit, commit and push or commit and sync if I was connected to get help, which I'm currently am not. So I'll go ahead and just click the blue commit button. And there we go. So now I have committed that change. And now I have two commits on my repository. All right. The next thing that we're going to look at is how to stash changes with VS code. So what I'm going to go ahead and do here is go to my file explorer. And I'm going to just make a change here and just add a few more exclamation points. I'm going to go ahead and click save and see that we have our modified indicator here. You can see the same thing inside of the source control panel.",
-      "timestamps": [
-        [
-          792.72,
-          797.92
-        ],
-        [
-          797.92,
-          801.68
-        ],
-        [
-          801.68,
-          805.76
-        ],
-        [
-          805.76,
-          809.04
-        ],
-        [
-          809.04,
-          812.08
-        ],
-        [
-          812.08,
-          817.28
-        ],
-        [
-          817.28,
-          821.76
-        ],
-        [
-          821.76,
-          826.32
-        ],
-        [
-          826.32,
-          828.72
-        ]
-      ]
-    },
-    {
-      "id": "sec_54",
-      "title": "And let's just say that I need to work on something else and I'm not q",
-      "start_idx": 179,
+      "id": "sec_21",
+      "title": "and then pop off the one that you want using that menu there so pretty",
+      "start_idx": 187,
       "end_idx": 199,
-      "text": "And let's just say that I need to work on something else and I'm not quite ready to commit this change. I can basically store this file in a temporary location and then retrieve it back when I'm ready to do so. And this concept is known as a stash inside of git and you usually run the git stash command. So if I run git stash, that will basically save that working directory in a specific state. And you can see I don't have that change anymore and my exclamation points are gone. So we can do that with VS code without having to memorize the git stash command. I'm going to go ahead and just bring back that stash by running git stash pop. All right. Now to do this with VS code, all we have to do is use the little menu up here at the top, go down to our stash section. And then there's a lot of different options for the different stashes. So I can just stash just like I did before. So I'm going to click on this. And I can provide a stash message if I want to, or I can just hit enter. And you can see that changes are gone, no pending changes. And if I want to bring that back from the stash, I can go back to my menu, click on stash, and then I can do pop latest stash. So basically the stashing mechanism for git works like a stack. So you push things onto the stack and then you pop them off. So what we're going to do is pop off my latest stash, which will bring my code back. I can do the same thing again.",
+      "text": "and then pop off the one that you want using that menu there so pretty cool feature and VS code makes this very very easy using this menu all right so I'm gonna go ahead and undo this change using the discard changes button here and it's gonna ask me am I sure that I want to discard the change those is basically if you make a change you mess up on your code and you want to revert those changes you can use the discard changes button and you can do this on a single file level or you can do it for all of the files that have changes but now the next thing that we're going to do is go ahead and look at branches so again one of the things I can do I can click down here on main and this will bring up the command palette specifically for git and it gives me the option to create a new branch I can create a new branch from another branch I can also check out a detached branch and tells me that I'm on main so it'll also list my various branches that I have here so let's go ahead and create a new branch I'm gonna go ahead and click create new branch and I'll just go ahead and call this test branch and I'll hit enter you can see down here at the bottom our main has changed to test branch and now I am on that",
       "timestamps": [
         [
-          828.72,
-          834.0
+          946.5,
+          952.5
         ],
         [
-          834.0,
-          839.2
+          952.5,
+          957.46
         ],
         [
-          839.28,
-          844.16
+          957.46,
+          962.42
         ],
         [
-          844.16,
-          848.0
+          962.42,
+          966.5
         ],
         [
-          849.09,
-          853.17
+          966.5,
+          971.46
         ],
         [
-          853.17,
-          856.77
+          971.46,
+          975.54
         ],
         [
-          856.77,
-          860.13
+          975.54,
+          979.06
         ],
         [
-          860.13,
-          864.05
+          979.06,
+          984.26
         ],
         [
-          864.77,
-          869.17
+          984.26,
+          989.14
         ],
         [
-          869.17,
-          871.81
+          989.14,
+          996.1
         ],
         [
-          871.81,
-          874.77
+          996.1,
+          1000.02
         ],
         [
-          874.77,
-          877.49
+          1000.02,
+          1005.38
         ],
         [
-          877.49,
-          881.73
-        ],
-        [
-          881.73,
-          885.17
-        ],
-        [
-          885.17,
-          888.77
-        ],
-        [
-          888.77,
-          893.49
-        ],
-        [
-          893.49,
-          898.53
-        ],
-        [
-          898.53,
-          901.49
-        ],
-        [
-          901.49,
-          904.05
-        ],
-        [
-          904.98,
-          906.42
-        ],
-        [
-          906.42,
-          907.62
+          1005.38,
+          1010.98
         ]
       ]
     }

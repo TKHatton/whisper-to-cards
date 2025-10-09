@@ -1,7 +1,7 @@
 {
   "meta": {
-    "source": "inputs/How To Use Git In VS Code Like A Pro.mp3",
-    "datetime": "2025-10-06T19:54:11",
+    "source": "inputs/git_vscode_normalized.wav",
+    "datetime": "2025-10-09T07:50:08",
     "model": "small",
     "language": "auto",
     "device": "auto",
@@ -22,3825 +22,2121 @@
       "speaker": null
     },
     {
-      "start": 12.3,
-      "end": 15.58,
-      "text": "All right, so before we get started, we do need to go over a couple of prerequisites in",
+      "start": 12.29,
+      "end": 15.57,
+      "text": "All right, so before we get started we do need to go over a couple prerequisites in",
       "speaker": null
     },
     {
-      "start": 15.58,
-      "end": 18.94,
+      "start": 15.57,
+      "end": 18.93,
       "text": "order to follow along with this video. So the first thing that you'll need to do is make",
       "speaker": null
     },
     {
-      "start": 18.94,
-      "end": 23.18,
+      "start": 18.93,
+      "end": 23.17,
       "text": "sure you have VS Code installed. The next thing you'll need to do is make sure that you have",
       "speaker": null
     },
     {
-      "start": 23.18,
-      "end": 27.74,
-      "text": "Git installed. And then optionally, depending on how far you want to go with this video,",
+      "start": 23.17,
+      "end": 27.73,
+      "text": "Git installed and then optionally depending on how far you want to go with this video",
       "speaker": null
     },
     {
-      "start": 27.74,
-      "end": 31.34,
-      "text": "you'll need to make sure that you have a GitHub account created. And you'll need to make sure",
+      "start": 27.73,
+      "end": 31.33,
+      "text": "you'll need to make sure that you have a GitHub account created and you'll need to make sure",
       "speaker": null
     },
     {
-      "start": 31.34,
-      "end": 36.78,
+      "start": 31.33,
+      "end": 36.77,
       "text": "you set up your SSH keys for GitHub so that way you can connect from VS Code or from Git",
       "speaker": null
     },
     {
-      "start": 36.78,
-      "end": 43.1,
-      "text": "to your GitHub account, so that way you can upload code to VS Code and download it to your machine.",
+      "start": 36.77,
+      "end": 43.09,
+      "text": "to your GitHub account so that way you can upload code to VS Code and download it to your machine.",
       "speaker": null
     },
     {
-      "start": 43.1,
-      "end": 47.58,
+      "start": 43.09,
+      "end": 47.57,
       "text": "So those parts are optional. We're mainly going to be covering the Git tooling as it",
       "speaker": null
     },
     {
-      "start": 47.58,
-      "end": 53.18,
-      "text": "pertains to working with Git inside of VS Code. But we are going to cover some GitHub-specific",
+      "start": 47.57,
+      "end": 53.17,
+      "text": "pertains to working with Git inside of VS Code but we are going to cover some GitHub specific",
       "speaker": null
     },
     {
-      "start": 53.18,
-      "end": 58.86,
+      "start": 53.17,
+      "end": 58.85,
       "text": "features like how to push a branch to GitHub, how to clone things like that. So I'd recommend",
       "speaker": null
     },
     {
-      "start": 58.86,
-      "end": 62.46,
-      "text": "you have all of these set up. And if you need any help with that, I have videos for every",
+      "start": 58.85,
+      "end": 62.85,
+      "text": "you have all of these set up and if you need any help with that I have videos for every single one",
       "speaker": null
     },
     {
-      "start": 62.46,
-      "end": 65.58,
-      "text": "single one of these topics, which I'll link down in the description below.",
+      "start": 62.85,
+      "end": 66.69,
+      "text": "of these topics which I'll link down in the description below. All right so with all that out",
       "speaker": null
     },
     {
-      "start": 65.58,
-      "end": 69.42,
-      "text": "Alright, so with all that out of the way, let's go ahead and start working with Git inside",
+      "start": 66.69,
+      "end": 71.41,
+      "text": "of the way let's go ahead and start working with Git inside of Visual Studio Code. So the first thing",
       "speaker": null
     },
     {
-      "start": 69.42,
-      "end": 73.5,
-      "text": "of Visual Studio Code. So the first thing I'm going to do is go ahead and open up a terminal.",
+      "start": 71.41,
+      "end": 75.49,
+      "text": "I'm going to do is go ahead and open up a terminal and what we're going to do is create a folder",
       "speaker": null
     },
     {
-      "start": 73.5,
-      "end": 77.66,
-      "text": "And what we're going to do is create a folder for our project. So when working with Visual",
+      "start": 75.49,
+      "end": 80.53,
+      "text": "for our project. So when working with Visual Studio Code and with Git your projects are",
       "speaker": null
     },
     {
-      "start": 77.66,
-      "end": 82.78,
-      "text": "Studio Code and with Git, your projects are literally just folders. It's a collection of",
+      "start": 80.53,
+      "end": 85.17,
+      "text": "literally just folders. It's a collection of files and folders and Visual Studio Code",
       "speaker": null
     },
     {
-      "start": 82.78,
-      "end": 87.5,
-      "text": "files and folders. And Visual Studio Code can open these and you can work with those files",
+      "start": 85.17,
+      "end": 89.89,
+      "text": "can open these and you can work with those files inside of those folders and then Git",
       "speaker": null
     },
     {
-      "start": 87.5,
-      "end": 93.42,
-      "text": "inside of those folders. And then Git basically initializes a repository inside of that folder",
+      "start": 89.89,
+      "end": 95.25,
+      "text": "basically initializes a repository inside of that folder and keeps track of those changes inside of",
       "speaker": null
     },
     {
-      "start": 93.42,
-      "end": 98.14,
-      "text": "and keeps track of those changes inside of a special folder called .git. So it's a little bit",
+      "start": 95.25,
+      "end": 100.05,
+      "text": "a special folder called .git. So it's a little bit out of scope of this course but just want to",
       "speaker": null
     },
     {
-      "start": 98.14,
-      "end": 102.78,
-      "text": "out of scope of this course, but just want to let you know what's going on behind the scenes.",
+      "start": 100.05,
+      "end": 104.53,
+      "text": "let you know what's going on behind the scenes and at the end of the day it's literally just a",
       "speaker": null
     },
     {
-      "start": 102.78,
-      "end": 106.22,
-      "text": "And at the end of the day, it's literally just a collection of files and folders.",
+      "start": 104.53,
+      "end": 108.93,
+      "text": "collection of files and folders. So what we're going to do is go ahead and create a new folder",
       "speaker": null
     },
     {
-      "start": 106.22,
-      "end": 109.9,
-      "text": "So what we're going to do is go ahead and create a new folder for our project.",
+      "start": 108.93,
+      "end": 112.77,
+      "text": "for our project. Now I like to keep all my projects inside of a folder called code so",
       "speaker": null
     },
     {
-      "start": 109.9,
-      "end": 113.02,
-      "text": "Now I like to keep all my projects inside of a folder called code. So I'm going to go",
+      "start": 112.77,
+      "end": 115.97,
+      "text": "I'm going to go ahead and cd into my code directory and inside of here I'm going to go",
       "speaker": null
     },
     {
-      "start": 113.02,
-      "end": 117.58,
-      "text": "ahead and cd into my code directory. And inside of here, I'm going to go ahead and make a new directory",
+      "start": 115.97,
+      "end": 122.21,
+      "text": "ahead and make a new directory using the makedir command and I'm going to call this vscode-git.",
       "speaker": null
     },
     {
-      "start": 117.58,
-      "end": 122.22,
-      "text": "using the makedir command. And I'm going to call this vscode-git.",
+      "start": 124.22,
+      "end": 129.18,
+      "text": "All right and then I'm going to go ahead and cd into that directory so vscode-git",
       "speaker": null
     },
     {
-      "start": 124.21,
-      "end": 129.89,
-      "text": "All right. And then I'm going to go ahead and cd into that directory. So vscode-git.",
+      "start": 129.9,
+      "end": 133.5,
+      "text": "and then I'm going to go ahead and open this folder inside of vscode and I can do that by",
       "speaker": null
     },
     {
-      "start": 129.89,
-      "end": 133.33,
-      "text": "And then I'm going to go ahead and open this folder inside of vscode. And I can do that",
+      "start": 133.5,
+      "end": 140.54,
+      "text": "typing code. All right now if you're working on Windows and you've installed Git and vscode",
       "speaker": null
     },
     {
-      "start": 133.33,
-      "end": 139.41,
-      "text": "by typing code. All right. Now if you're working on Windows and you've installed Git",
+      "start": 140.62,
+      "end": 145.66,
+      "text": "it should have installed that code command for you in the path. If not you might have to go back",
       "speaker": null
     },
     {
-      "start": 139.41,
-      "end": 144.77,
-      "text": "and vscode, it should have installed that code command for you in the path. If not,",
+      "start": 145.66,
+      "end": 151.58,
+      "text": "through your installation or manually add the code command into your computer's path and if you're",
       "speaker": null
     },
     {
-      "start": 144.77,
-      "end": 149.01,
-      "text": "you might have to go back through your installation or manually add the code command",
+      "start": 151.58,
+      "end": 155.66,
+      "text": "on mac there's actually a very easy way to do that you can do it from the command palette inside",
       "speaker": null
     },
     {
-      "start": 149.01,
-      "end": 153.73,
-      "text": "into your computer's path. And if you're on Mac, there's actually a very easy way to do that.",
+      "start": 155.66,
+      "end": 159.98,
+      "text": "of vscode. All right so now that I've opened this folder you can see that there's no files in",
       "speaker": null
     },
     {
-      "start": 153.73,
-      "end": 157.49,
-      "text": "You can do it from the command palette inside of vscode. All right. So now that I've opened",
+      "start": 159.98,
+      "end": 165.26,
+      "text": "it here inside of my file explorer and what we want to do is go ahead and initialize this",
       "speaker": null
     },
     {
-      "start": 157.49,
-      "end": 162.45,
-      "text": "this folder, you can see that there's no files in it here inside of my file explorer. And what",
+      "start": 165.26,
+      "end": 171.58,
+      "text": "as a new git repository. To do that what we can do is go ahead and go into the source control panel",
       "speaker": null
     },
     {
-      "start": 162.45,
-      "end": 168.21,
-      "text": "we want to do is go ahead and initialize this as a new Git repository. To do that,",
+      "start": 171.58,
+      "end": 177.26,
+      "text": "over here on the left and you can see that we don't have a repository initialized otherwise we would",
       "speaker": null
     },
     {
-      "start": 168.21,
-      "end": 172.93,
-      "text": "what we can do is go ahead and go into the source control panel over here on the left.",
+      "start": 177.26,
+      "end": 183.02,
+      "text": "see the status of our repository. Instead we get this big blue button that says initialize repository",
       "speaker": null
     },
     {
-      "start": 172.93,
-      "end": 178.29,
-      "text": "And you can see that we don't have a repository initialized. Otherwise, we would see the status",
+      "start": 183.02,
+      "end": 188.94,
+      "text": "and a link to some documentation for vscode and git source control and you can see if we're also",
       "speaker": null
     },
     {
-      "start": 178.29,
-      "end": 183.73,
-      "text": "of our repository. Instead, we get this big blue button that says initialize repository and a link",
+      "start": 188.94,
+      "end": 194.62,
+      "text": "connected to github we can also publish that repository basically push the repository up to",
       "speaker": null
     },
     {
-      "start": 183.73,
-      "end": 189.33,
-      "text": "to some documentation for vscode and Git source control. And you can see if we're also connected",
+      "start": 194.62,
+      "end": 199.42,
+      "text": "github. So we're going to focus on repository creation working with local files and at the very",
       "speaker": null
     },
     {
-      "start": 189.33,
-      "end": 195.33,
-      "text": "to GitHub, we can also publish that repository, basically push the repository up to GitHub.",
+      "start": 199.42,
+      "end": 202.94,
+      "text": "end we'll go ahead and talk about how to work with github. So what I'm going to do is go ahead and",
       "speaker": null
     },
     {
-      "start": 195.41,
-      "end": 199.57,
-      "text": "So we're going to focus on repository creation, working with local files. And at the very end,",
+      "start": 202.94,
+      "end": 209.5,
+      "text": "click this blue initialize repository button and you can see that it has changed the screen here",
       "speaker": null
     },
     {
-      "start": 199.57,
-      "end": 203.25,
-      "text": "we'll go ahead and talk about how to work with GitHub. So what I'm going to do is go ahead and click",
+      "start": 209.5,
+      "end": 215.9,
+      "text": "and I have an option for my commit message. I can publish my branch if I'm connected to github",
       "speaker": null
     },
     {
-      "start": 203.25,
-      "end": 209.57,
-      "text": "this blue initialize repository button. And you can see that it has changed the screen here.",
+      "start": 215.9,
+      "end": 220.22,
+      "text": "and then down here in the bottom left hand corner you can see that our repository has",
       "speaker": null
     },
     {
-      "start": 209.57,
-      "end": 215.97,
-      "text": "And I have an option for my commit message. I can publish my branch if I'm connected to GitHub.",
+      "start": 220.22,
+      "end": 224.38,
+      "text": "been initialized with a default branch called main and we are ready to start working with",
       "speaker": null
     },
     {
-      "start": 215.97,
-      "end": 220.21,
-      "text": "And then down here in the bottom left hand corner, you can see that our repository has",
+      "start": 224.94,
+      "end": 230.54,
+      "text": "git source control inside of vscode. So clicking that button to initialize the repository is the",
       "speaker": null
     },
     {
-      "start": 220.21,
-      "end": 224.37,
-      "text": "been initialized with a default branch called main. And we're ready to start working with",
+      "start": 230.54,
+      "end": 234.78,
+      "text": "equivalent of running the git init command inside of the command line and what I'm gonna",
       "speaker": null
     },
     {
-      "start": 224.93,
-      "end": 230.53,
-      "text": "Git source control inside of vscode. So clicking that button to initialize the repository is the",
+      "start": 234.78,
+      "end": 239.82,
+      "text": "actually go ahead and do for the remainder of this video is open up the terminal so I can",
       "speaker": null
     },
     {
-      "start": 230.53,
-      "end": 234.93,
-      "text": "equivalent of running the git init command inside of the command line. And what I'm going to actually",
+      "start": 239.82,
+      "end": 243.26,
+      "text": "click on the terminal window up here at the top and click new terminal. I can also press",
       "speaker": null
     },
     {
-      "start": 234.93,
-      "end": 240.37,
-      "text": "go ahead and do for the remainder of this video is open up the terminal. So I can click on the",
+      "start": 243.26,
+      "end": 248.46,
+      "text": "control tilde to toggle my terminal open and closed but basically what we just did is the",
       "speaker": null
     },
     {
-      "start": 240.37,
-      "end": 244.85,
-      "text": "terminal window up here at the top and click new terminal. I can also press control tilde to toggle",
+      "start": 248.46,
+      "end": 253.18,
+      "text": "equivalent of running git init which will initialize a brand new repository. All right so the next",
       "speaker": null
     },
     {
-      "start": 244.85,
-      "end": 249.49,
-      "text": "my terminal open and closed. But basically what we just did is the equivalent of running",
+      "start": 253.18,
+      "end": 256.3,
+      "text": "thing that we're going to do is go ahead and add some files so I'm going to go ahead and just",
       "speaker": null
     },
     {
-      "start": 249.49,
-      "end": 253.25,
-      "text": "git init, which will initialize a brand new repository. All right, so the next thing",
+      "start": 256.3,
+      "end": 261.02,
+      "text": "add an html file. To do that I'm going to go up to my source control panel I'm going to click on",
       "speaker": null
     },
     {
-      "start": 253.33,
-      "end": 256.85,
-      "text": "that we're going to do is go ahead and add some files. So I'm going to go ahead and just add an",
+      "start": 261.02,
+      "end": 265.58,
+      "text": "the little plus file button here that says new file and I'm going to go ahead and just call this",
       "speaker": null
     },
     {
-      "start": 256.85,
-      "end": 261.09,
-      "text": "HTML file to do that. I'm going to go up to my source control panel. I'm going to click on",
+      "start": 265.58,
+      "end": 270.46,
+      "text": "index.html and I'm going to go ahead and give this file some contents using an emit snippet so",
       "speaker": null
     },
     {
-      "start": 261.09,
-      "end": 265.25,
-      "text": "the little plus file button here that says new file. And I'm going to go ahead and just call",
+      "start": 270.46,
+      "end": 275.74,
+      "text": "I'm going to go ahead and just press the exclamation mark and hit enter and that's going",
       "speaker": null
     },
     {
-      "start": 265.25,
-      "end": 269.65,
-      "text": "this index.html. And I'm going to go ahead and give this file some contents using an",
+      "start": 275.74,
+      "end": 283.42,
+      "text": "to stub out a basic html file for me and I'll go ahead and say hello from vscode and git",
       "speaker": null
     },
     {
-      "start": 269.65,
-      "end": 275.25,
-      "text": "imit snippet. So I'm going to go ahead and just press the exclamation mark and hit enter.",
+      "start": 284.22,
+      "end": 289.26,
+      "text": "and I'm just gonna go ahead and copy this and also put this inside of a paragraph inside of my body",
       "speaker": null
     },
     {
-      "start": 275.25,
-      "end": 280.85,
-      "text": "And that's going to stub out a basic HTML file for me. And I'll go ahead and say hello",
+      "start": 289.26,
+      "end": 292.54,
+      "text": "and that way we have some code to work with. All right now if we go back and look at the",
       "speaker": null
     },
     {
-      "start": 280.85,
-      "end": 287.49,
-      "text": "from VS code and git. And I'm just going to go ahead and copy this and also put this inside of",
+      "start": 292.54,
+      "end": 297.42,
+      "text": "source control panel you can see that there are things happening inside as I work with my",
       "speaker": null
     },
     {
-      "start": 287.49,
-      "end": 291.17,
-      "text": "a paragraph inside of my body. And that way we have some code to work with. All right,",
+      "start": 297.42,
+      "end": 303.26,
+      "text": "files and folders so git is all about tracking changes to your source code and letting you",
       "speaker": null
     },
     {
-      "start": 291.17,
-      "end": 294.69,
-      "text": "now if we go back and look at the source control panel, you can see that there are",
+      "start": 303.26,
+      "end": 307.02,
+      "text": "know what the status of those changes are and when we're happy with those changes we can",
       "speaker": null
     },
     {
-      "start": 294.69,
-      "end": 300.69,
-      "text": "things happening inside as I work with my files and folders. So git is all about tracking changes",
+      "start": 307.02,
+      "end": 311.98,
+      "text": "actually commit those changes as a snapshot essentially of what that file looks like at",
       "speaker": null
     },
     {
-      "start": 300.69,
-      "end": 305.57,
-      "text": "to your source code and letting you know what the status of those changes are.",
+      "start": 311.98,
+      "end": 316.22,
+      "text": "any given point in time. So what's happened as of right now is I've created a file",
       "speaker": null
     },
     {
-      "start": 305.57,
-      "end": 309.41,
-      "text": "And when we're happy with those changes, we can actually commit those changes as a",
+      "start": 316.22,
+      "end": 321.74,
+      "text": "and we can see over here on the left hand side we have this u here which indicates that there's",
       "speaker": null
     },
     {
-      "start": 309.41,
-      "end": 313.09,
-      "text": "snapshot essentially of what that file looks like at any given point in time.",
+      "start": 321.74,
+      "end": 327.98,
+      "text": "a new file inside of git but is not included as part of the repository it is untracked so the",
       "speaker": null
     },
     {
-      "start": 313.09,
-      "end": 317.65,
-      "text": "So what's happened as of right now is I've created a file and we can see over here on the",
+      "start": 327.98,
+      "end": 332.62,
+      "text": "repository recognizes there's something there but as of right now it's not a tracked file so I",
       "speaker": null
     },
     {
-      "start": 317.65,
-      "end": 323.89,
-      "text": "left hand side, we have this u here, which indicates that there's a new file inside of git",
+      "start": 332.62,
+      "end": 338.3,
+      "text": "can't see any history from you know versions of that file previously it's a brand new file I've never",
       "speaker": null
     },
     {
-      "start": 323.89,
-      "end": 329.09,
-      "text": "but is not included as part of the repository. It is untracked. So the repository recognizes",
+      "start": 338.3,
+      "end": 343.9,
+      "text": "committed this file to the repository so it knows that it's a brand new file so what I can go ahead",
       "speaker": null
     },
     {
-      "start": 329.09,
-      "end": 333.57,
-      "text": "there's something there, but as of right now, it's not a tracked file. So I can't see any",
+      "start": 343.9,
+      "end": 349.02,
+      "text": "and do is go ahead and commit this change to do that what I can do is click this little plus",
       "speaker": null
     },
     {
-      "start": 333.57,
-      "end": 337.97,
-      "text": "history from, you know, versions of that file previously. It's a brand new file. I've",
+      "start": 349.02,
+      "end": 353.58,
+      "text": "button and this will stage my change and if we were using the terminal this would be the equivalent",
       "speaker": null
     },
     {
-      "start": 337.97,
-      "end": 342.45,
-      "text": "never committed this file to the repository. So it knows that it's a brand new file.",
+      "start": 353.58,
+      "end": 361.02,
+      "text": "of running git add and then my file name or we can stage all of our changes using the dot",
       "speaker": null
     },
     {
-      "start": 343.09,
-      "end": 347.17,
-      "text": "So what I can go ahead and do is go ahead and commit this change to do that.",
+      "start": 361.1,
+      "end": 366.54,
+      "text": "or the dash a okay so this is the using that plus is the equivalent of running git add",
       "speaker": null
     },
     {
-      "start": 347.17,
-      "end": 351.33,
-      "text": "What I can do is click this little plus button and this will stage my change.",
+      "start": 366.54,
+      "end": 371.58,
+      "text": "with either an individual file or a collection of files and say if we had more than one file here",
       "speaker": null
     },
     {
-      "start": 351.33,
-      "end": 355.25,
-      "text": "And if we were using the terminal, this would be the equivalent of running git add",
+      "start": 372.3,
+      "end": 377.1,
+      "text": "on the upper level changes here we can also use this plus button which will stage",
       "speaker": null
     },
     {
-      "start": 355.25,
-      "end": 363.25,
-      "text": "and then my file name, or we can stage all of our changes using the dot or the dash a.",
+      "start": 377.1,
+      "end": 381.34,
+      "text": "all the changes so I've had multiple files let's go ahead and just emulate that real quick here",
       "speaker": null
     },
     {
-      "start": 363.25,
-      "end": 366.53,
-      "text": "Okay, so this is the using that plus is the equivalent of running git add",
+      "start": 381.34,
+      "end": 387.34,
+      "text": "let's go ahead and create a css file call it styles.css and we'll go ahead and just link",
       "speaker": null
     },
     {
-      "start": 366.53,
-      "end": 370.77,
-      "text": "with either an individual file or a collection of files. And say if we had more",
+      "start": 387.34,
+      "end": 394.86,
+      "text": "this style sheet using a link tag here and it's going to be dot slash styles all right so you can",
       "speaker": null
     },
     {
-      "start": 370.77,
-      "end": 376.13,
-      "text": "than one file here on the upper level changes here, we can also use this plus button,",
+      "start": 394.86,
+      "end": 400.94,
+      "text": "see now I have two files in my source control panel and I can stage them individually so that would",
       "speaker": null
     },
     {
-      "start": 376.13,
-      "end": 379.73,
-      "text": "which will stage all the changes. So I've had multiple files. Let's go ahead and",
+      "start": 400.94,
+      "end": 407.58,
+      "text": "be you know git add index html or git add styles.css but what I can do is use this upper level",
       "speaker": null
     },
     {
-      "start": 379.73,
-      "end": 386.13,
-      "text": "just emulate that real quick here. Let's go ahead and create a CSS file called styles.css.",
+      "start": 407.58,
+      "end": 413.1,
+      "text": "changes section here and I can stage all the files at the same time which puts them inside of",
       "speaker": null
     },
     {
-      "start": 386.13,
-      "end": 389.97,
-      "text": "And we'll go ahead and just link this style sheet using a link tag here.",
+      "start": 413.1,
+      "end": 418.7,
+      "text": "this staging area to be committed okay and so this is where you would put these files once we're happy",
       "speaker": null
     },
     {
-      "start": 391.12,
-      "end": 396.72,
-      "text": "And it's going to be dot slash styles. All right, so you can see now I have two files",
+      "start": 418.7,
+      "end": 425.42,
+      "text": "with our changes we can go ahead and commit these snapshots essentially of our files uh to git",
       "speaker": null
     },
     {
-      "start": 396.72,
-      "end": 401.2,
-      "text": "in my source control panel. And I can stage them individually. So that would be,",
+      "start": 425.42,
+      "end": 428.54,
+      "text": "all right so before we do anything else I'm going to go ahead and unstage the changes so you can",
       "speaker": null
     },
     {
-      "start": 401.2,
-      "end": 407.6,
-      "text": "you know, git add index HTML or git add styles.css. But what I can do is use this upper level",
+      "start": 428.54,
+      "end": 433.58,
+      "text": "see now I can use this minus button either up at the top level to unstage all my changes",
       "speaker": null
     },
     {
-      "start": 407.6,
-      "end": 413.12,
-      "text": "changes section here. And I can stage all the files at the same time, which puts them inside of",
+      "start": 433.58,
+      "end": 438.7,
+      "text": "or I can do each file individually so let's just go ahead and do individually since there's",
       "speaker": null
     },
     {
-      "start": 413.12,
-      "end": 418.24,
-      "text": "this staging area to be committed. And so this is where you would put these files once",
+      "start": 438.7,
+      "end": 443.74,
+      "text": "only two and so with these files here you can see I have a couple other options as well I can",
       "speaker": null
     },
     {
-      "start": 418.32,
-      "end": 423.6,
-      "text": "we're happy with our changes, we can go ahead and commit these snapshots essentially of our files",
+      "start": 443.74,
+      "end": 447.66,
+      "text": "open the file so if I click on the file I see the difference between the two versions so for",
       "speaker": null
     },
     {
-      "start": 424.4,
-      "end": 428.32,
-      "text": "to git. All right, so before we do anything else, I'm going to go ahead and unstage the changes.",
+      "start": 447.66,
+      "end": 452.46,
+      "text": "example if I look at the index html you can see that here is what it started out as since I",
       "speaker": null
     },
     {
-      "start": 428.32,
-      "end": 432.8,
-      "text": "So you can see now I can use this minus button either up at the top level to unstage all my",
+      "start": 452.46,
+      "end": 457.42,
+      "text": "didn't have any file there's nothing there and this is the current version of it so basically",
       "speaker": null
     },
     {
-      "start": 432.8,
-      "end": 438.4,
-      "text": "changes, or I can do each file individually. So let's just go ahead and do them individually",
+      "start": 457.42,
+      "end": 461.74,
+      "text": "the difference between when I started and where I'm at same thing with style css there's nothing",
       "speaker": null
     },
     {
-      "start": 438.4,
-      "end": 442.32,
-      "text": "since there's only two. And so with these files here, you can see I have a couple other options",
+      "start": 461.74,
+      "end": 465.5,
+      "text": "inside of here which is why there's nothing here on the right hand side so let's go ahead and",
       "speaker": null
     },
     {
-      "start": 442.32,
-      "end": 447.04,
-      "text": "as well. I can open the file. So if I click on the file, I see the difference between the two",
+      "start": 465.58,
+      "end": 470.06,
+      "text": "open the file so I can go ahead and click the little open file button here which will open the",
       "speaker": null
     },
     {
-      "start": 447.04,
-      "end": 451.92,
-      "text": "versions. So for example, if I look at the index HTML, you can see that here is what it started",
+      "start": 470.06,
+      "end": 475.02,
+      "text": "file so I can edit it and what I'm gonna do is just go ahead and change the background color so I'll",
       "speaker": null
     },
     {
-      "start": 451.92,
-      "end": 457.04,
-      "text": "out as since I didn't have any file, there's nothing there. And this is the current version of it.",
+      "start": 475.02,
+      "end": 481.34,
+      "text": "just say body and we'll just change the background color to uh we'll just pick one of these colors",
       "speaker": null
     },
     {
-      "start": 457.04,
-      "end": 460.64,
-      "text": "So basically the difference between when I started and where I'm at, same thing with",
+      "start": 481.34,
+      "end": 485.66,
+      "text": "here we'll change it to beige all right so if I save that and then now if I click on the file",
       "speaker": null
     },
     {
-      "start": 460.64,
-      "end": 463.84,
-      "text": "style CSS, there's nothing inside of here, which is why there's nothing here on the right hand",
+      "start": 485.66,
+      "end": 489.58,
+      "text": "again you can see file didn't exist before so there's no changes there on the right hand",
       "speaker": null
     },
     {
-      "start": 463.84,
-      "end": 468.96,
-      "text": "side. So let's go ahead and open the file. So I can go ahead and click the little open file",
+      "start": 489.58,
+      "end": 495.26,
+      "text": "side this is my current version of the code now again we haven't committed anything right so it",
       "speaker": null
     },
     {
-      "start": 468.96,
-      "end": 472.32,
-      "text": "button here, which will open the file so I can edit it. And what I'm gonna do is just go",
+      "start": 495.26,
+      "end": 499.74,
+      "text": "just knows that this file didn't exist before it currently exists this is the difference between",
       "speaker": null
     },
     {
-      "start": 472.32,
-      "end": 477.76,
-      "text": "ahead and change the background color. So I'll just say body. And we'll just change the background",
+      "start": 499.74,
+      "end": 505.5,
+      "text": "the two let's just say I messed up and I don't want this css file uh I can use this discard",
       "speaker": null
     },
     {
-      "start": 477.76,
-      "end": 484.08,
-      "text": "color to, we'll just pick one of these colors here, we'll change it to beige. All right, so if I save",
+      "start": 505.5,
+      "end": 509.98,
+      "text": "changes which in this case is going to delete the file since it's brand new but if you ever",
       "speaker": null
     },
     {
-      "start": 484.08,
-      "end": 488.08,
-      "text": "that, and then now if I click on the file again, you can see file didn't exist before. So there's",
+      "start": 509.98,
+      "end": 514.22,
+      "text": "make any change and you want to revert those changes you can revert those changes using",
       "speaker": null
     },
     {
-      "start": 488.08,
-      "end": 493.28,
-      "text": "no changes there on the right hand side. This is my current version of the code. Now again,",
+      "start": 514.22,
+      "end": 518.14,
+      "text": "this button here and it will take you back to whatever that file looked like at your last",
       "speaker": null
     },
     {
-      "start": 493.28,
-      "end": 497.44,
-      "text": "we haven't committed anything, right? So it just knows that this file didn't exist before",
+      "start": 518.14,
+      "end": 522.86,
+      "text": "commit all right so now that we have our two files we can go ahead and commit our changes",
       "speaker": null
     },
     {
-      "start": 497.44,
-      "end": 501.68,
-      "text": "it currently exists. This is the difference between the two. Let's just say I messed up and I",
+      "start": 522.86,
+      "end": 527.34,
+      "text": "so this is when we're ready to make a snapshot of these files at a particular point in time",
       "speaker": null
     },
     {
-      "start": 501.68,
-      "end": 507.68,
-      "text": "don't want this CSS file, I can use this discard changes, which in this case is going to delete",
+      "start": 527.34,
+      "end": 534.54,
+      "text": "and so I'm happy with my index file I'm happy with my css I can actually preview this in my",
       "speaker": null
     },
     {
-      "start": 507.68,
-      "end": 512.32,
-      "text": "the file since it's brand new. But if you ever make any change and you want to revert those changes,",
+      "start": 534.54,
+      "end": 538.46,
+      "text": "browser using my little extension that I have installed here and you can see that it just",
       "speaker": null
     },
     {
-      "start": 512.32,
-      "end": 516.72,
-      "text": "you can revert those changes using this button here, and it will take you back to whatever that",
+      "start": 538.46,
+      "end": 544.06,
+      "text": "says hello from vs code and git I have a beige colored background here and so this is exactly",
       "speaker": null
     },
     {
-      "start": 516.72,
-      "end": 520.64,
-      "text": "file looked like at your last commit. All right, so now that we have our two files,",
+      "start": 544.06,
+      "end": 548.38,
+      "text": "what I want so I'm gonna go ahead and commit these file changes so I'm gonna go ahead and",
       "speaker": null
     },
     {
-      "start": 520.64,
-      "end": 524.64,
-      "text": "we can go ahead and commit our changes. So this is when we're ready to make a snapshot",
+      "start": 548.38,
+      "end": 554.22,
+      "text": "close my browser and close all my open editor windows and inside of my source control panel",
       "speaker": null
     },
     {
-      "start": 524.64,
-      "end": 530.16,
-      "text": "of these files at a particular point in time. And so I'm happy with my index file. I'm happy",
+      "start": 554.22,
+      "end": 560.22,
+      "text": "I'm gonna go ahead and use the upper changes menu here to go ahead and stage this change",
       "speaker": null
     },
     {
-      "start": 530.16,
-      "end": 536.64,
-      "text": "with my CSS. I can actually preview this in my browser using my little extension that I",
+      "start": 560.22,
+      "end": 564.46,
+      "text": "and I'm staging both changes are basically staging all of my changes and you can see the u changes",
       "speaker": null
     },
     {
-      "start": 536.64,
-      "end": 541.92,
-      "text": "have installed here. And you can see that it just says hello from VS Code and Git. I have a beige",
+      "start": 564.46,
+      "end": 569.58,
+      "text": "to an a and so this means it's basically been added to the source control system so this is",
       "speaker": null
     },
     {
-      "start": 541.92,
-      "end": 545.52,
-      "text": "colored background here. And so this is exactly what I want. So I want to go ahead and commit",
+      "start": 569.58,
+      "end": 575.1,
+      "text": "index added so for this to be part of my repository's commit history I need to go ahead and commit",
       "speaker": null
     },
     {
-      "start": 546.4,
-      "end": 550.56,
-      "text": "these file changes. So I'm going to go ahead and close my browser and close all my",
+      "start": 575.1,
+      "end": 578.86,
+      "text": "these changes so what I'm going to do is go ahead and type in a commit message and I'm going to go",
       "speaker": null
     },
     {
-      "start": 550.56,
-      "end": 556.0,
-      "text": "open editor windows. And inside of my source control panel, I'm going to go ahead and use the",
+      "start": 578.86,
+      "end": 585.02,
+      "text": "ahead and call this my initial commit there we go so initial commit and I can go ahead and use this",
       "speaker": null
     },
     {
-      "start": 556.0,
-      "end": 561.52,
-      "text": "upper changes menu here to go ahead and stage this change. And I'm staging both changes or",
+      "start": 585.02,
+      "end": 591.5,
+      "text": "blue button here all right and so this would be the equivalent of running git commit dash m",
       "speaker": null
     },
     {
-      "start": 561.52,
-      "end": 566.32,
-      "text": "basically staging all of my changes. And you can see the U changes to an A. And so this means",
+      "start": 591.5,
+      "end": 596.7,
+      "text": "and then in quotes it would be initial commit and basically this command is equivalent to typing",
       "speaker": null
     },
     {
-      "start": 566.32,
-      "end": 571.04,
-      "text": "it's basically been added to the source control system. So this is index added. So for this to",
+      "start": 596.78,
+      "end": 600.86,
+      "text": "this in the box and clicking commit so I'm gonna go ahead and just delete this here and I'm gonna go",
       "speaker": null
     },
     {
-      "start": 571.04,
-      "end": 576.08,
-      "text": "be part of my repositories commit history, I need to go ahead and commit these changes. So what",
+      "start": 600.86,
+      "end": 605.82,
+      "text": "ahead and commit these changes to my main branch all right so you can see that right down here",
       "speaker": null
     },
     {
-      "start": 576.08,
-      "end": 579.52,
-      "text": "I'm going to do is go ahead and type in a commit message. And I'm going to go ahead and call",
+      "start": 605.82,
+      "end": 610.62,
+      "text": "all right now before we look at modifying these files to see what that looks like in vs code",
       "speaker": null
     },
     {
-      "start": 579.52,
-      "end": 585.6,
-      "text": "this my initial commit. There we go. So initial commit. And I can go ahead and use this blue",
+      "start": 610.62,
+      "end": 615.34,
+      "text": "wanted to point out this menu right here on the top of the source control panel and what this",
       "speaker": null
     },
     {
-      "start": 585.6,
-      "end": 591.76,
-      "text": "button here. All right. And so this would be the equivalent of running git commit dash m. And then",
+      "start": 615.34,
+      "end": 619.66,
+      "text": "does is it gives you some options for some different views we can see some incoming",
       "speaker": null
     },
     {
-      "start": 591.76,
-      "end": 596.72,
-      "text": "in quotes, it would be initial commit. And basically, this command is equivalent to typing",
+      "start": 619.66,
+      "end": 624.38,
+      "text": "changes and outgoing changes if we were connected to a remote repository along with our various",
       "speaker": null
     },
     {
-      "start": 596.72,
-      "end": 600.32,
-      "text": "this in the box and clicking commit. So I'm going to go ahead and just delete this here.",
+      "start": 624.46,
+      "end": 628.7,
+      "text": "push pull clone and fetch commands so it's all right here inside of this menu",
       "speaker": null
     },
     {
-      "start": 600.32,
-      "end": 604.72,
-      "text": "And I'm going to go ahead and commit these changes to my main branch. So you can see",
+      "start": 629.26,
+      "end": 634.46,
+      "text": "however for working with a local repository we'll mainly be looking at this section down here",
       "speaker": null
     },
     {
-      "start": 604.72,
-      "end": 609.28,
-      "text": "that right down here. All right. Now before we look at modifying these files to see what that",
+      "start": 634.46,
+      "end": 639.98,
+      "text": "which is kind of our branch section we have a commit section here we can stash our changes",
       "speaker": null
     },
     {
-      "start": 609.28,
-      "end": 614.16,
-      "text": "looks like in VS Code, I wanted to point out this menu right here on the top of the source",
+      "start": 639.98,
+      "end": 645.5,
+      "text": "which we'll look at here in a minute but I wanted to point out this commit menu and we have some",
       "speaker": null
     },
     {
-      "start": 614.16,
-      "end": 618.88,
-      "text": "control panel. And what this does is it gives you some options for some different views. We can",
+      "start": 645.5,
+      "end": 650.14,
+      "text": "options here so in addition to that blue commit button that we saw we can also use the menu to",
       "speaker": null
     },
     {
-      "start": 618.88,
-      "end": 623.12,
-      "text": "see some incoming changes and outgoing changes if we were connected to a remote repository,",
+      "start": 650.14,
+      "end": 655.58,
+      "text": "commit either all of our changes you know see if we hadn't staged anything yet we just want to",
       "speaker": null
     },
     {
-      "start": 623.12,
-      "end": 628.32,
-      "text": "along with our various push, pull, clone and fetch commands. So it's all right here inside of this",
+      "start": 655.58,
+      "end": 660.3,
+      "text": "commit all of our files so stage them and commit them all at the same time we can use this commit",
       "speaker": null
     },
     {
-      "start": 628.32,
-      "end": 633.04,
-      "text": "menu. However, for the working with a local repository, we'll mainly be looking at this",
+      "start": 660.3,
+      "end": 665.26,
+      "text": "all and we can also undo our last commit so it's one of the things in git that gets kind of confusing",
       "speaker": null
     },
     {
-      "start": 633.04,
-      "end": 638.8,
-      "text": "section down here, which is kind of our branch section. We have a commit section here, we",
+      "start": 665.26,
+      "end": 670.62,
+      "text": "sometimes you might want to revert your previous commit vs code makes that really easy so let's",
       "speaker": null
     },
     {
-      "start": 638.8,
-      "end": 642.0,
-      "text": "can stash our changes, which we'll look at here in a minute. But I wanted to",
+      "start": 670.62,
+      "end": 675.58,
+      "text": "just say I wanted to make a small change I messed up on my commit I don't really want to create",
       "speaker": null
     },
     {
-      "start": 642.0,
-      "end": 647.68,
-      "text": "point out this commit menu. And we have some options here. So in addition to that blue commit",
+      "start": 675.58,
+      "end": 679.42,
+      "text": "another one even though it's not really a problem doing that but let's just say I want to undo",
       "speaker": null
     },
     {
-      "start": 647.68,
-      "end": 652.24,
-      "text": "button that we saw, we can also use the menu to commit either all of our changes.",
+      "start": 679.42,
+      "end": 683.58,
+      "text": "that last commit and you know make an additional change so what I can do is go ahead and click",
       "speaker": null
     },
     {
-      "start": 653.12,
-      "end": 656.88,
-      "text": "You know, say we hadn't staged anything yet, and we just want to commit all of our files.",
+      "start": 683.58,
+      "end": 689.58,
+      "text": "undo last commit and you can see that it undid that commit and here are the changes in their modified",
       "speaker": null
     },
     {
-      "start": 656.88,
-      "end": 661.12,
-      "text": "So stage them and commit them all at the same time, we can use this commit all we can also",
+      "start": 689.58,
+      "end": 694.14,
+      "text": "state so you can see they have the little u back means basically meaning that they're untracked",
       "speaker": null
     },
     {
-      "start": 661.12,
-      "end": 665.2,
-      "text": "undo our last commit. So it's one of the things in Git that gets kind of confusing.",
+      "start": 695.26,
+      "end": 699.5,
+      "text": "they're not staged anymore and let's just say instead of my background color being beige",
       "speaker": null
     },
     {
-      "start": 665.2,
-      "end": 670.4,
-      "text": "Sometimes you might want to revert your previous commit. VS Code makes that really easy. So",
+      "start": 699.5,
+      "end": 703.9,
+      "text": "let's go ahead and make it azure and then what we can do I'll go ahead and use that menu again",
       "speaker": null
     },
     {
-      "start": 670.4,
-      "end": 674.72,
-      "text": "let's just say I wanted to make a small change. I messed up on my commit. I don't",
+      "start": 703.9,
+      "end": 708.06,
+      "text": "to just commit all of these changes so we'll stage and commit them at the same time so I'm",
       "speaker": null
     },
     {
-      "start": 674.72,
-      "end": 678.08,
-      "text": "really want to create another one, even though it's not really a problem doing that.",
+      "start": 708.06,
+      "end": 714.06,
+      "text": "going to go ahead and do is click on commit and then commit all and you can see that staged my changes",
       "speaker": null
     },
     {
-      "start": 678.08,
-      "end": 682.16,
-      "text": "But let's just say I want to undo that last commit and, you know, make an additional change.",
+      "start": 714.06,
+      "end": 718.46,
+      "text": "and committed them with the message that was already inside of the box so when I undid the change",
       "speaker": null
     },
     {
-      "start": 682.16,
-      "end": 685.92,
-      "text": "So what I can do is go ahead and click undo last commit. And you can see that it",
+      "start": 718.46,
+      "end": 724.46,
+      "text": "it put my commit message back so some really cool features inside of this menu now let's go ahead",
       "speaker": null
     },
     {
-      "start": 685.92,
-      "end": 691.12,
-      "text": "undid that commit. And here are the changes in their modified state. So you can see they",
+      "start": 724.46,
+      "end": 730.46,
+      "text": "and jump back to our file explorer and just make a small change to our index HTML so let's just say",
       "speaker": null
     },
     {
-      "start": 691.12,
-      "end": 694.16,
-      "text": "have the little you back means basically meaning that they're untracked.",
+      "start": 731.18,
+      "end": 736.06,
+      "text": "on this hello from vs code in git I wanted to add a few exclamation points I'm gonna go ahead",
       "speaker": null
     },
     {
-      "start": 695.28,
-      "end": 699.44,
-      "text": "They're not staged anymore. And let's just say instead of my background color being beige,",
+      "start": 736.06,
+      "end": 741.42,
+      "text": "and add those exclamation points and save and notice how instead of a you like we had before for",
       "speaker": null
     },
     {
-      "start": 699.52,
-      "end": 703.36,
-      "text": "let's go ahead and make it Azure. And then what we can do, I'll go ahead and use that",
+      "start": 741.42,
+      "end": 747.82,
+      "text": "the untracked file since this file is now tracked by git git knows about it it knows that as I make",
       "speaker": null
     },
     {
-      "start": 703.36,
-      "end": 707.12,
-      "text": "menu again to just commit all of these changes. So we'll stage and commit them at",
+      "start": 747.82,
+      "end": 752.46,
+      "text": "changes to it now it needs to be included as part of the repository so you can see that",
       "speaker": null
     },
     {
-      "start": 707.12,
-      "end": 711.76,
-      "text": "the same time. So what I'm going to go ahead and do is click on commit, and then",
+      "start": 752.46,
+      "end": 758.14,
+      "text": "it puts this little m which stands for modified so if I go back here and see in the source",
       "speaker": null
     },
     {
-      "start": 711.76,
-      "end": 715.28,
-      "text": "commit all. And you can see that stage my changes and committed them with the",
+      "start": 758.14,
+      "end": 762.94,
+      "text": "control panel again there's the m for modified and then if I click on the file this time you",
       "speaker": null
     },
     {
-      "start": 715.28,
-      "end": 718.48,
-      "text": "message that was already inside of the box. So when I undid the change,",
+      "start": 762.94,
+      "end": 768.14,
+      "text": "can see this is what the file looked like at my last commit right so I didn't have the exclamation",
       "speaker": null
     },
     {
-      "start": 718.48,
-      "end": 723.52,
-      "text": "it put my commit message back. So some really cool features inside of this menu.",
+      "start": 768.14,
+      "end": 772.54,
+      "text": "points and then on the right hand side you can see that this is what it looks like currently",
       "speaker": null
     },
     {
-      "start": 723.52,
-      "end": 727.44,
-      "text": "Now let's go ahead and jump back to our file explorer and just make a small",
+      "start": 772.54,
+      "end": 776.62,
+      "text": "before I've committed the change all right and you can see that we've added the exclamation",
       "speaker": null
     },
     {
-      "start": 727.44,
-      "end": 733.28,
-      "text": "change to our index HTML. So let's just say on this hello from VS code and get,",
+      "start": 776.62,
+      "end": 780.38,
+      "text": "points here so similar to what I did before I need to go ahead and stage my change so I'm",
       "speaker": null
     },
     {
-      "start": 733.28,
-      "end": 737.28,
-      "text": "I wanted to add a few exclamation points. I'm going to add those exclamation points",
+      "start": 780.38,
+      "end": 784.22,
+      "text": "gonna go ahead and click the little plus button to stage it and then I'm gonna go ahead and",
       "speaker": null
     },
     {
-      "start": 737.28,
-      "end": 742.8,
-      "text": "and save. And notice how instead of a you like we had before for the untracked file,",
+      "start": 784.22,
+      "end": 791.18,
+      "text": "just say add punctuation to text all right and so that's my commit message again I can",
       "speaker": null
     },
     {
-      "start": 742.8,
-      "end": 746.64,
-      "text": "since this file is now tracked by get, get knows about it, it knows that",
+      "start": 791.26,
+      "end": 796.94,
+      "text": "click the blue commit button I can use this little drop down for commit I commit and push or",
       "speaker": null
     },
     {
-      "start": 747.28,
-      "end": 751.28,
-      "text": "as I make changes to it now, it needs to be included as part of the repository.",
+      "start": 796.94,
+      "end": 801.02,
+      "text": "commit and sync if I was connected to GitHub which I am currently am not so I'll go ahead and just",
       "speaker": null
     },
     {
-      "start": 751.28,
-      "end": 755.36,
-      "text": "So you can see that it puts this little m, which stands for modified.",
+      "start": 801.02,
+      "end": 806.3,
+      "text": "click the blue commit button and there we go so now I have committed that change and now I have",
       "speaker": null
     },
     {
-      "start": 755.44,
-      "end": 759.2,
-      "text": "So if I go back here and see in the source control panel, again,",
+      "start": 806.3,
+      "end": 811.1,
+      "text": "two commits on my repository all right the next thing that we're gonna look at is how to",
       "speaker": null
     },
     {
-      "start": 759.2,
-      "end": 762.72,
-      "text": "there's the m for modified. And then if I click on the file this time,",
+      "start": 811.1,
+      "end": 817.26,
+      "text": "stash changes with vs code so what I'm gonna go ahead and do here is go to my file explorer",
       "speaker": null
     },
     {
-      "start": 762.72,
-      "end": 766.64,
-      "text": "you can see this is what the file looked like at my last commit.",
+      "start": 817.26,
+      "end": 821.82,
+      "text": "and I'm gonna go ahead and just make a change here and just add a few more exclamation points",
       "speaker": null
     },
     {
-      "start": 766.64,
-      "end": 770.24,
-      "text": "Right. So I didn't have the exclamation points. And then on the right hand side,",
+      "start": 821.82,
+      "end": 826.38,
+      "text": "I'm gonna go ahead and click save and see that we have our modified indicator here",
       "speaker": null
     },
     {
-      "start": 770.24,
-      "end": 774.32,
-      "text": "you can see that this is what it looks like currently before I've committed the change.",
+      "start": 826.38,
+      "end": 830.7,
+      "text": "you can see the same thing inside of the source control panel and let's just say that",
       "speaker": null
     },
     {
-      "start": 774.32,
-      "end": 777.2,
-      "text": "All right. And you can see that we've added the exclamation points here.",
+      "start": 830.7,
+      "end": 835.42,
+      "text": "I need to work on something else and I'm not quite ready to commit this change I can",
       "speaker": null
     },
     {
-      "start": 777.2,
-      "end": 780.24,
-      "text": "So similar to what I did before, I need to go ahead and stage my change.",
+      "start": 835.42,
+      "end": 841.1,
+      "text": "basically store this file in a temporary location and then retrieve it back when I'm ready to do",
       "speaker": null
     },
     {
-      "start": 780.24,
-      "end": 783.28,
-      "text": "So I'm going to go ahead and click the little plus button to stage it.",
+      "start": 841.1,
+      "end": 846.78,
+      "text": "so and this concept is known as a stash inside of git and you usually run the git stash command",
       "speaker": null
     },
     {
-      "start": 783.28,
-      "end": 788.48,
-      "text": "And then I'm going to go ahead and just say, add punctuation to text.",
+      "start": 846.78,
+      "end": 853.47,
+      "text": "so if I run git stash that will basically save that working directory in a specific state and you",
       "speaker": null
     },
     {
-      "start": 789.2,
-      "end": 792.72,
-      "text": "All right. And so that's my commit message. Again, I can click the blue commit button.",
+      "start": 853.47,
+      "end": 857.63,
+      "text": "can see I don't have that change anymore and my exclamation points are gone so we can do that with",
       "speaker": null
     },
     {
-      "start": 792.72,
-      "end": 797.92,
-      "text": "I can use this little drop down for commit, commit and push or commit and sync if I was",
+      "start": 857.63,
+      "end": 861.39,
+      "text": "vs code without having to memorize the git stash command I'm gonna go ahead and just bring back",
       "speaker": null
     },
     {
-      "start": 797.92,
-      "end": 801.68,
-      "text": "connected to get help, which I'm currently am not. So I'll go ahead and just click the blue",
+      "start": 861.39,
+      "end": 867.95,
+      "text": "that stash by running git stash pop all right now to do this with vs code all we have to do",
       "speaker": null
     },
     {
-      "start": 801.68,
-      "end": 805.76,
-      "text": "commit button. And there we go. So now I have committed that change.",
+      "start": 867.95,
+      "end": 872.51,
+      "text": "is use the little menu up here at the top go down to our stash section and then there is a",
       "speaker": null
     },
     {
-      "start": 805.76,
-      "end": 809.04,
-      "text": "And now I have two commits on my repository.",
+      "start": 872.51,
+      "end": 876.43,
+      "text": "lot of different options for the different stashes so I can just stash just like I did before",
       "speaker": null
     },
     {
-      "start": 809.04,
-      "end": 812.08,
-      "text": "All right. The next thing that we're going to look at is how to stash changes",
+      "start": 876.43,
+      "end": 881.79,
+      "text": "so I'm gonna click on this and I can provide a stash message if I want to or I can just hit enter",
       "speaker": null
     },
     {
-      "start": 812.08,
-      "end": 817.28,
-      "text": "with VS code. So what I'm going to go ahead and do here is go to my file explorer.",
+      "start": 881.79,
+      "end": 886.67,
+      "text": "and you can see that changes are gone no pending changes and if I want to bring that back from",
       "speaker": null
     },
     {
-      "start": 817.28,
-      "end": 821.76,
-      "text": "And I'm going to just make a change here and just add a few more exclamation points.",
+      "start": 886.67,
+      "end": 894.11,
+      "text": "the stash I can go back to my menu click on stash and then I can do pop latest stash so basically",
       "speaker": null
     },
     {
-      "start": 821.76,
-      "end": 826.32,
-      "text": "I'm going to go ahead and click save and see that we have our modified indicator here.",
+      "start": 894.11,
+      "end": 900.75,
+      "text": "the stashing mechanism for git works like a stack so you push things onto the stack and then",
       "speaker": null
     },
     {
-      "start": 826.32,
-      "end": 828.72,
-      "text": "You can see the same thing inside of the source control panel.",
+      "start": 900.75,
+      "end": 905.36,
+      "text": "you pop them off so what I'm gonna go ahead and do is pop off my latest stash which will",
       "speaker": null
     },
     {
-      "start": 828.72,
-      "end": 834.0,
-      "text": "And let's just say that I need to work on something else and I'm not quite ready to",
+      "start": 905.36,
+      "end": 910.32,
+      "text": "bring my code back I can do the same thing again I can go up to stash stash it again this time I'm",
       "speaker": null
     },
     {
-      "start": 834.0,
-      "end": 839.2,
-      "text": "commit this change. I can basically store this file in a temporary location and then retrieve",
+      "start": 910.32,
+      "end": 916.1,
+      "text": "gonna put a message so I'll just call this test stash and what's cool about this is I can go into",
       "speaker": null
     },
     {
-      "start": 839.28,
-      "end": 844.16,
-      "text": "it back when I'm ready to do so. And this concept is known as a stash inside of",
+      "start": 916.1,
+      "end": 921.94,
+      "text": "my stash menu and let's just say I had more than one stash and kind of lost track of that you",
       "speaker": null
     },
     {
-      "start": 844.16,
-      "end": 848.0,
-      "text": "git and you usually run the git stash command. So if I run git stash,",
+      "start": 921.94,
+      "end": 926.26,
+      "text": "know various stashes that I've done I can actually click this pop stash and it will show me the",
       "speaker": null
     },
     {
-      "start": 849.09,
-      "end": 853.17,
-      "text": "that will basically save that working directory in a specific state.",
+      "start": 926.26,
+      "end": 932.66,
+      "text": "various stashes that are inside of my stash area and you can see there is my test stash",
       "speaker": null
     },
     {
-      "start": 853.17,
-      "end": 856.77,
-      "text": "And you can see I don't have that change anymore and my exclamation points are gone.",
+      "start": 932.66,
+      "end": 936.34,
+      "text": "and I can go ahead and bring that back just by clicking on it so even though it functions",
       "speaker": null
     },
     {
-      "start": 856.77,
-      "end": 860.13,
-      "text": "So we can do that with VS code without having to memorize the git stash command.",
+      "start": 936.34,
+      "end": 941.38,
+      "text": "similarly to a stack which is typically going to be last and first out so the last thing that you",
       "speaker": null
     },
     {
-      "start": 860.13,
-      "end": 864.05,
-      "text": "I'm going to go ahead and just bring back that stash by running git stash pop.",
+      "start": 941.38,
+      "end": 946.5,
+      "text": "push in is going to be the first thing that you pop out you can actually have multiple stashes",
       "speaker": null
     },
     {
-      "start": 864.77,
-      "end": 869.17,
-      "text": "All right. Now to do this with VS code, all we have to do is use the little",
+      "start": 946.5,
+      "end": 952.5,
+      "text": "and then pop off the one that you want using that menu there so pretty cool feature and",
       "speaker": null
     },
     {
-      "start": 869.17,
-      "end": 871.81,
-      "text": "menu up here at the top, go down to our stash section.",
+      "start": 952.5,
+      "end": 957.46,
+      "text": "VS code makes this very very easy using this menu all right so I'm gonna go ahead and undo this",
       "speaker": null
     },
     {
-      "start": 871.81,
-      "end": 874.77,
-      "text": "And then there's a lot of different options for the different stashes.",
+      "start": 957.46,
+      "end": 962.42,
+      "text": "change using the discard changes button here and it's gonna ask me am I sure that I want to",
       "speaker": null
     },
     {
-      "start": 874.77,
-      "end": 877.49,
-      "text": "So I can just stash just like I did before. So I'm going to click on this.",
+      "start": 962.42,
+      "end": 966.5,
+      "text": "discard the change those is basically if you make a change you mess up on your code and you",
       "speaker": null
     },
     {
-      "start": 877.49,
-      "end": 881.73,
-      "text": "And I can provide a stash message if I want to, or I can just hit enter.",
+      "start": 966.5,
+      "end": 971.46,
+      "text": "want to revert those changes you can use the discard changes button and you can do this",
       "speaker": null
     },
     {
-      "start": 881.73,
-      "end": 885.17,
-      "text": "And you can see that changes are gone, no pending changes.",
+      "start": 971.46,
+      "end": 975.54,
+      "text": "on a single file level or you can do it for all of the files that have changes but now",
       "speaker": null
     },
     {
-      "start": 885.17,
-      "end": 888.77,
-      "text": "And if I want to bring that back from the stash, I can go back to my menu,",
+      "start": 975.54,
+      "end": 979.06,
+      "text": "the next thing that we're going to do is go ahead and look at branches so again one of",
       "speaker": null
     },
     {
-      "start": 888.77,
-      "end": 893.49,
-      "text": "click on stash, and then I can do pop latest stash.",
+      "start": 979.06,
+      "end": 984.26,
+      "text": "the things I can do I can click down here on main and this will bring up the command palette",
       "speaker": null
     },
     {
-      "start": 893.49,
-      "end": 898.53,
-      "text": "So basically the stashing mechanism for git works like a stack.",
+      "start": 984.26,
+      "end": 989.14,
+      "text": "specifically for git and it gives me the option to create a new branch I can create a new branch",
       "speaker": null
     },
     {
-      "start": 898.53,
-      "end": 901.49,
-      "text": "So you push things onto the stack and then you pop them off.",
+      "start": 989.14,
+      "end": 996.1,
+      "text": "from another branch I can also check out a detached branch and tells me that I'm on main so it'll also",
       "speaker": null
     },
     {
-      "start": 901.49,
-      "end": 904.05,
-      "text": "So what we're going to do is pop off my latest stash,",
+      "start": 996.1,
+      "end": 1000.02,
+      "text": "list my various branches that I have here so let's go ahead and create a new branch I'm gonna go",
       "speaker": null
     },
     {
-      "start": 904.98,
-      "end": 906.42,
-      "text": "which will bring my code back.",
+      "start": 1000.02,
+      "end": 1005.38,
+      "text": "ahead and click create new branch and I'll just go ahead and call this test branch and I'll hit enter",
       "speaker": null
     },
     {
-      "start": 906.42,
-      "end": 907.62,
-      "text": "I can do the same thing again.",
+      "start": 1005.38,
+      "end": 1010.98,
+      "text": "you can see down here at the bottom our main has changed to test branch and now I am on that",
       "speaker": null
     },
     {
-      "start": 907.62,
-      "end": 909.86,
-      "text": "I can go up to stash, stash it again.",
+      "start": 1010.98,
+      "end": 1015.62,
+      "text": "branch and if I click this again you can see now I have my main branch so I can click on",
       "speaker": null
     },
     {
-      "start": 909.86,
-      "end": 910.9,
-      "text": "This time I'm going to put a message.",
+      "start": 1015.62,
+      "end": 1020.18,
+      "text": "over to main or I can click it again and click on test branch so that creation of the branch",
       "speaker": null
     },
     {
-      "start": 910.9,
-      "end": 912.26,
-      "text": "So I'll just call this test stash.",
+      "start": 1020.74,
+      "end": 1027.22,
+      "text": "if we were on main would be the equivalent of running git check out dash b and then test",
       "speaker": null
     },
     {
-      "start": 913.66,
-      "end": 917.18,
-      "text": "And what's cool about this is I can go into my stash menu",
+      "start": 1027.22,
+      "end": 1031.78,
+      "text": "dash branch which is the name of our branch okay so all this functionality that we're using here",
       "speaker": null
     },
     {
-      "start": 917.66,
-      "end": 921.82,
-      "text": "and let's just say I had more than one stash and kind of lost track of the,",
+      "start": 1031.78,
+      "end": 1037.54,
+      "text": "inside of visual studio code maps directly to git commands inside of the terminal here all right",
       "speaker": null
     },
     {
-      "start": 921.82,
-      "end": 923.18,
-      "text": "you know, various stashes that I've done.",
+      "start": 1037.54,
+      "end": 1040.82,
+      "text": "so let's go ahead and make a change to this I'm going to go ahead and just add a couple more",
       "speaker": null
     },
     {
-      "start": 923.18,
-      "end": 925.02,
-      "text": "I can actually click this pop stash",
+      "start": 1041.38,
+      "end": 1048.18,
+      "text": "exclamation points just go ahead and add another paragraph here saying git is pretty cool",
       "speaker": null
     },
     {
-      "start": 925.02,
-      "end": 930.22,
-      "text": "and it will show me the various stashes that are inside of my stash area.",
+      "start": 1048.82,
+      "end": 1053.22,
+      "text": "all right so now I have my change and what I want to do is go ahead and commit this change so this",
       "speaker": null
     },
     {
-      "start": 930.22,
-      "end": 932.62,
-      "text": "And you can see there is my test stash.",
+      "start": 1053.22,
+      "end": 1057.46,
+      "text": "is no different than what we saw before I'm going to go ahead and stage the change provide my message",
       "speaker": null
     },
     {
-      "start": 932.62,
-      "end": 935.34,
-      "text": "And I can go ahead and bring that back just by clicking on it.",
+      "start": 1057.46,
+      "end": 1063.86,
+      "text": "say add new paragraph to index and I'll go ahead and commit that change and now notice when we",
       "speaker": null
     },
     {
-      "start": 935.34,
-      "end": 938.06,
-      "text": "So even though it functions similarly to a stack,",
+      "start": 1063.86,
+      "end": 1067.7,
+      "text": "switch between branches so I'm on my test branch now go ahead and click over to main",
       "speaker": null
     },
     {
-      "start": 938.06,
-      "end": 940.54,
-      "text": "which is typically going to be last in first out.",
+      "start": 1067.7,
+      "end": 1072.66,
+      "text": "and you can see that inside of my file that new paragraph that I added along with the exclamation",
       "speaker": null
     },
     {
-      "start": 940.54,
-      "end": 942.14,
-      "text": "So the last thing that you push in",
+      "start": 1072.66,
+      "end": 1078.5,
+      "text": "points is gone because it only exists currently inside of my test branch so now what we need to do",
       "speaker": null
     },
     {
-      "start": 942.14,
-      "end": 944.46,
-      "text": "is going to be the first thing that you pop out.",
+      "start": 1078.5,
+      "end": 1084.5,
+      "text": "in order to bring those changes back to main I need to merge those changes back in okay and so I can",
       "speaker": null
     },
     {
-      "start": 944.46,
-      "end": 946.46,
-      "text": "You can actually have multiple stashes",
+      "start": 1084.5,
+      "end": 1088.58,
+      "text": "do that again with the source control panel up here at the top I'm going to go ahead and click",
       "speaker": null
     },
     {
-      "start": 946.46,
-      "end": 950.3,
-      "text": "and then pop off the one that you want using that menu there.",
+      "start": 1088.58,
+      "end": 1092.34,
+      "text": "the menu up here at the top and I'm going to go ahead and click on branch and then I'm going",
       "speaker": null
     },
     {
-      "start": 950.3,
-      "end": 951.9,
-      "text": "So pretty cool feature.",
+      "start": 1092.34,
+      "end": 1097.06,
+      "text": "to go ahead and click on merge and we have an option for merge and rebase rebase is going to",
       "speaker": null
     },
     {
-      "start": 951.9,
-      "end": 955.9,
-      "text": "And VS Code makes this very, very easy using this menu.",
+      "start": 1097.06,
+      "end": 1100.58,
+      "text": "be a little out of scope for this video so I'm just going to focus on merging for right now",
       "speaker": null
     },
     {
-      "start": 955.9,
-      "end": 956.06,
-      "text": "All right.",
+      "start": 1101.22,
+      "end": 1105.14,
+      "text": "but if you're familiar with rebasing you can go ahead and do that right here from VS code as well",
       "speaker": null
     },
     {
-      "start": 956.06,
-      "end": 957.9,
-      "text": "So I'm going to go ahead and undo this change",
+      "start": 1105.14,
+      "end": 1111.06,
+      "text": "so if I go ahead and click branch click on merge and it says select a branch to merge from so what",
       "speaker": null
     },
     {
-      "start": 957.9,
-      "end": 960.46,
-      "text": "using the discard changes button here.",
+      "start": 1111.06,
+      "end": 1115.62,
+      "text": "I want to do is go ahead and merge the contents of my test branch into my main branch so I'm",
       "speaker": null
     },
     {
-      "start": 960.46,
-      "end": 961.18,
-      "text": "And it's going to ask me,",
+      "start": 1115.62,
+      "end": 1118.98,
+      "text": "going to go ahead and select my test branch as the branch to merge from so behind the scenes",
       "speaker": null
     },
     {
-      "start": 961.18,
-      "end": 963.18,
-      "text": "am I sure that I want to discard the change?",
+      "start": 1118.98,
+      "end": 1126.43,
+      "text": "what this did is run get merge test dash branch all right and that merges in the changes",
       "speaker": null
     },
     {
-      "start": 963.18,
-      "end": 965.18,
-      "text": "So this is basically if you make a change,",
+      "start": 1126.43,
+      "end": 1131.15,
+      "text": "from the target branch into the branch that you're currently on all right so the next thing that we're",
       "speaker": null
     },
     {
-      "start": 965.18,
-      "end": 966.3,
-      "text": "you mess up on your code",
+      "start": 1131.15,
+      "end": 1135.55,
+      "text": "going to do is go ahead and clean up our branch by deleting our test branch that we just created",
       "speaker": null
     },
     {
-      "start": 966.3,
-      "end": 968.22,
-      "text": "and you want to revert those changes.",
+      "start": 1135.55,
+      "end": 1140.19,
+      "text": "so we don't need it anymore the contents has been merged into my main branch and I want to go",
       "speaker": null
     },
     {
-      "start": 968.22,
-      "end": 970.78,
-      "text": "You can use the discard changes button",
+      "start": 1140.19,
+      "end": 1147.15,
+      "text": "ahead and delete it so normally I would have to run get branch dash D and if it hadn't been",
       "speaker": null
     },
     {
-      "start": 970.78,
-      "end": 972.62,
-      "text": "and you can do this on a single file level",
+      "start": 1147.15,
+      "end": 1151.47,
+      "text": "merged into main yet so if the branch had been branched off but had never been merged back",
       "speaker": null
     },
     {
-      "start": 972.62,
-      "end": 975.18,
-      "text": "or you can do it for all of the files that have changes.",
+      "start": 1152.19,
+      "end": 1157.47,
+      "text": "you would have to force basically the deletion by using a capital D but I can run get branch",
       "speaker": null
     },
     {
-      "start": 975.18,
-      "end": 976.38,
-      "text": "But now the next thing that we're going to do",
+      "start": 1157.47,
+      "end": 1162.59,
+      "text": "dash D and then the name of the branch I want to delete which would be test dash branch however",
       "speaker": null
     },
     {
-      "start": 976.38,
-      "end": 978.22,
-      "text": "is go ahead and look at branches.",
+      "start": 1162.59,
+      "end": 1166.75,
+      "text": "we're going to go ahead and do this with visual studio code instead so rather than typing the",
       "speaker": null
     },
     {
-      "start": 978.22,
-      "end": 979.74,
-      "text": "So again, one of the things I can do,",
+      "start": 1166.75,
+      "end": 1172.83,
+      "text": "command what we can do is go up to our menu again go down to branch and then click on",
       "speaker": null
     },
     {
-      "start": 979.74,
-      "end": 981.66,
-      "text": "I can click down here on main",
+      "start": 1172.83,
+      "end": 1176.59,
+      "text": "delete branch and it's going to ask me which branch do I want to delete I want to go",
       "speaker": null
     },
     {
-      "start": 981.66,
-      "end": 985.5,
-      "text": "and this will bring up the command palette specifically for Git.",
+      "start": 1176.59,
+      "end": 1181.79,
+      "text": "ahead and delete my test branch and when I click on that can't really see anything happening",
       "speaker": null
     },
     {
-      "start": 985.5,
-      "end": 987.98,
-      "text": "And it gives me the option to create a new branch.",
+      "start": 1181.79,
+      "end": 1186.19,
+      "text": "behind the scenes but what we can do is go ahead and click down here on main which is",
       "speaker": null
     },
     {
-      "start": 987.98,
-      "end": 990.06,
-      "text": "I can create a new branch from another branch.",
+      "start": 1186.19,
+      "end": 1191.63,
+      "text": "what we would use to switch branches we can see that we only have our main branch here we don't",
       "speaker": null
     },
     {
-      "start": 990.78,
-      "end": 993.34,
-      "text": "I can also check out a detached branch",
+      "start": 1191.63,
+      "end": 1196.11,
+      "text": "have any other branches because I deleted the test branch and we can verify this in the terminal",
       "speaker": null
     },
     {
-      "start": 993.34,
-      "end": 995.5,
-      "text": "and tells me that I'm on main.",
+      "start": 1196.11,
+      "end": 1200.43,
+      "text": "as well by running get branch and you can see that we only have main all right so the next",
       "speaker": null
     },
     {
-      "start": 995.5,
-      "end": 997.98,
-      "text": "So it also lists my various branches that I have here.",
+      "start": 1200.43,
+      "end": 1204.03,
+      "text": "thing that we're going to do is go ahead and delete a file and this is very similar to",
       "speaker": null
     },
     {
-      "start": 997.98,
-      "end": 999.66,
-      "text": "So let's go ahead and create a new branch.",
+      "start": 1204.03,
+      "end": 1208.59,
+      "text": "modifying a file uh except for you get a slightly different indicators uh inside of",
       "speaker": null
     },
     {
-      "start": 999.66,
-      "end": 1001.34,
-      "text": "I'm going to go ahead and click create new branch.",
+      "start": 1208.59,
+      "end": 1214.99,
+      "text": "vs code so we're going to go ahead and do is go to right here and let's just remove the css file",
       "speaker": null
     },
     {
-      "start": 1001.34,
-      "end": 1005.34,
-      "text": "And I'll just go ahead and call this test branch and I'll hit enter.",
+      "start": 1214.99,
+      "end": 1218.83,
+      "text": "maybe we're going to bring in bootstrap or tailwind or something like that we don't need",
       "speaker": null
     },
     {
-      "start": 1005.34,
-      "end": 1006.54,
-      "text": "You can see down here at the bottom,",
+      "start": 1218.83,
+      "end": 1222.99,
+      "text": "our css file anymore so i'm going to go ahead and delete the link and then go to my file explorer",
       "speaker": null
     },
     {
-      "start": 1006.54,
-      "end": 1009.34,
-      "text": "our main has changed to test branch",
+      "start": 1222.99,
+      "end": 1227.15,
+      "text": "and then delete the file i'm going to move that to trash and if we look inside of our",
       "speaker": null
     },
     {
-      "start": 1009.34,
-      "end": 1011.26,
-      "text": "and now I am on that branch.",
+      "start": 1227.15,
+      "end": 1232.35,
+      "text": "source control panel you can see that one file was modified which was my index and we can see",
       "speaker": null
     },
     {
-      "start": 1011.26,
-      "end": 1012.78,
-      "text": "And if I click this again,",
+      "start": 1232.35,
+      "end": 1237.47,
+      "text": "that the line was removed here and we can see that the style dot css has a slash through it",
       "speaker": null
     },
     {
-      "start": 1012.78,
-      "end": 1014.54,
-      "text": "you can see now I have my main branch.",
+      "start": 1237.47,
+      "end": 1242.51,
+      "text": "which means it was deleted and it's also indicated by this d here and so if i click on this doesn't",
       "speaker": null
     },
     {
-      "start": 1014.54,
-      "end": 1016.3,
-      "text": "So I can click on over to main",
+      "start": 1242.51,
+      "end": 1246.83,
+      "text": "really show us anything other than the file is being deleted so we haven't committed this",
       "speaker": null
     },
     {
-      "start": 1016.3,
-      "end": 1018.86,
-      "text": "or I can click it again and click on test branch.",
+      "start": 1246.83,
+      "end": 1251.07,
+      "text": "change yet so i can restore the file if i want to just by clicking this discard changes",
       "speaker": null
     },
     {
-      "start": 1018.86,
-      "end": 1020.14,
-      "text": "So that creation of the branch,",
+      "start": 1251.07,
+      "end": 1255.87,
+      "text": "then we'll restore my file for me but we're going to go ahead and delete this file so before",
       "speaker": null
     },
     {
-      "start": 1020.7,
-      "end": 1023.18,
-      "text": "if we were on main would be the equivalent of running Git.",
+      "start": 1255.87,
+      "end": 1261.68,
+      "text": "we do that though one other thing that i wanted to show is inside of this index html if i",
       "speaker": null
     },
     {
-      "start": 1023.74,
-      "end": 1028.14,
-      "text": "Check out dash B and then test dash branch,",
+      "start": 1261.68,
+      "end": 1269.04,
+      "text": "open the file we also get some indicators inside of the editor as to what happened between the last",
       "speaker": null
     },
     {
-      "start": 1028.14,
-      "end": 1029.58,
-      "text": "which is the name of our branch.",
+      "start": 1269.04,
+      "end": 1274.08,
+      "text": "time this file was committed and the changes that i've made so if i delete a line of code",
       "speaker": null
     },
     {
-      "start": 1029.9,
-      "end": 1031.74,
-      "text": "So all of this functionality that we're using here",
+      "start": 1274.08,
+      "end": 1280.0,
+      "text": "that is indicated by this little red arrow here now if i was to add a line of code so let's just",
       "speaker": null
     },
     {
-      "start": 1031.74,
-      "end": 1033.26,
-      "text": "inside of Visual Studio Code",
+      "start": 1280.0,
+      "end": 1286.16,
+      "text": "go ahead and add a br which is a line break and you can see in this case we have a green line",
       "speaker": null
     },
     {
-      "start": 1033.26,
-      "end": 1036.46,
-      "text": "maps directly to Git commands inside of the terminal here.",
+      "start": 1286.16,
+      "end": 1290.48,
+      "text": "which means it has added a line here and then let's just say i don't really like the",
       "speaker": null
     },
     {
-      "start": 1037.26,
-      "end": 1037.5,
-      "text": "All right.",
+      "start": 1290.48,
+      "end": 1294.88,
+      "text": "four exclamation points because it looks kind of spammy so i'm just gonna go ahead and go back to",
       "speaker": null
     },
     {
-      "start": 1037.5,
-      "end": 1038.78,
-      "text": "So let's go ahead and make a change to this.",
+      "start": 1294.88,
+      "end": 1300.4,
+      "text": "one and we can see that this line was modified and that is indicated by a blue bar here guys we",
       "speaker": null
     },
     {
-      "start": 1038.78,
-      "end": 1039.9,
-      "text": "I'm going to go ahead and just add",
+      "start": 1300.4,
+      "end": 1305.44,
+      "text": "have a change line which is blue we have a red arrow indicating that there was a line deleted at",
       "speaker": null
     },
     {
-      "start": 1039.9,
-      "end": 1042.7,
-      "text": "a couple more exclamation points.",
+      "start": 1305.44,
+      "end": 1310.48,
+      "text": "this particular spot and see if i hover over that deleted lines or removed lines and then down",
       "speaker": null
     },
     {
-      "start": 1042.7,
-      "end": 1044.78,
-      "text": "Just go ahead and add another paragraph here,",
+      "start": 1310.48,
+      "end": 1316.08,
+      "text": "here at the bottom any added lines are indicated in green so pretty cool that it shows this",
       "speaker": null
     },
     {
-      "start": 1044.78,
-      "end": 1048.22,
-      "text": "saying Git is pretty cool.",
+      "start": 1316.08,
+      "end": 1321.84,
+      "text": "right here in the editor for you but as i showed before we can also click on the file after we save",
       "speaker": null
     },
     {
-      "start": 1048.78,
-      "end": 1049.1,
-      "text": "All right.",
+      "start": 1321.84,
+      "end": 1327.12,
+      "text": "it and the diff will show us the difference between the last time this file was committed and what it",
       "speaker": null
     },
     {
-      "start": 1049.1,
-      "end": 1050.62,
-      "text": "So now I have my change.",
+      "start": 1327.12,
+      "end": 1330.96,
+      "text": "currently looks like before i commit these changes and so you can see there is the line that was",
       "speaker": null
     },
     {
-      "start": 1050.62,
-      "end": 1052.86,
-      "text": "And what I want to do is go ahead and commit this change.",
+      "start": 1330.96,
+      "end": 1336.0,
+      "text": "removed here is the line that was modified which is a little bit more of a subdued green",
       "speaker": null
     },
     {
-      "start": 1052.86,
-      "end": 1054.78,
-      "text": "So this is no different than what we saw before.",
+      "start": 1336.0,
+      "end": 1340.16,
+      "text": "with like a brighter green where the change actually happened at and then we can see",
       "speaker": null
     },
     {
-      "start": 1054.78,
-      "end": 1056.3,
-      "text": "I'm going to go ahead and stage the change,",
+      "start": 1340.16,
+      "end": 1344.24,
+      "text": "that on line 11 the br is also bright green because it was added all right so let's go",
       "speaker": null
     },
     {
-      "start": 1056.3,
-      "end": 1059.18,
-      "text": "provide my message, say add new paragraph.",
+      "start": 1344.24,
+      "end": 1348.8,
+      "text": "ahead and stage these changes so even for a delete you need to stage that change to the file so we'll",
       "speaker": null
     },
     {
-      "start": 1059.82,
-      "end": 1061.02,
-      "text": "To index.",
+      "start": 1348.8,
+      "end": 1355.6,
+      "text": "go ahead and stage all of these changes by using the plus and we'll just say delete css from project",
       "speaker": null
     },
     {
-      "start": 1061.02,
-      "end": 1062.7,
-      "text": "And I'll go ahead and commit that change.",
+      "start": 1355.6,
+      "end": 1359.52,
+      "text": "all right i'm going to go ahead and click the commit button and there we go so now we see",
       "speaker": null
     },
     {
-      "start": 1062.7,
-      "end": 1064.78,
-      "text": "And now notice when we switch between branches,",
+      "start": 1359.52,
+      "end": 1364.16,
+      "text": "with the new commit here is the current change the representation of that commit",
       "speaker": null
     },
     {
-      "start": 1064.78,
-      "end": 1066.06,
-      "text": "so I'm on my test branch now,",
+      "start": 1364.16,
+      "end": 1368.0,
+      "text": "and if i was to make any changes now it would appear here on the right hand side",
       "speaker": null
     },
     {
-      "start": 1066.06,
-      "end": 1067.66,
-      "text": "go ahead and click over to main.",
+      "start": 1368.0,
+      "end": 1372.24,
+      "text": "so it's one thing to note when you're working with the source control panel any files that",
       "speaker": null
     },
     {
-      "start": 1067.66,
-      "end": 1070.54,
-      "text": "And you can see that inside of my file,",
+      "start": 1372.24,
+      "end": 1375.76,
+      "text": "you have in here when you click on the file itself it's immediately going to jump you into",
       "speaker": null
     },
     {
-      "start": 1070.54,
-      "end": 1071.82,
-      "text": "that new paragraph that I added",
+      "start": 1375.76,
+      "end": 1380.08,
+      "text": "the diff view so let's go ahead and see that if i go to my index let's just add another exclamation",
       "speaker": null
     },
     {
-      "start": 1071.82,
-      "end": 1073.34,
-      "text": "along with the exclamation points is gone.",
+      "start": 1380.08,
+      "end": 1385.42,
+      "text": "point so clicking on the file brings you to the diff view so if you want to actually work with",
       "speaker": null
     },
     {
-      "start": 1073.34,
-      "end": 1077.18,
-      "text": "Because it only exists currently inside of my test branch.",
+      "start": 1385.42,
+      "end": 1389.34,
+      "text": "the file you can work with it in the right hand side of the diff view here but the best way to",
       "speaker": null
     },
     {
-      "start": 1077.18,
-      "end": 1078.78,
-      "text": "So now what we need to do in order",
+      "start": 1389.34,
+      "end": 1394.14,
+      "text": "do it is just to click on this open file button and that will let you make changes uh or to",
       "speaker": null
     },
     {
-      "start": 1078.78,
-      "end": 1080.94,
-      "text": "to bring those changes back to main,",
+      "start": 1394.14,
+      "end": 1397.9,
+      "text": "continue to make changes to your file all right so i'm going to go ahead and undo that change",
       "speaker": null
     },
     {
-      "start": 1080.94,
-      "end": 1083.82,
-      "text": "I need to merge those changes back in.",
+      "start": 1397.9,
+      "end": 1403.98,
+      "text": "and now what we're going to do is go ahead and see how we can get this repository up into github so",
       "speaker": null
     },
     {
-      "start": 1083.82,
-      "end": 1084.06,
-      "text": "Okay.",
+      "start": 1403.98,
+      "end": 1407.66,
+      "text": "again this is going to require that you've already created a github account and you have your ssh",
       "speaker": null
     },
     {
-      "start": 1084.06,
-      "end": 1085.26,
-      "text": "And so I can do that again",
+      "start": 1407.66,
+      "end": 1412.14,
+      "text": "keys set up so that way you don't have to provide authentication and all that fun stuff so again",
       "speaker": null
     },
     {
-      "start": 1085.26,
-      "end": 1087.58,
-      "text": "with the source control panel up here at the top.",
+      "start": 1412.14,
+      "end": 1415.58,
+      "text": "if you need help with that have videos down in the description check those out and then come",
       "speaker": null
     },
     {
-      "start": 1087.58,
-      "end": 1089.02,
-      "text": "I'm going to go ahead and click the menu",
+      "start": 1415.58,
+      "end": 1419.9,
+      "text": "back to this section so what i'm going to go ahead and do is use this publish branch button",
       "speaker": null
     },
     {
-      "start": 1089.02,
-      "end": 1089.82,
-      "text": "up here at the top.",
+      "start": 1419.9,
+      "end": 1424.7,
+      "text": "to publish this branch to my github account so let's go ahead and click on this and since",
       "speaker": null
     },
     {
-      "start": 1089.82,
-      "end": 1091.98,
-      "text": "And I'm going to go ahead and click on branch.",
+      "start": 1424.78,
+      "end": 1432.06,
+      "text": "i have an ssh key on my machine github recognizes that because i don't actually have a origin or",
       "speaker": null
     },
     {
-      "start": 1091.98,
-      "end": 1094.38,
-      "text": "And then I'm going to go ahead and click on merge.",
+      "start": 1432.06,
+      "end": 1436.86,
+      "text": "remote connected to this repository yet so you can see that if i run git remote dash v down here in",
       "speaker": null
     },
     {
-      "start": 1094.38,
-      "end": 1096.54,
-      "text": "And we have an option for merge and rebase.",
+      "start": 1436.86,
+      "end": 1441.5,
+      "text": "the terminal i've already did that a couple times just to verify it doesn't show me my remote uh",
       "speaker": null
     },
     {
-      "start": 1096.54,
-      "end": 1098.62,
-      "text": "Rebase is going to be a little out of scope for this video.",
+      "start": 1441.5,
+      "end": 1446.78,
+      "text": "which is the remote version of the repository that exists either on github or bit bucket or",
       "speaker": null
     },
     {
-      "start": 1098.62,
-      "end": 1100.62,
-      "text": "So I'm just going to focus on merging for right now.",
+      "start": 1446.78,
+      "end": 1451.82,
+      "text": "whatever you're using for uh your hosted repositories so up here at the top it says",
       "speaker": null
     },
     {
-      "start": 1101.26,
-      "end": 1102.7,
-      "text": "But if you're familiar with rebasing,",
+      "start": 1451.82,
+      "end": 1457.74,
+      "text": "publish to private github repository and this would be the repository name so the dash common dash",
       "speaker": null
     },
     {
-      "start": 1102.7,
-      "end": 1105.1,
-      "text": "you can go ahead and do that right here from VS Code as well.",
+      "start": 1457.74,
+      "end": 1462.7,
+      "text": "coder vscode get i would like this repository to be public so i'm going to publish to my",
       "speaker": null
     },
     {
-      "start": 1105.1,
-      "end": 1108.38,
-      "text": "So if I go ahead and click branch, click on merge.",
+      "start": 1462.7,
+      "end": 1467.66,
+      "text": "public repository instead all right and so as soon as i click on that behind the scenes what it does",
       "speaker": null
     },
     {
-      "start": 1108.38,
-      "end": 1110.78,
-      "text": "And it says select a branch to merge from.",
+      "start": 1467.66,
+      "end": 1475.02,
+      "text": "is it adds that repository as my remote and pushes those changes to get up and we can see",
       "speaker": null
     },
     {
-      "start": 1110.78,
-      "end": 1112.38,
-      "text": "So what I want to do is go ahead and merge",
+      "start": 1475.02,
+      "end": 1479.66,
+      "text": "that it's asking me some stuff do i want to have visual studio code periodically run git fetch",
       "speaker": null
     },
     {
-      "start": 1112.38,
-      "end": 1115.42,
-      "text": "the contents of my test branch into my main branch.",
+      "start": 1479.66,
+      "end": 1486.54,
+      "text": "i do not but now if i run git remote dash v again here is my origin so your default remote",
       "speaker": null
     },
     {
-      "start": 1115.42,
-      "end": 1117.1,
-      "text": "So I'm going to go ahead and select my test branch",
+      "start": 1486.54,
+      "end": 1492.06,
+      "text": "typically origin however it could be pretty much anything but origin is the kind of convention",
       "speaker": null
     },
     {
-      "start": 1117.1,
-      "end": 1118.3,
-      "text": "as the branch to merge from.",
+      "start": 1492.06,
+      "end": 1497.66,
+      "text": "or the standard used in most repositories and then here is the location of that repository",
       "speaker": null
     },
     {
-      "start": 1118.3,
-      "end": 1122.38,
-      "text": "So behind the scenes, what this did is run get merge test dash branch.",
+      "start": 1497.66,
+      "end": 1503.58,
+      "text": "on my github account so if i was to actually take this url minus the dot git copy this",
       "speaker": null
     },
     {
-      "start": 1123.52,
-      "end": 1123.92,
-      "text": "All right.",
+      "start": 1503.58,
+      "end": 1509.94,
+      "text": "go ahead and open a chrome tab type that in the browser and you can see here is my new repository",
       "speaker": null
     },
     {
-      "start": 1123.92,
-      "end": 1128.32,
-      "text": "And that merges in the changes from the target branch",
+      "start": 1509.94,
+      "end": 1514.66,
+      "text": "up here on github only has one file looks a little funky because there's no read me",
       "speaker": null
     },
     {
-      "start": 1128.32,
-      "end": 1130.16,
-      "text": "into the branch that you're currently on.",
+      "start": 1514.66,
+      "end": 1519.22,
+      "text": "but i can click into here we can see that it pushed it up from vs code which is pretty neat",
       "speaker": null
     },
     {
-      "start": 1130.16,
-      "end": 1130.48,
-      "text": "All right.",
+      "start": 1519.22,
+      "end": 1523.54,
+      "text": "all right so that's how you push something to github now what's what's really cool about this",
       "speaker": null
     },
     {
-      "start": 1130.48,
-      "end": 1131.52,
-      "text": "So the next thing that we're going to do",
+      "start": 1523.54,
+      "end": 1528.1,
+      "text": "is if i go back into vs code let's go ahead and just make a change again go ahead and just add",
       "speaker": null
     },
     {
-      "start": 1131.52,
-      "end": 1132.88,
-      "text": "is go ahead and clean up our branch",
+      "start": 1528.1,
+      "end": 1535.79,
+      "text": "an exclamation point to make this simple go ahead and stage that change and commit it so add excitement",
       "speaker": null
     },
     {
-      "start": 1132.88,
-      "end": 1135.6,
-      "text": "by deleting our test branch that we just created.",
+      "start": 1536.83,
+      "end": 1542.27,
+      "text": "click commit and now you can see that it's saying that i can sync the changes which basically means",
       "speaker": null
     },
     {
-      "start": 1135.6,
-      "end": 1136.64,
-      "text": "So we don't need it anymore.",
+      "start": 1542.27,
+      "end": 1547.47,
+      "text": "it will pull down any commits that we don't currently have that exist on our github account",
       "speaker": null
     },
     {
-      "start": 1136.64,
-      "end": 1139.68,
-      "text": "The contents has been merged into my main branch.",
+      "start": 1547.47,
+      "end": 1551.79,
+      "text": "and also at the same time push up the changes that we have here so you can see down here at the",
       "speaker": null
     },
     {
-      "start": 1139.68,
-      "end": 1141.2,
-      "text": "And I want to go ahead and delete it.",
+      "start": 1551.79,
+      "end": 1557.23,
+      "text": "bottom it's recognizing that there's nothing to pull down and i have one commit to push up if",
       "speaker": null
     },
     {
-      "start": 1141.2,
-      "end": 1145.92,
-      "text": "So normally I would have to run get branch dash D.",
+      "start": 1557.23,
+      "end": 1562.19,
+      "text": "anybody else had made changes to this branch on that repository running git fetch would basically",
       "speaker": null
     },
     {
-      "start": 1145.92,
-      "end": 1148.4,
-      "text": "And if it hadn't been merged into main yet,",
+      "start": 1562.19,
+      "end": 1565.79,
+      "text": "synchronize these and would let me know that hey you have commits that are on the remote that you",
       "speaker": null
     },
     {
-      "start": 1148.4,
-      "end": 1150.16,
-      "text": "so if the branch had been branched off",
+      "start": 1565.79,
+      "end": 1570.43,
+      "text": "don't have on your local machine so you can kind of get in a dangerous scenario there typically",
       "speaker": null
     },
     {
-      "start": 1150.16,
-      "end": 1152.16,
-      "text": "but had never been merged back in,",
+      "start": 1570.43,
+      "end": 1574.75,
+      "text": "you want to follow the git flow or the github flow to make sure that you're working on a branch",
       "speaker": null
     },
     {
-      "start": 1152.16,
-      "end": 1154.4,
-      "text": "you would have to force basically the deletion",
+      "start": 1574.75,
+      "end": 1578.27,
+      "text": "in isolation and you're not stepping on other people's toes and they're not stepping on your",
       "speaker": null
     },
     {
-      "start": 1154.4,
-      "end": 1155.52,
-      "text": "by using a capital D.",
-      "speaker": null
-    },
-    {
-      "start": 1156.32,
-      "end": 1158.16,
-      "text": "But I can run get branch dash D.",
-      "speaker": null
-    },
-    {
-      "start": 1158.16,
-      "end": 1159.92,
-      "text": "And then the name of the branch I want to delete,",
-      "speaker": null
-    },
-    {
-      "start": 1159.92,
-      "end": 1162.24,
-      "text": "which would be test dash branch.",
-      "speaker": null
-    },
-    {
-      "start": 1162.24,
-      "end": 1163.6,
-      "text": "However, we're going to go ahead and do this",
-      "speaker": null
-    },
-    {
-      "start": 1163.6,
-      "end": 1165.52,
-      "text": "with Visual Studio Code instead.",
-      "speaker": null
-    },
-    {
-      "start": 1165.52,
-      "end": 1167.28,
-      "text": "So rather than typing the command,",
-      "speaker": null
-    },
-    {
-      "start": 1167.28,
-      "end": 1169.04,
-      "text": "what we can do is go up to our menu again,",
-      "speaker": null
-    },
-    {
-      "start": 1169.6,
-      "end": 1173.76,
-      "text": "go down to branch, and then click on delete branch.",
-      "speaker": null
-    },
-    {
-      "start": 1173.76,
-      "end": 1174.56,
-      "text": "And it's going to ask me,",
-      "speaker": null
-    },
-    {
-      "start": 1174.56,
-      "end": 1176.24,
-      "text": "which branch do I want to delete?",
-      "speaker": null
-    },
-    {
-      "start": 1176.24,
-      "end": 1178.0,
-      "text": "I want to go ahead and delete my test branch.",
-      "speaker": null
-    },
-    {
-      "start": 1178.0,
-      "end": 1179.36,
-      "text": "And when I click on that,",
-      "speaker": null
-    },
-    {
-      "start": 1179.36,
-      "end": 1182.8,
-      "text": "can't really see anything happening behind the scenes.",
-      "speaker": null
-    },
-    {
-      "start": 1182.8,
-      "end": 1185.84,
-      "text": "But what we can do is go ahead and click down here on main,",
-      "speaker": null
-    },
-    {
-      "start": 1185.84,
-      "end": 1187.76,
-      "text": "which is what we would use to switch branches.",
-      "speaker": null
-    },
-    {
-      "start": 1187.76,
-      "end": 1191.36,
-      "text": "We can see that we only have our main branch here.",
-      "speaker": null
-    },
-    {
-      "start": 1191.36,
-      "end": 1192.8,
-      "text": "We don't have any other branches",
-      "speaker": null
-    },
-    {
-      "start": 1192.8,
-      "end": 1194.64,
-      "text": "because I deleted the test branch.",
-      "speaker": null
-    },
-    {
-      "start": 1194.64,
-      "end": 1196.48,
-      "text": "And we can verify this in the terminal as well",
-      "speaker": null
-    },
-    {
-      "start": 1196.48,
-      "end": 1197.84,
-      "text": "by running get branch.",
-      "speaker": null
-    },
-    {
-      "start": 1197.84,
-      "end": 1199.76,
-      "text": "And you can see that we only have main.",
-      "speaker": null
-    },
-    {
-      "start": 1199.76,
-      "end": 1201.04,
-      "text": "All right, so the next thing that we're going to do",
-      "speaker": null
-    },
-    {
-      "start": 1201.04,
-      "end": 1202.56,
-      "text": "is go ahead and delete a file.",
-      "speaker": null
-    },
-    {
-      "start": 1202.56,
-      "end": 1205.2,
-      "text": "And this is very similar to modifying a file,",
-      "speaker": null
-    },
-    {
-      "start": 1205.76,
-      "end": 1208.0,
-      "text": "except for you get slightly different indicators",
-      "speaker": null
-    },
-    {
-      "start": 1208.0,
-      "end": 1209.52,
-      "text": "inside of VS Code.",
-      "speaker": null
-    },
-    {
-      "start": 1209.52,
-      "end": 1212.8,
-      "text": "So we're going to go ahead and do is go to right here",
-      "speaker": null
-    },
-    {
-      "start": 1212.8,
-      "end": 1215.04,
-      "text": "and let's just remove the CSS file.",
-      "speaker": null
-    },
-    {
-      "start": 1215.04,
-      "end": 1216.88,
-      "text": "Maybe we're going to bring in Bootstrap",
-      "speaker": null
-    },
-    {
-      "start": 1216.88,
-      "end": 1218.08,
-      "text": "or Tailwind or something like that.",
-      "speaker": null
-    },
-    {
-      "start": 1218.08,
-      "end": 1220.08,
-      "text": "We don't need our CSS file anymore.",
-      "speaker": null
-    },
-    {
-      "start": 1220.08,
-      "end": 1221.52,
-      "text": "So I'm going to go ahead and delete the link",
-      "speaker": null
-    },
-    {
-      "start": 1221.52,
-      "end": 1223.04,
-      "text": "and then go to my file explorer",
-      "speaker": null
-    },
-    {
-      "start": 1223.04,
-      "end": 1224.08,
-      "text": "and then delete the file.",
-      "speaker": null
-    },
-    {
-      "start": 1224.64,
-      "end": 1226.08,
-      "text": "I'm going to move that to trash.",
-      "speaker": null
-    },
-    {
-      "start": 1226.08,
-      "end": 1228.32,
-      "text": "And if we look inside of our source control panel,",
-      "speaker": null
-    },
-    {
-      "start": 1228.32,
-      "end": 1230.64,
-      "text": "you can see that one file was modified,",
-      "speaker": null
-    },
-    {
-      "start": 1230.64,
-      "end": 1231.76,
-      "text": "which was my index.",
-      "speaker": null
-    },
-    {
-      "start": 1231.76,
-      "end": 1234.0,
-      "text": "And we can see that the line was removed here.",
-      "speaker": null
-    },
-    {
-      "start": 1234.0,
-      "end": 1237.52,
-      "text": "And we can see that the style.css has a slash through it,",
-      "speaker": null
-    },
-    {
-      "start": 1237.52,
-      "end": 1238.8,
-      "text": "which means it was deleted.",
-      "speaker": null
-    },
-    {
-      "start": 1238.8,
-      "end": 1241.12,
-      "text": "And it's also indicated by this d here.",
-      "speaker": null
-    },
-    {
-      "start": 1241.12,
-      "end": 1242.16,
-      "text": "And so if I click on this,",
-      "speaker": null
-    },
-    {
-      "start": 1242.16,
-      "end": 1243.52,
-      "text": "it doesn't really show us anything",
-      "speaker": null
-    },
-    {
-      "start": 1243.52,
-      "end": 1245.84,
-      "text": "other than the file is being deleted.",
-      "speaker": null
-    },
-    {
-      "start": 1245.84,
-      "end": 1247.36,
-      "text": "So we haven't committed this change yet.",
-      "speaker": null
-    },
-    {
-      "start": 1247.36,
-      "end": 1249.12,
-      "text": "So I can restore the file if I want to,",
-      "speaker": null
-    },
-    {
-      "start": 1249.12,
-      "end": 1251.12,
-      "text": "just by clicking this discard changes",
-      "speaker": null
-    },
-    {
-      "start": 1251.12,
-      "end": 1252.8,
-      "text": "and we'll restore my file for me.",
-      "speaker": null
-    },
-    {
-      "start": 1252.8,
-      "end": 1255.28,
-      "text": "But we're going to go ahead and delete this file.",
-      "speaker": null
-    },
-    {
-      "start": 1255.28,
-      "end": 1256.48,
-      "text": "So before we do that, though,",
-      "speaker": null
-    },
-    {
-      "start": 1256.48,
-      "end": 1258.32,
-      "text": "one other thing that I wanted to show",
-      "speaker": null
-    },
-    {
-      "start": 1258.32,
-      "end": 1260.32,
-      "text": "is inside of this index HTML.",
-      "speaker": null
-    },
-    {
-      "start": 1261.33,
-      "end": 1262.53,
-      "text": "If I open the file,",
-      "speaker": null
-    },
-    {
-      "start": 1263.17,
-      "end": 1266.61,
-      "text": "we also get some indicators inside of the editor",
-      "speaker": null
-    },
-    {
-      "start": 1266.61,
-      "end": 1269.17,
-      "text": "as to what happened between the last time",
-      "speaker": null
-    },
-    {
-      "start": 1269.17,
-      "end": 1271.89,
-      "text": "this file was committed and the changes that I've made.",
-      "speaker": null
-    },
-    {
-      "start": 1271.89,
-      "end": 1273.49,
-      "text": "So if I delete a line of code,",
-      "speaker": null
-    },
-    {
-      "start": 1274.05,
-      "end": 1277.65,
-      "text": "that is indicated by this little red arrow here.",
-      "speaker": null
-    },
-    {
-      "start": 1277.65,
-      "end": 1279.41,
-      "text": "Now, if I was to add a line of code,",
-      "speaker": null
-    },
-    {
-      "start": 1279.41,
-      "end": 1281.33,
-      "text": "so let's just go ahead and add a BR,",
-      "speaker": null
-    },
-    {
-      "start": 1281.33,
-      "end": 1282.69,
-      "text": "which is a line break.",
-      "speaker": null
-    },
-    {
-      "start": 1282.69,
-      "end": 1283.97,
-      "text": "And you can see in this case,",
-      "speaker": null
-    },
-    {
-      "start": 1283.97,
-      "end": 1286.13,
-      "text": "we have a green line,",
-      "speaker": null
-    },
-    {
-      "start": 1286.13,
-      "end": 1288.45,
-      "text": "which means it has added a line here.",
-      "speaker": null
-    },
-    {
-      "start": 1288.45,
-      "end": 1289.57,
-      "text": "And then let's just say,",
-      "speaker": null
-    },
-    {
-      "start": 1289.65,
-      "end": 1291.57,
-      "text": "I don't really like the four exclamation points",
-      "speaker": null
-    },
-    {
-      "start": 1291.57,
-      "end": 1292.85,
-      "text": "because it looks kind of spammy.",
-      "speaker": null
-    },
-    {
-      "start": 1292.85,
-      "end": 1295.25,
-      "text": "So I'm just going to go ahead and go back to one.",
-      "speaker": null
-    },
-    {
-      "start": 1295.25,
-      "end": 1297.17,
-      "text": "And we can see that this line was modified",
-      "speaker": null
-    },
-    {
-      "start": 1297.17,
-      "end": 1299.97,
-      "text": "and that is indicated by a blue bar here.",
-      "speaker": null
-    },
-    {
-      "start": 1299.97,
-      "end": 1301.97,
-      "text": "Guys, we have a change line, which is blue.",
-      "speaker": null
-    },
-    {
-      "start": 1301.97,
-      "end": 1304.13,
-      "text": "We have a red arrow indicating",
-      "speaker": null
-    },
-    {
-      "start": 1304.13,
-      "end": 1306.61,
-      "text": "that there was a line deleted at this particular spot.",
-      "speaker": null
-    },
-    {
-      "start": 1306.61,
-      "end": 1307.89,
-      "text": "You can see if I hover over that,",
-      "speaker": null
-    },
-    {
-      "start": 1307.89,
-      "end": 1309.97,
-      "text": "deleted lines or removed lines.",
-      "speaker": null
-    },
-    {
-      "start": 1309.97,
-      "end": 1311.25,
-      "text": "And then down here at the bottom,",
-      "speaker": null
-    },
-    {
-      "start": 1311.25,
-      "end": 1314.45,
-      "text": "any added lines are indicated in green.",
-      "speaker": null
-    },
-    {
-      "start": 1314.45,
-      "end": 1316.61,
-      "text": "So pretty cool that it shows this right here",
-      "speaker": null
-    },
-    {
-      "start": 1316.61,
-      "end": 1318.05,
-      "text": "in the editor for you.",
-      "speaker": null
-    },
-    {
-      "start": 1318.05,
-      "end": 1319.33,
-      "text": "But as I showed before,",
-      "speaker": null
-    },
-    {
-      "start": 1319.41,
-      "end": 1322.05,
-      "text": "we can also click on the file after we save it",
-      "speaker": null
-    },
-    {
-      "start": 1322.05,
-      "end": 1324.37,
-      "text": "and the diff will show us the difference",
-      "speaker": null
-    },
-    {
-      "start": 1324.37,
-      "end": 1326.37,
-      "text": "between the last time this file was committed",
-      "speaker": null
-    },
-    {
-      "start": 1326.37,
-      "end": 1327.97,
-      "text": "and what it currently looks like",
-      "speaker": null
-    },
-    {
-      "start": 1327.97,
-      "end": 1329.65,
-      "text": "before I commit these changes.",
-      "speaker": null
-    },
-    {
-      "start": 1329.65,
-      "end": 1332.05,
-      "text": "And so you can see there is the line that was removed.",
-      "speaker": null
-    },
-    {
-      "start": 1332.05,
-      "end": 1333.49,
-      "text": "Here is the line that was modified,",
-      "speaker": null
-    },
-    {
-      "start": 1333.49,
-      "end": 1335.97,
-      "text": "which is a little bit more of a subdued green",
-      "speaker": null
-    },
-    {
-      "start": 1335.97,
-      "end": 1337.09,
-      "text": "with like a brighter green",
-      "speaker": null
-    },
-    {
-      "start": 1337.09,
-      "end": 1339.01,
-      "text": "where the change actually happened at.",
-      "speaker": null
-    },
-    {
-      "start": 1339.01,
-      "end": 1341.33,
-      "text": "And then we can see that on line 11,",
-      "speaker": null
-    },
-    {
-      "start": 1341.33,
-      "end": 1343.65,
-      "text": "the BR is also bright green because it was added.",
-      "speaker": null
-    },
-    {
-      "start": 1343.65,
-      "end": 1345.33,
-      "text": "All right, so let's go ahead and stage these changes.",
-      "speaker": null
-    },
-    {
-      "start": 1345.33,
-      "end": 1346.21,
-      "text": "So even for a delete,",
-      "speaker": null
-    },
-    {
-      "start": 1346.21,
-      "end": 1348.53,
-      "text": "you need to stage that change to the file.",
-      "speaker": null
-    },
-    {
-      "start": 1348.53,
-      "end": 1350.29,
-      "text": "So we'll go ahead and stage all of these changes",
-      "speaker": null
-    },
-    {
-      "start": 1350.29,
-      "end": 1351.33,
-      "text": "by using the plus.",
-      "speaker": null
-    },
-    {
-      "start": 1351.33,
-      "end": 1355.57,
-      "text": "And we'll just say delete CSS from project.",
-      "speaker": null
-    },
-    {
-      "start": 1355.57,
-      "end": 1357.65,
-      "text": "All right, I'm going to go ahead and click the commit button.",
-      "speaker": null
-    },
-    {
-      "start": 1357.65,
-      "end": 1358.45,
-      "text": "And there we go.",
-      "speaker": null
-    },
-    {
-      "start": 1358.45,
-      "end": 1360.61,
-      "text": "So now we see with the new commit,",
-      "speaker": null
-    },
-    {
-      "start": 1360.61,
-      "end": 1362.37,
-      "text": "here is the current change,",
-      "speaker": null
-    },
-    {
-      "start": 1362.37,
-      "end": 1364.13,
-      "text": "the representation of that commit.",
-      "speaker": null
-    },
-    {
-      "start": 1364.13,
-      "end": 1365.81,
-      "text": "And if I was to make any changes now,",
-      "speaker": null
-    },
-    {
-      "start": 1365.81,
-      "end": 1367.97,
-      "text": "it would appear here on the right hand side.",
-      "speaker": null
-    },
-    {
-      "start": 1367.97,
-      "end": 1369.33,
-      "text": "So it's one thing to note",
-      "speaker": null
-    },
-    {
-      "start": 1369.33,
-      "end": 1371.41,
-      "text": "when you're working with the source control panel,",
-      "speaker": null
-    },
-    {
-      "start": 1371.41,
-      "end": 1372.77,
-      "text": "any files that you have in here",
-      "speaker": null
-    },
-    {
-      "start": 1372.77,
-      "end": 1374.21,
-      "text": "when you click on the file itself,",
-      "speaker": null
-    },
-    {
-      "start": 1374.21,
-      "end": 1376.45,
-      "text": "it's immediately going to jump you into the diff view.",
-      "speaker": null
-    },
-    {
-      "start": 1376.45,
-      "end": 1377.57,
-      "text": "So let's go ahead and see that.",
-      "speaker": null
-    },
-    {
-      "start": 1377.65,
-      "end": 1378.85,
-      "text": "If I go to my index,",
-      "speaker": null
-    },
-    {
-      "start": 1378.85,
-      "end": 1380.37,
-      "text": "let's just add another exclamation point.",
-      "speaker": null
-    },
-    {
-      "start": 1381.2,
-      "end": 1384.0,
-      "text": "So clicking on the file brings you to the diff view.",
-      "speaker": null
-    },
-    {
-      "start": 1384.0,
-      "end": 1385.84,
-      "text": "So if you want to actually work with the file,",
-      "speaker": null
-    },
-    {
-      "start": 1385.84,
-      "end": 1387.68,
-      "text": "you can work with it in the right hand side",
-      "speaker": null
-    },
-    {
-      "start": 1387.68,
-      "end": 1388.56,
-      "text": "of the diff view here.",
-      "speaker": null
-    },
-    {
-      "start": 1388.56,
-      "end": 1389.6,
-      "text": "But the best way to do it",
-      "speaker": null
-    },
-    {
-      "start": 1389.6,
-      "end": 1392.08,
-      "text": "is just to click on this open file button.",
-      "speaker": null
-    },
-    {
-      "start": 1392.08,
-      "end": 1393.84,
-      "text": "And that will let you make changes",
-      "speaker": null
-    },
-    {
-      "start": 1393.84,
-      "end": 1396.24,
-      "text": "or to continue to make changes to your file.",
-      "speaker": null
-    },
-    {
-      "start": 1396.24,
-      "end": 1397.84,
-      "text": "All right, so I'm going to go ahead and undo that change.",
-      "speaker": null
-    },
-    {
-      "start": 1397.84,
-      "end": 1398.8,
-      "text": "And now what we're going to do",
-      "speaker": null
-    },
-    {
-      "start": 1398.8,
-      "end": 1403.84,
-      "text": "is go ahead and see how we can get this repository up into GitHub.",
-      "speaker": null
-    },
-    {
-      "start": 1403.84,
-      "end": 1404.88,
-      "text": "So again, this is going to require",
-      "speaker": null
-    },
-    {
-      "start": 1404.88,
-      "end": 1406.64,
-      "text": "that you've already created a GitHub account",
-      "speaker": null
-    },
-    {
-      "start": 1406.64,
-      "end": 1408.16,
-      "text": "and you have your SSH key set up",
-      "speaker": null
-    },
-    {
-      "start": 1408.16,
-      "end": 1410.32,
-      "text": "so that way you don't have to provide authentication",
-      "speaker": null
-    },
-    {
-      "start": 1410.32,
-      "end": 1411.36,
-      "text": "and all that fun stuff.",
-      "speaker": null
-    },
-    {
-      "start": 1411.36,
-      "end": 1413.28,
-      "text": "So again, if you need help with that,",
-      "speaker": null
-    },
-    {
-      "start": 1413.28,
-      "end": 1414.64,
-      "text": "have videos down in the description,",
-      "speaker": null
-    },
-    {
-      "start": 1414.64,
-      "end": 1416.32,
-      "text": "check those out and then come back to this section.",
-      "speaker": null
-    },
-    {
-      "start": 1416.32,
-      "end": 1417.52,
-      "text": "So what I'm going to go ahead and do",
-      "speaker": null
-    },
-    {
-      "start": 1417.52,
-      "end": 1419.92,
-      "text": "is use this publish branch button",
-      "speaker": null
-    },
-    {
-      "start": 1419.92,
-      "end": 1422.56,
-      "text": "to publish this branch to my GitHub account.",
-      "speaker": null
-    },
-    {
-      "start": 1422.56,
-      "end": 1424.08,
-      "text": "So let's go ahead and click on this.",
-      "speaker": null
-    },
-    {
-      "start": 1424.08,
-      "end": 1427.36,
-      "text": "And since I have an SSH key on my machine,",
-      "speaker": null
-    },
-    {
-      "start": 1427.36,
-      "end": 1428.96,
-      "text": "GitHub recognizes that",
-      "speaker": null
-    },
-    {
-      "start": 1428.96,
-      "end": 1431.76,
-      "text": "because I don't actually have a origin",
-      "speaker": null
-    },
-    {
-      "start": 1431.76,
-      "end": 1433.92,
-      "text": "or remote connected to this repository yet.",
-      "speaker": null
-    },
-    {
-      "start": 1433.92,
-      "end": 1434.96,
-      "text": "So you can see that if I run",
-      "speaker": null
-    },
-    {
-      "start": 1434.96,
-      "end": 1437.44,
-      "text": "git remote-v down here in the terminal,",
-      "speaker": null
-    },
-    {
-      "start": 1437.44,
-      "end": 1439.36,
-      "text": "I've already did that a couple of times just to verify.",
-      "speaker": null
-    },
-    {
-      "start": 1439.36,
-      "end": 1441.52,
-      "text": "It doesn't show me my remote,",
-      "speaker": null
-    },
-    {
-      "start": 1441.52,
-      "end": 1444.24,
-      "text": "which is the remote version of the repository",
-      "speaker": null
-    },
-    {
-      "start": 1444.24,
-      "end": 1446.64,
-      "text": "that exists either on GitHub or Bitbucket",
-      "speaker": null
-    },
-    {
-      "start": 1446.64,
-      "end": 1449.6,
-      "text": "or whatever you're using for your hosted repositories.",
-      "speaker": null
-    },
-    {
-      "start": 1450.24,
-      "end": 1452.48,
-      "text": "So up here at the top, it says publish to",
-      "speaker": null
-    },
-    {
-      "start": 1453.2,
-      "end": 1455.2,
-      "text": "private GitHub repository.",
-      "speaker": null
-    },
-    {
-      "start": 1455.2,
-      "end": 1456.56,
-      "text": "And this would be the repository name.",
-      "speaker": null
-    },
-    {
-      "start": 1456.56,
-      "end": 1459.12,
-      "text": "So the dash common dash coder, vscode get.",
-      "speaker": null
-    },
-    {
-      "start": 1459.12,
-      "end": 1460.72,
-      "text": "I would like this repository to be public.",
-      "speaker": null
-    },
-    {
-      "start": 1460.72,
-      "end": 1464.16,
-      "text": "So I'm going to publish to my public repository instead.",
-      "speaker": null
-    },
-    {
-      "start": 1464.16,
-      "end": 1466.24,
-      "text": "All right. And so as soon as I click on that,",
-      "speaker": null
-    },
-    {
-      "start": 1466.24,
-      "end": 1468.8,
-      "text": "behind the scenes, what it does is it adds",
-      "speaker": null
-    },
-    {
-      "start": 1468.8,
-      "end": 1471.44,
-      "text": "that repository as my remote",
-      "speaker": null
-    },
-    {
-      "start": 1471.44,
-      "end": 1474.32,
-      "text": "and pushes those changes to GitHub.",
-      "speaker": null
-    },
-    {
-      "start": 1474.32,
-      "end": 1476.48,
-      "text": "And we can see that it's asking me some stuff.",
-      "speaker": null
-    },
-    {
-      "start": 1476.48,
-      "end": 1479.6,
-      "text": "Do I want to have Visual Studio Code periodically run git fetch?",
-      "speaker": null
-    },
-    {
-      "start": 1479.6,
-      "end": 1480.56,
-      "text": "I do not.",
-      "speaker": null
-    },
-    {
-      "start": 1480.56,
-      "end": 1482.72,
-      "text": "But now if I run git remote-v again,",
-      "speaker": null
-    },
-    {
-      "start": 1482.72,
-      "end": 1484.48,
-      "text": "here is my origin.",
-      "speaker": null
-    },
-    {
-      "start": 1484.48,
-      "end": 1487.76,
-      "text": "So your default remote is typically origin,",
-      "speaker": null
-    },
-    {
-      "start": 1487.76,
-      "end": 1489.52,
-      "text": "however it could be pretty much anything.",
-      "speaker": null
-    },
-    {
-      "start": 1489.52,
-      "end": 1492.0,
-      "text": "But origin is the kind of convention",
-      "speaker": null
-    },
-    {
-      "start": 1492.08,
-      "end": 1495.04,
-      "text": "or the standard used in most repositories.",
-      "speaker": null
-    },
-    {
-      "start": 1495.04,
-      "end": 1497.6,
-      "text": "And then here is the location of that repository",
-      "speaker": null
-    },
-    {
-      "start": 1497.6,
-      "end": 1499.04,
-      "text": "on my GitHub account.",
-      "speaker": null
-    },
-    {
-      "start": 1499.04,
-      "end": 1502.56,
-      "text": "So if I was to actually take this URL minus the .git,",
-      "speaker": null
-    },
-    {
-      "start": 1502.56,
-      "end": 1505.04,
-      "text": "copy this, go ahead and open a Chrome tab,",
-      "speaker": null
-    },
-    {
-      "start": 1506.16,
-      "end": 1507.2,
-      "text": "type that in the browser.",
-      "speaker": null
-    },
-    {
-      "start": 1507.2,
-      "end": 1511.12,
-      "text": "And you can see here is my new repository up here on GitHub.",
-      "speaker": null
-    },
-    {
-      "start": 1511.12,
-      "end": 1512.4,
-      "text": "Only has one file.",
-      "speaker": null
-    },
-    {
-      "start": 1512.4,
-      "end": 1514.64,
-      "text": "Looks a little funky because there's no readme,",
-      "speaker": null
-    },
-    {
-      "start": 1514.64,
-      "end": 1515.68,
-      "text": "but I can click into here.",
-      "speaker": null
-    },
-    {
-      "start": 1515.68,
-      "end": 1518.0,
-      "text": "We can see that it pushed it up from VS Code,",
-      "speaker": null
-    },
-    {
-      "start": 1518.0,
-      "end": 1519.2,
-      "text": "which is pretty neat.",
-      "speaker": null
-    },
-    {
-      "start": 1519.2,
-      "end": 1521.44,
-      "text": "All right. So that's how you push something to GitHub.",
-      "speaker": null
-    },
-    {
-      "start": 1521.44,
-      "end": 1523.52,
-      "text": "Now, what's really cool about this",
-      "speaker": null
-    },
-    {
-      "start": 1523.52,
-      "end": 1525.6,
-      "text": "is if I go back into VS Code,",
-      "speaker": null
-    },
-    {
-      "start": 1525.6,
-      "end": 1526.88,
-      "text": "let's go ahead and just make a change.",
-      "speaker": null
-    },
-    {
-      "start": 1526.88,
-      "end": 1528.88,
-      "text": "And again, go ahead and just add an exclamation point",
-      "speaker": null
-    },
-    {
-      "start": 1528.88,
-      "end": 1529.68,
-      "text": "to make this simple.",
-      "speaker": null
-    },
-    {
-      "start": 1529.68,
-      "end": 1533.12,
-      "text": "And I go ahead and stage that change and commit it.",
-      "speaker": null
-    },
-    {
-      "start": 1533.68,
-      "end": 1537.87,
-      "text": "So add excitement, click commit.",
-      "speaker": null
-    },
-    {
-      "start": 1537.87,
-      "end": 1540.11,
-      "text": "And now you can see that it's saying",
-      "speaker": null
-    },
-    {
-      "start": 1540.11,
-      "end": 1541.39,
-      "text": "that I can sync the changes,",
-      "speaker": null
-    },
-    {
-      "start": 1541.39,
-      "end": 1544.03,
-      "text": "which basically means it will pull down any commits",
-      "speaker": null
-    },
-    {
-      "start": 1544.03,
-      "end": 1546.99,
-      "text": "that we don't currently have that exist on our GitHub",
-      "speaker": null
-    },
-    {
-      "start": 1546.99,
-      "end": 1548.99,
-      "text": "account and also at the same time,",
-      "speaker": null
-    },
-    {
-      "start": 1548.99,
-      "end": 1550.91,
-      "text": "push up the changes that we have here.",
-      "speaker": null
-    },
-    {
-      "start": 1550.91,
-      "end": 1552.19,
-      "text": "So you can see down here at the bottom,",
-      "speaker": null
-    },
-    {
-      "start": 1552.19,
-      "end": 1554.83,
-      "text": "it's recognizing that there's nothing to pull down",
-      "speaker": null
-    },
-    {
-      "start": 1554.83,
-      "end": 1556.99,
-      "text": "and I have one commit to push up.",
-      "speaker": null
-    },
-    {
-      "start": 1556.99,
-      "end": 1558.43,
-      "text": "If anybody else had made changes",
-      "speaker": null
-    },
-    {
-      "start": 1558.43,
-      "end": 1560.51,
-      "text": "to this branch on that repository,",
-      "speaker": null
-    },
-    {
-      "start": 1560.51,
-      "end": 1562.83,
-      "text": "running Git Fetch would basically synchronize these",
-      "speaker": null
-    },
-    {
-      "start": 1562.83,
-      "end": 1563.63,
-      "text": "and would let me know that,",
-      "speaker": null
-    },
-    {
-      "start": 1563.63,
-      "end": 1565.55,
-      "text": "hey, you have commits that are on the remote",
-      "speaker": null
-    },
-    {
-      "start": 1565.55,
-      "end": 1567.55,
-      "text": "that you don't have on your local machine.",
-      "speaker": null
-    },
-    {
-      "start": 1567.55,
-      "end": 1570.03,
-      "text": "So you can kind of get in a dangerous scenario there.",
-      "speaker": null
-    },
-    {
-      "start": 1570.03,
-      "end": 1571.95,
-      "text": "Typically, you want to follow the Git flow",
-      "speaker": null
-    },
-    {
-      "start": 1571.95,
-      "end": 1573.55,
-      "text": "or the GitHub flow to make sure",
-      "speaker": null
-    },
-    {
-      "start": 1573.55,
-      "end": 1575.47,
-      "text": "that you're working on a branch in isolation",
-      "speaker": null
-    },
-    {
-      "start": 1575.47,
-      "end": 1577.31,
-      "text": "and you're not stepping on other people's toes",
-      "speaker": null
-    },
-    {
-      "start": 1577.31,
-      "end": 1578.99,
-      "text": "and they're not stepping on your toes",
-      "speaker": null
-    },
-    {
-      "start": 1579.07,
-      "end": 1580.75,
-      "text": "and having commits kind of clobber each other.",
-      "speaker": null
-    },
-    {
-      "start": 1581.63,
+      "start": 1578.27,
       "end": 1583.87,
-      "text": "So using this, I can do a couple different things.",
+      "text": "toes and having commits kind of clobber each other so using this i can do a couple different things",
       "speaker": null
     },
     {
       "start": 1583.87,
-      "end": 1586.11,
-      "text": "I can click the sync changes button,",
-      "speaker": null
-    },
-    {
-      "start": 1586.11,
       "end": 1590.35,
-      "text": "which will basically run a pull and a push at the same time.",
+      "text": "i can click the sync changes button which will basically run a pull and a push at the same time",
       "speaker": null
     },
     {
       "start": 1590.35,
-      "end": 1592.03,
-      "text": "I can do the same thing down here at the bottom",
+      "end": 1594.75,
+      "text": "i can do the same thing down here at the bottom by clicking this button here so push one commit to",
       "speaker": null
     },
     {
-      "start": 1592.03,
-      "end": 1593.39,
-      "text": "by clicking this button here.",
+      "start": 1594.75,
+      "end": 1599.31,
+      "text": "origin main or i can use the menu so if i want a little bit more fine grain control over what",
       "speaker": null
     },
     {
-      "start": 1593.39,
-      "end": 1595.71,
-      "text": "So push one commit to origin main.",
+      "start": 1599.31,
+      "end": 1603.71,
+      "text": "happens to say i don't want to pull down any commits even if they do exist right here i can",
       "speaker": null
     },
     {
-      "start": 1595.71,
-      "end": 1596.75,
-      "text": "Or I can use the menu.",
+      "start": 1603.71,
+      "end": 1608.59,
+      "text": "use the push command from the menu so i'm going to click on this and that's going to go ahead and",
       "speaker": null
     },
     {
-      "start": 1596.75,
-      "end": 1598.91,
-      "text": "So if I want a little bit more fine-grained control",
+      "start": 1608.59,
+      "end": 1613.63,
+      "text": "push up my changes to github and i can verify that by clicking over to my repository inside of",
       "speaker": null
     },
     {
-      "start": 1598.91,
-      "end": 1599.87,
-      "text": "over what happens to say,",
+      "start": 1613.63,
+      "end": 1619.39,
+      "text": "github and we can see here there is my extra exclamation point all right so the last thing that",
       "speaker": null
     },
     {
-      "start": 1599.87,
-      "end": 1601.47,
-      "text": "I don't want to pull down any commits",
+      "start": 1619.39,
+      "end": 1626.03,
+      "text": "we're going to look at is how to clone a repository using vs code so normally if you want to clone",
       "speaker": null
     },
     {
-      "start": 1601.47,
-      "end": 1602.75,
-      "text": "even if they do exist.",
+      "start": 1626.03,
+      "end": 1630.67,
+      "text": "a repository you would use the git clone command however this time what we're going to do is go",
       "speaker": null
     },
     {
-      "start": 1602.75,
-      "end": 1606.35,
-      "text": "Right here, I can use the push command from the menu.",
+      "start": 1630.67,
+      "end": 1635.71,
+      "text": "ahead and use vs code and actually what i just realized is i'm not actually signed into this",
       "speaker": null
     },
     {
-      "start": 1606.35,
-      "end": 1607.63,
-      "text": "So I'm going to click on this",
+      "start": 1635.71,
+      "end": 1640.35,
+      "text": "account so let me go ahead and sign in because i want to clone with my ssh key all right so if",
       "speaker": null
     },
     {
-      "start": 1607.63,
-      "end": 1608.99,
-      "text": "and that's going to go ahead and push up",
+      "start": 1640.43,
+      "end": 1647.39,
+      "text": "go back to code go ahead and click on code here and here is my ssh option so again the reason why",
       "speaker": null
     },
     {
-      "start": 1608.99,
-      "end": 1610.11,
-      "text": "my changes to GitHub.",
+      "start": 1647.39,
+      "end": 1653.47,
+      "text": "vs code was able to figure out uh what my github account looked like and you know my github account",
       "speaker": null
     },
     {
-      "start": 1610.11,
-      "end": 1612.03,
-      "text": "And I can verify that by clicking over",
+      "start": 1653.47,
+      "end": 1658.35,
+      "text": "information is because i had set up my ssh keys and visual studio code recognized that i had those",
       "speaker": null
     },
     {
-      "start": 1612.03,
-      "end": 1614.19,
-      "text": "to my repository inside of GitHub.",
+      "start": 1658.35,
+      "end": 1662.67,
+      "text": "ssh keys and was able to make that connection for me so i'm gonna go ahead and do is go ahead and",
       "speaker": null
     },
     {
-      "start": 1614.19,
-      "end": 1615.23,
-      "text": "And we can see here,",
+      "start": 1662.67,
+      "end": 1668.51,
+      "text": "copy this to my clipboard and back in visual studio code one of my go ahead and do",
       "speaker": null
     },
     {
-      "start": 1615.95,
-      "end": 1618.11,
-      "text": "there is my extra exclamation point.",
+      "start": 1668.51,
+      "end": 1676.94,
+      "text": "is get rid of all this go ahead and close my repository go ahead and open up a brand new window",
       "speaker": null
     },
     {
-      "start": 1618.11,
-      "end": 1618.43,
-      "text": "All right.",
+      "start": 1676.94,
+      "end": 1681.82,
+      "text": "and what i want to do is actually delete this vs code dot git so i'm going to use the terminal",
       "speaker": null
     },
     {
-      "start": 1618.43,
-      "end": 1620.43,
-      "text": "So the last thing that we're going to look at",
+      "start": 1681.82,
+      "end": 1686.7,
+      "text": "to do that so i'm just going to back out one directory here and then i'm going to say",
       "speaker": null
     },
     {
-      "start": 1620.43,
-      "end": 1624.27,
-      "text": "is how to clone a repository using VS Code.",
+      "start": 1687.42,
+      "end": 1695.9,
+      "text": "remove recursive and then vs code dot git all right so now that does not exist inside of",
       "speaker": null
     },
     {
-      "start": 1624.27,
-      "end": 1626.83,
-      "text": "So normally, if you want to clone a repository,",
+      "start": 1695.9,
+      "end": 1703.26,
+      "text": "my projects that i have here and so what i can do rather than running git clone with my repository",
       "speaker": null
     },
     {
-      "start": 1626.83,
-      "end": 1628.27,
-      "text": "you would use the git clone command.",
+      "start": 1703.26,
+      "end": 1709.18,
+      "text": "url instead what i can do is go ahead and click over into my source control panel and then click",
       "speaker": null
     },
     {
-      "start": 1629.07,
-      "end": 1630.35,
-      "text": "However, this time what we're going to do",
+      "start": 1709.18,
+      "end": 1714.54,
+      "text": "on this clone repository button and so if i click clone repository you can see that it says clone",
       "speaker": null
     },
     {
-      "start": 1630.35,
-      "end": 1632.75,
-      "text": "is go ahead and use VS Code.",
+      "start": 1714.54,
+      "end": 1719.5,
+      "text": "from github and then it asks me which repository i want to clone from so this is because it's",
       "speaker": null
     },
     {
-      "start": 1632.75,
-      "end": 1634.03,
-      "text": "And actually what I just realized",
+      "start": 1719.5,
+      "end": 1724.06,
+      "text": "connected to my account through my ssh key i can actually see all of the repositories that i",
       "speaker": null
     },
     {
-      "start": 1634.03,
-      "end": 1635.95,
-      "text": "is I'm not actually signed into this account.",
+      "start": 1724.06,
+      "end": 1730.54,
+      "text": "have inside of my github account and i can clone down the ones i want so i can just use this vs code",
       "speaker": null
     },
     {
-      "start": 1635.95,
-      "end": 1637.39,
-      "text": "So let me go ahead and sign in",
+      "start": 1730.54,
+      "end": 1735.58,
+      "text": "dash git however if i was cloning a public repo instead same thing i would click the clone",
       "speaker": null
     },
     {
-      "start": 1637.47,
-      "end": 1639.87,
-      "text": "because I want to clone with my SSH key.",
+      "start": 1735.58,
+      "end": 1740.62,
+      "text": "repository button but i would paste in the url just like i would using the regular git clone",
       "speaker": null
     },
     {
-      "start": 1639.87,
-      "end": 1640.11,
-      "text": "All right.",
+      "start": 1740.62,
+      "end": 1745.34,
+      "text": "command so i'm gonna go ahead and click this top one here because that's the url and it's going",
       "speaker": null
     },
     {
-      "start": 1640.11,
-      "end": 1641.23,
-      "text": "So if I go back to code,",
+      "start": 1745.34,
+      "end": 1750.46,
+      "text": "to ask me where i want to clone it and i'm going to go ahead and clone it to my code folder",
       "speaker": null
     },
     {
-      "start": 1642.03,
-      "end": 1643.63,
-      "text": "go ahead and click on code here.",
+      "start": 1750.46,
+      "end": 1755.5,
+      "text": "and click select as repository destination and then it's going to ask me what i like to open the",
       "speaker": null
     },
     {
-      "start": 1643.63,
-      "end": 1645.55,
-      "text": "And here is my SSH option.",
+      "start": 1755.5,
+      "end": 1761.26,
+      "text": "clone repository let's go ahead and open it and now i'm back to where i was prior to deleting the",
       "speaker": null
     },
     {
-      "start": 1645.55,
-      "end": 1649.07,
-      "text": "So again, the reason why VS Code was able to figure out",
+      "start": 1761.26,
+      "end": 1766.94,
+      "text": "repository all right and that is going to go ahead and wrap up the basic workflows of working",
       "speaker": null
     },
     {
-      "start": 1649.79,
-      "end": 1652.19,
-      "text": "what my GitHub account looked like",
+      "start": 1766.94,
+      "end": 1773.34,
+      "text": "with git inside of visual studio code all right so that is going to go ahead and do it for this",
       "speaker": null
     },
     {
-      "start": 1652.19,
-      "end": 1654.11,
-      "text": "and my GitHub account information",
+      "start": 1773.34,
+      "end": 1779.02,
+      "text": "video on how to use git with vs code thank you so much for coding along with me today",
       "speaker": null
     },
     {
-      "start": 1654.11,
-      "end": 1656.43,
-      "text": "is because I had set up my SSH keys",
+      "start": 1779.02,
+      "end": 1783.1,
+      "text": "if you liked this video and found this information valuable please consider leaving a like down below",
       "speaker": null
     },
     {
-      "start": 1656.43,
-      "end": 1657.79,
-      "text": "and Visual Studio Code recognized",
+      "start": 1783.1,
+      "end": 1787.1,
+      "text": "and if you're new here please consider subscribing we're going to be learning a lot more about git",
       "speaker": null
     },
     {
-      "start": 1657.79,
-      "end": 1659.31,
-      "text": "that I had those SSH keys",
+      "start": 1787.1,
+      "end": 1791.74,
+      "text": "github vs code web development and everything else in between and i would love to have you",
       "speaker": null
     },
     {
-      "start": 1659.31,
-      "end": 1661.23,
-      "text": "and was able to make that connection for me.",
+      "start": 1791.74,
+      "end": 1796.38,
+      "text": "along for the journey so until next time be sure to stay curious never stop learning and i will",
       "speaker": null
     },
     {
-      "start": 1661.23,
-      "end": 1662.19,
-      "text": "So what I'm going to go ahead and do",
-      "speaker": null
-    },
-    {
-      "start": 1662.19,
-      "end": 1664.75,
-      "text": "is go ahead and copy this to my clipboard",
-      "speaker": null
-    },
-    {
-      "start": 1664.75,
-      "end": 1666.83,
-      "text": "and back in Visual Studio Code.",
-      "speaker": null
-    },
-    {
-      "start": 1667.55,
-      "end": 1668.59,
-      "text": "What I'm going to go ahead and do",
-      "speaker": null
-    },
-    {
-      "start": 1669.63,
-      "end": 1671.63,
-      "text": "is get rid of all this.",
-      "speaker": null
-    },
-    {
-      "start": 1671.63,
-      "end": 1674.27,
-      "text": "Go ahead and close my repository.",
-      "speaker": null
-    },
-    {
-      "start": 1674.99,
-      "end": 1676.91,
-      "text": "Go ahead and open up a brand new window.",
-      "speaker": null
-    },
-    {
-      "start": 1676.91,
-      "end": 1678.51,
-      "text": "And what I want to do is",
-      "speaker": null
-    },
-    {
-      "start": 1678.51,
-      "end": 1680.59,
-      "text": "actually delete this VS Code.git.",
-      "speaker": null
-    },
-    {
-      "start": 1680.59,
-      "end": 1682.51,
-      "text": "So I'm going to use the terminal to do that.",
-      "speaker": null
-    },
-    {
-      "start": 1682.51,
-      "end": 1685.31,
-      "text": "So I'm just going to back out one directory here.",
-      "speaker": null
-    },
-    {
-      "start": 1685.95,
-      "end": 1686.67,
-      "text": "And then I'm going to say",
-      "speaker": null
-    },
-    {
-      "start": 1687.39,
-      "end": 1692.35,
-      "text": "remove recursive and then VS Code.git.",
-      "speaker": null
-    },
-    {
-      "start": 1692.35,
-      "end": 1692.67,
-      "text": "All right.",
-      "speaker": null
-    },
-    {
-      "start": 1692.67,
-      "end": 1694.91,
-      "text": "So now that does not exist",
-      "speaker": null
-    },
-    {
-      "start": 1694.91,
-      "end": 1697.47,
-      "text": "inside of my projects that I have here.",
-      "speaker": null
-    },
-    {
-      "start": 1698.03,
-      "end": 1699.15,
-      "text": "And so what I can do",
-      "speaker": null
-    },
-    {
-      "start": 1699.15,
-      "end": 1700.91,
-      "text": "rather than running git clone",
-      "speaker": null
-    },
-    {
-      "start": 1701.47,
-      "end": 1703.87,
-      "text": "with my repository URL,",
-      "speaker": null
-    },
-    {
-      "start": 1703.87,
-      "end": 1705.07,
-      "text": "instead what I can do",
-      "speaker": null
-    },
-    {
-      "start": 1705.87,
-      "end": 1706.99,
-      "text": "is go ahead and click over",
-      "speaker": null
-    },
-    {
-      "start": 1706.99,
-      "end": 1708.51,
-      "text": "into my source control panel",
-      "speaker": null
-    },
-    {
-      "start": 1708.51,
-      "end": 1711.23,
-      "text": "and then click on this clone repository button.",
-      "speaker": null
-    },
-    {
-      "start": 1711.23,
-      "end": 1713.15,
-      "text": "And so if I click clone repository,",
-      "speaker": null
-    },
-    {
-      "start": 1713.15,
-      "end": 1715.31,
-      "text": "you can see that it says clone from GitHub.",
-      "speaker": null
-    },
-    {
-      "start": 1715.31,
-      "end": 1716.43,
-      "text": "And then it asks me",
-      "speaker": null
-    },
-    {
-      "start": 1716.43,
-      "end": 1718.51,
-      "text": "which repository I want to clone from.",
-      "speaker": null
-    },
-    {
-      "start": 1718.51,
-      "end": 1719.95,
-      "text": "So this is because it's connected",
-      "speaker": null
-    },
-    {
-      "start": 1719.95,
-      "end": 1721.95,
-      "text": "to my account through my SSH key.",
-      "speaker": null
-    },
-    {
-      "start": 1721.95,
-      "end": 1723.87,
-      "text": "I can actually see all of the repositories",
-      "speaker": null
-    },
-    {
-      "start": 1723.87,
-      "end": 1726.83,
-      "text": "that I have inside of my GitHub account.",
-      "speaker": null
-    },
-    {
-      "start": 1726.83,
-      "end": 1728.83,
-      "text": "And I can clone down the ones I want.",
-      "speaker": null
-    },
-    {
-      "start": 1728.83,
-      "end": 1731.15,
-      "text": "So I can just use this VS Code.git.",
-      "speaker": null
-    },
-    {
-      "start": 1731.15,
-      "end": 1734.51,
-      "text": "However, if I was cloning a public repo instead,",
-      "speaker": null
-    },
-    {
-      "start": 1734.51,
-      "end": 1734.91,
-      "text": "same thing.",
-      "speaker": null
-    },
-    {
-      "start": 1734.91,
-      "end": 1736.35,
-      "text": "I would click the clone repository button,",
-      "speaker": null
-    },
-    {
-      "start": 1736.35,
-      "end": 1738.11,
-      "text": "but I would paste in the URL",
-      "speaker": null
-    },
-    {
-      "start": 1738.11,
-      "end": 1741.07,
-      "text": "just like I would using the regular git clone command.",
-      "speaker": null
-    },
-    {
-      "start": 1741.07,
-      "end": 1741.87,
-      "text": "So I'm going to go ahead and click",
-      "speaker": null
-    },
-    {
-      "start": 1742.91,
-      "end": 1743.71,
-      "text": "this top one here",
-      "speaker": null
-    },
-    {
-      "start": 1743.71,
-      "end": 1744.99,
-      "text": "because that's the URL.",
-      "speaker": null
-    },
-    {
-      "start": 1744.99,
-      "end": 1746.35,
-      "text": "And it's going to ask me",
-      "speaker": null
-    },
-    {
-      "start": 1746.35,
-      "end": 1748.03,
-      "text": "where I want to clone it.",
-      "speaker": null
-    },
-    {
-      "start": 1748.03,
-      "end": 1748.75,
-      "text": "And I'm going to go ahead",
-      "speaker": null
-    },
-    {
-      "start": 1748.75,
-      "end": 1750.51,
-      "text": "and clone it to my code folder",
-      "speaker": null
-    },
-    {
-      "start": 1750.51,
-      "end": 1753.07,
-      "text": "and click select as repository destination.",
-      "speaker": null
-    },
-    {
-      "start": 1753.87,
-      "end": 1754.67,
-      "text": "And then it's going to ask me",
-      "speaker": null
-    },
-    {
-      "start": 1754.67,
-      "end": 1756.59,
-      "text": "what I like to open the clone repository.",
-      "speaker": null
-    },
-    {
-      "start": 1756.59,
-      "end": 1757.71,
-      "text": "Let's go ahead and open it.",
-      "speaker": null
-    },
-    {
-      "start": 1757.71,
-      "end": 1760.27,
-      "text": "And now I'm back to where I was",
-      "speaker": null
-    },
-    {
-      "start": 1760.27,
-      "end": 1762.03,
-      "text": "prior to deleting the repository.",
-      "speaker": null
-    },
-    {
-      "start": 1762.03,
-      "end": 1762.27,
-      "text": "All right.",
-      "speaker": null
-    },
-    {
-      "start": 1762.27,
-      "end": 1763.55,
-      "text": "And that is going to go ahead",
-      "speaker": null
-    },
-    {
-      "start": 1763.55,
-      "end": 1766.11,
-      "text": "and wrap up the basic workflows",
-      "speaker": null
-    },
-    {
-      "start": 1766.11,
-      "end": 1770.67,
-      "text": "of working with git inside of Visual Studio Code.",
-      "speaker": null
-    },
-    {
-      "start": 1770.67,
-      "end": 1771.23,
-      "text": "All right.",
-      "speaker": null
-    },
-    {
-      "start": 1771.23,
-      "end": 1772.43,
-      "text": "So that is going to go ahead",
-      "speaker": null
-    },
-    {
-      "start": 1772.43,
-      "end": 1773.87,
-      "text": "and do it for this video",
-      "speaker": null
-    },
-    {
-      "start": 1773.87,
-      "end": 1776.83,
-      "text": "on how to use git with VS Code.",
-      "speaker": null
-    },
-    {
-      "start": 1776.83,
-      "end": 1779.07,
-      "text": "Thank you so much for coding along with me today.",
-      "speaker": null
-    },
-    {
-      "start": 1779.07,
-      "end": 1779.87,
-      "text": "If you like this video",
-      "speaker": null
-    },
-    {
-      "start": 1779.87,
-      "end": 1781.39,
-      "text": "and found this information valuable,",
-      "speaker": null
-    },
-    {
-      "start": 1781.39,
-      "end": 1783.07,
-      "text": "please consider leaving a like down below.",
-      "speaker": null
-    },
-    {
-      "start": 1783.07,
-      "end": 1783.87,
-      "text": "And if you're new here,",
-      "speaker": null
-    },
-    {
-      "start": 1783.87,
-      "end": 1785.23,
-      "text": "please consider subscribing.",
-      "speaker": null
-    },
-    {
-      "start": 1785.23,
-      "end": 1786.27,
-      "text": "We're going to be learning a lot more",
-      "speaker": null
-    },
-    {
-      "start": 1786.27,
-      "end": 1788.43,
-      "text": "about git, GitHub, VS Code,",
-      "speaker": null
-    },
-    {
-      "start": 1788.43,
-      "end": 1789.23,
-      "text": "web development,",
-      "speaker": null
-    },
-    {
-      "start": 1789.23,
-      "end": 1790.67,
-      "text": "and everything else in between.",
-      "speaker": null
-    },
-    {
-      "start": 1790.67,
-      "end": 1791.95,
-      "text": "And I would love to have you along",
-      "speaker": null
-    },
-    {
-      "start": 1791.95,
-      "end": 1792.99,
-      "text": "for the journey.",
-      "speaker": null
-    },
-    {
-      "start": 1792.99,
-      "end": 1793.87,
-      "text": "So until next time,",
-      "speaker": null
-    },
-    {
-      "start": 1793.87,
-      "end": 1795.07,
-      "text": "be sure to stay curious,",
-      "speaker": null
-    },
-    {
-      "start": 1795.07,
-      "end": 1795.95,
-      "text": "never stop learning,",
-      "speaker": null
-    },
-    {
-      "start": 1795.95,
-      "end": 1803.82,
-      "text": "and I will see you all in the next video.",
+      "start": 1796.38,
+      "end": 1803.87,
+      "text": "see you all in the next video",
       "speaker": null
     }
   ]

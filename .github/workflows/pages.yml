@@ -1,0 +1,65 @@
+name: Build & Deploy Demo Site
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install deps
+        run: poetry install --no-interaction --no-root
+
+      # Generate outputs using your included example audio
+      - name: Generate outputs
+        run: |
+          poetry run w2c asr examples/lecture.mp3 -o outputs -m small
+          poetry run w2c segment outputs/transcript.json -o outputs --max-chars 1200
+          poetry run w2c structure outputs/sections.json -o outputs
+          # Skip PDF on CI to avoid system libs; HTML is enough for the demo
+          poetry run w2c render outputs/structured.json -o outputs --embed-fonts --no-pdf
+          poetry run w2c cards  outputs/structured.json -o outputs --deck "My Lecture" --apkg
+          poetry run w2c bundle outputs -o dist/lecture-easyread.zip
+
+      # Assemble the static site to publish
+      - name: Assemble site/
+        run: |
+          rm -rf site && mkdir -p site/outputs site/dist
+          cp demo/index.html site/index.html
+          cp outputs/notes.html site/outputs/
+          [ -d outputs/fonts ] && cp -r outputs/fonts site/outputs/
+          [ -d outputs/audio ] && cp -r outputs/audio site/outputs/
+          [ -f outputs/deck.apkg ] && cp outputs/deck.apkg site/outputs/
+          [ -f outputs/deck.csv ]  && cp outputs/deck.csv  site/outputs/
+          cp dist/lecture-easyread.zip site/dist/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
