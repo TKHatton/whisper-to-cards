@@ -25,3 +25,4 @@ outputs/*
 
 # build bundles
 /dist/
+.env

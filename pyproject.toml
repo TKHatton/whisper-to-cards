@@ -19,7 +19,12 @@ dependencies = [
     "soundfile (>=0.12,<0.13)",
     "pydub (>=0.25,<0.26)",
     "genanki (>=0.13,<0.14)",
-    "weasyprint (>=62.0,<63.0)"
+    "weasyprint (>=62.0,<63.0)",
+    "fastapi (>=0.118.2,<0.119.0)",
+    "uvicorn[standard] (>=0.37.0,<0.38.0)",
+    "python-multipart (>=0.0.20,<0.0.21)",
+    "python-dotenv (>=1.1.1,<2.0.0)",
+    "supabase (>=2.22.0,<3.0.0)"
 ]
 
 
