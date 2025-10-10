@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Whisper-to-Cards — Demo</title>
+  <link rel="icon" href="./assets/aw2c.jpeg" type="image/jpeg+xml">
+  <link rel="shortcut icon" href="./assets/aw2c.jpeg" type="image/svg+xml">
+  <meta name="theme-color" content="#0b0f1a">
   <style>
     :root { color-scheme: dark light; }
     body { font: 16px/1.5 system-ui, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:#0b0f1a; color:#e6e6e6; }
@@ -35,6 +38,7 @@
           <div class="muted" id="status">Idle</div>
         </div>
         <iframe id="notesFrame" title="Notes preview (cloud)"></iframe>
+                src="../outputs/notes.html"></div>iframe>
       </div>
 
       <!-- Right: uploader + links -->
@@ -48,7 +52,15 @@
         <hr style="border-color:#223; margin:12px 0;">
         <div style="font-weight:600; margin-bottom:6px;">Downloads</div>
         <div class="links" id="links">
-          <!-- populated after processing -->
+          <hr style="border-color:#223; margin:12px 0;">
+          <div style="font-weight:600; margin-bottom:6px;">Last commit (repo)</div>
+          <div class="links">
+            <a href="../outputs/notes.html" target="_blank">Notes</a>
+            <a href="../outputs/notes.pdf"  target="_blank">PDF</a>
+            <a href="../outputs/deck.csv"   target="_blank">CSV</a>
+            <a href="../outputs/deck.apkg"  target="_blank">Anki</a>
+            <a href="../dist/lecture_easyread.zip" target="_blank">ZIP</a>
+          </div>
         </div>
         <div style="margin-top:10px" class="muted">
           Tip: keep the API & worker running in Codespaces. This page is static.
