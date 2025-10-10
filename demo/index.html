@@ -2,100 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Whisper-to-Cards Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Whisper-to-Cards — Demo</title>
   <style>
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    body { margin: 0; background:#0f1220; color:#e8ecff; }
-    header { padding: 22px 20px 10px; border-bottom: 1px solid #2a2f4a; }
-    h1 { margin: 0 0 6px; font-size: 22px; }
-    p { margin: 6px 0; opacity: .9; }
-    main { padding: 18px 20px 28px; max-width: 1100px; margin: 0 auto; }
-    .row { display: grid; grid-template-columns: 1fr 360px; gap: 18px; align-items: start; }
-    .card { background:#141936; border:1px solid #283053; border-radius:14px; padding:16px; }
-    .btns a { display:inline-block; margin: 6px 8px 0 0; padding:10px 12px; border-radius:10px; border:1px solid #3a4580; text-decoration:none; color:#e8ecff; }
-    .btns a:hover { background:#1a2150; }
-    iframe { width:100%; height:72vh; border:0; background:#0b0f1f; }
-    code { background:#0b0f1f; padding:2px 6px; border-radius:6px; border:1px solid #2a2f4a; }
-    small { opacity:.8 }
-    .ok { color:#a7f3d0 }
-    .bad { color:#fecaca }
-    ul { margin: 8px 0 0 18px; }
-    li { margin: 4px 0; }
+    :root { color-scheme: dark light; }
+    body { font: 16px/1.5 system-ui, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:#0b0f1a; color:#e6e6e6; }
+    a { color:#9bd; }
+    .wrap { max-width:1100px; margin: 40px auto; padding: 0 16px; }
+    .h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .muted { color:#9aa4b2; }
+    .grid { display:grid; gap:16px; grid-template-columns: 1fr 340px; }
+    .card { background:#101827; border:1px solid #223; border-radius:14px; padding:16px; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    button { padding:8px 12px; border-radius:10px; border:1px solid #355; background:#142033; color:#e6e6e6; cursor:pointer; }
+    button:disabled { opacity:.6; cursor:default; }
+    .links a { display:inline-block; margin-right:10px; }
+    iframe { width:100%; height:70vh; border:0; border-radius:10px; background:#0b0f1a; }
+    .ok { color:#a7f3d0; }
+    .err { color:#fca5a5; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Whisper-to-Cards – Demo</h1>
-    <p>Preview your accessible notes and download the generated study materials.</p>
-  </header>
+  <div class="wrap">
+    <div class="h1">Whisper-to-Cards — Demo</div>
+    <div class="muted">Upload a lecture → get accessible notes + study decks.</div>
 
-  <main class="row">
-    <section class="card">
-      <h2 style="margin-top:0">Notes Preview</h2>
-      <!-- IMPORTANT: served from repo root, demo is one folder down ➜ use ../ -->
-      <iframe id="notesFrame" title="Notes preview" style="width:100%;height:72vh;border:0;background:#0b0f1f"></iframe>
-      <div class="btns" style="margin-top:10px">
-        <a id="notesLink" target="_blank">Open Notes in New Tab</a>
-        <a href="../outputs/notes.pdf">Download PDF</a>
-        <a href="../outputs/deck.csv">Download deck.csv</a>
-        <a href="../outputs/deck.apkg">Download Anki (.apkg)</a>
-        <a href="../dist/lecture_easyread.zip">Download ZIP bundle</a>
+    <div class="grid" style="margin-top:16px;">
+      <!-- Left: live notes preview (from Supabase once ready) -->
+      <div class="card">
+        <div class="row" style="justify-content:space-between; margin-bottom:10px;">
+          <div style="font-weight:600">Notes Preview</div>
+          <div class="muted" id="status">Idle</div>
+        </div>
+        <iframe id="notesFrame" title="Notes preview (cloud)"></iframe>
       </div>
-      <p style="margin-top:12px"><small>If any link 404s, see the “Path Check” box →</small></p>
-    </section>
 
-    <aside class="card">
-      <h3 style="margin-top:0">Path Check (quick self-test)</h3>
-      <ol>
-        <li>Right-click <em>Open Notes in New Tab</em> → Open Link in New Tab.</li>
-        <li>If you get a 404, look at the URL bar. It should end with
-          <code>/outputs/notes.html</code> (not <code>/demo/outputs/...</code>).</li>
-        <li>
-          From the repo root, confirm the file exists:
-          <div><code>ls outputs/notes.html outputs/deck.csv outputs/notes.pdf dist/lecture_easyread.zip</code></div>
-        </li>
-        <li>If serving the root, links must start with <code>../</code> (as above).
-            If you serve <strong>the demo folder directly</strong>, remove the <code>../</code>
-            so they become <code>outputs/...</code> and <code>dist/...</code>.</li>
-      </ol>
+      <!-- Right: uploader + links -->
+      <div class="card">
+        <div style="font-weight:600; margin-bottom:8px;">Upload & Process</div>
+        <div class="row" style="margin-bottom:8px;">
+          <input id="file" type="file" accept=".mp3,.m4a,.wav,.flac,.aac,.ogg" />
+          <button id="send">Upload</button>
+        </div>
+        <div class="muted" id="progress">Choose a file and click Upload.</div>
+        <hr style="border-color:#223; margin:12px 0;">
+        <div style="font-weight:600; margin-bottom:6px;">Downloads</div>
+        <div class="links" id="links">
+          <!-- populated after processing -->
+        </div>
+        <div style="margin-top:10px" class="muted">
+          Tip: keep the API & worker running in Codespaces. This page is static.
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <h3>How to serve locally</h3>
-      <p>Serve the <strong>repo root</strong> (recommended):</p>
-      <code>poetry run python -m http.server 8090</code>
-      <p>Open: <code>http://localhost:8090/demo/</code></p>
-
-      <h3>What’s included</h3>
-      <ul>
-        <li><code>outputs/notes.html</code> – accessible notes viewer</li>
-        <li><code>outputs/notes.pdf</code> – printable PDF</li>
-        <li><code>outputs/deck.csv</code> – flashcards (CSV)</li>
-        <li><code>outputs/deck.apkg</code> – Anki deck (if generated)</li>
-        <li><code>dist/lecture_easyread.zip</code> – shareable bundle</li>
-      </ul>
-
-      <h3>Study the cards</h3>
-      <ul>
-        <li>Open Anki → <strong>File → Import</strong> → choose <code>deck.apkg</code>.</li>
-        <li>Or import <code>deck.csv</code> (map first field = Front, second = Back).</li>
-      </ul>
-    </aside>
-  </main>
+  <!-- Uploader script -->
   <script>
-    (function () {
-      // Decide base path: '' for local (/demo/...), '/whisper-to-cards' for Pages
-      const parts = location.pathname.split('/').filter(Boolean);
-      const base  = (parts[0] === 'demo') ? '' : ('/' + (parts[0] || ''));
+    // ⬅️ Set this to your FastAPI public URL shown in the Codespaces Ports panel
+    const API_BASE = "https://psychic-giggle-666p44v5jpr3r75p-8080.app.github.dev";
 
-      const notesUrl = base + '/outputs/notes.html';
+    const fileEl = document.getElementById('file');
+    const sendEl = document.getElementById('send');
+    const statusEl = document.getElementById('status');
+    const progressEl = document.getElementById('progress');
+    const linksEl = document.getElementById('links');
+    const notesFrame = document.getElementById('notesFrame');
 
-      const frame = document.getElementById('notesFrame');
-      const link  = document.getElementById('notesLink');
+    async function signUpload(name, type) {
+      const r = await fetch(`${API_BASE}/sign-upload`, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ filename: name, content_type: type || "application/octet-stream" })
+      });
+      if (!r.ok) throw new Error("sign failed");
+      return r.json();
+    }
+    async function putSigned(url, file) {
+      const r = await fetch(url, { method: "PUT", body: file, headers: { "content-type": file.type || "application/octet-stream", "x-upsert": "true" }});
+      if (!r.ok) throw new Error("upload failed");
+    }
+    async function poll(job_id, ms=5000) {
+      for (;;) {
+        const r = await fetch(`${API_BASE}/status?job_id=` + encodeURIComponent(job_id));
+        const j = await r.json();
+        if (j.status === "complete") return j;
+        if (j.status === "error") throw new Error(j.error || "processing error");
+        await new Promise(s => setTimeout(s, ms));
+      }
+    }
+    function setLinks(outputs) {
+      linksEl.innerHTML = "";
+      const order = [["notes.html","Notes"],["notes.pdf","PDF"],["deck.apkg","Anki"],["deck.csv","CSV"],["bundle.zip","ZIP"]];
+      for (const [key,label] of order) {
+        if (outputs[key]) {
+          const a = document.createElement('a');
+          a.href = outputs[key]; a.target = "_blank"; a.textContent = label;
+          linksEl.appendChild(a);
+        }
+      }
+      if (outputs["notes.html"]) notesFrame.src = outputs["notes.html"];
+    }
 
-      if (frame) frame.src = notesUrl;
-      if (link)  link.href = notesUrl;
-    })();
+    sendEl.onclick = async () => {
+      const f = fileEl.files[0];
+      if (!f) { progressEl.textContent = "Choose a file first."; return; }
+      try {
+        sendEl.disabled = true;
+        statusEl.textContent = "Queued…"; progressEl.textContent = "Requesting signed URL…";
+        const { ok, job_id, upload_url } = await signUpload(f.name, f.type);
+        if (!ok) throw new Error("sign failed");
+        progressEl.textContent = "Uploading to cloud storage…";
+        await putSigned(upload_url, f);
+        statusEl.textContent = "Processing…"; progressEl.textContent = "This may take a while (transcribe → segment → render → deck).";
+        const job = await poll(job_id);
+        statusEl.innerHTML = "<span class='ok'>Done</span>";
+        progressEl.textContent = "Links ready.";
+        setLinks(job.outputs || {});
+      } catch (e) {
+        statusEl.innerHTML = "<span class='err'>Error</span>";
+        progressEl.textContent = e.message || "Something went wrong.";
+      } finally {
+        sendEl.disabled = false;
+      }
+    };
   </script>
 </body>
 </html>
-
