@@ -1,0 +1,25 @@
+name: w2c-worker
+on:
+  workflow_dispatch: {}   # <-- manual only (no schedule)
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: "1.8.3"
+      - name: Install deps
+        run: poetry install --no-interaction --no-root
+      - name: Process queued jobs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          W2C_BUCKET: w2c
+          W2C_INCOMING_PREFIX: incoming/
+          W2C_OUTPUTS_PREFIX: outputs/
+        run: poetry run python scripts/worker_actions.py

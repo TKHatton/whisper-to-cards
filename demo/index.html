@@ -4,140 +4,182 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Whisper-to-Cards — Demo</title>
+
+  <!-- favicon (you already added the file) -->
   <link rel="icon" href="./assets/aw2c.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="./assets/aw2c.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0b0f1a">
+
   <style>
-    :root { color-scheme: dark light; }
-    body { font: 16px/1.5 system-ui, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:#0b0f1a; color:#e6e6e6; }
-    a { color:#9bd; }
-    .wrap { max-width:1100px; margin: 40px auto; padding: 0 16px; }
-    .h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-    .muted { color:#9aa4b2; }
-    .grid { display:grid; gap:16px; grid-template-columns: 1fr 340px; }
-    .card { background:#101827; border:1px solid #223; border-radius:14px; padding:16px; }
-    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    button { padding:8px 12px; border-radius:10px; border:1px solid #355; background:#142033; color:#e6e6e6; cursor:pointer; }
-    button:disabled { opacity:.6; cursor:default; }
-    .links a { display:inline-block; margin-right:10px; }
-    iframe { width:100%; height:70vh; border:0; border-radius:10px; background:#0b0f1a; }
-    .ok { color:#a7f3d0; }
-    .err { color:#fca5a5; }
-  </style>
+  :root{
+    --bg: #0b1220; --card:#111a2e; --text:#e8eefc; --muted:#9db4d6;
+    --accent:#3a7afe; --border:#1d2842; --radius:14px;
+  }
+  html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
+  .wrap{max-width:1100px;margin:36px auto;padding:0 18px;}
+  h1{font-size:28px;margin:0 0 6px}
+  .muted{color:var(--muted)}
+  .row{display:flex;gap:18px;align-items:flex-start}
+  .col{flex:1}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+  button{background:var(--accent);color:white;border:0;border-radius:10px;padding:8px 14px;cursor:pointer}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  input[type=file]{color:var(--muted)}
+  #notesFrame{width:100%;height:520px;border:1px solid var(--border);border-radius:12px}
+  .placeholder{color:var(--muted);border:1px dashed var(--border);border-radius:12px;height:520px;display:flex;align-items:center;justify-content:center}
+  .toolbar{display:flex;justify-content:space-between;margin-bottom:10px}
+  .downloads a{color:var(--text);text-decoration:none;margin:4px 0;display:block}
+  .downloads a:hover{color:var(--accent)}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <div class="h1">Whisper-to-Cards — Demo</div>
+    <h1>Whisper-to-Cards — Demo</h1>
     <div class="muted">Upload a lecture → get accessible notes + study decks.</div>
 
-    <div class="grid" style="margin-top:16px;">
-      <!-- Left: live notes preview (from Supabase once ready) -->
+    <div class="grid" style="margin-top:18px;">
+
+      <!-- LEFT: preview (cloud when ready; otherwise a friendly placeholder) -->
       <div class="card">
-        <div class="row" style="justify-content:space-between; margin-bottom:10px;">
+        <div class="row" style="justify-content:space-between; margin-bottom:12px;">
           <div style="font-weight:600">Notes Preview</div>
-          <div class="muted" id="status">Idle</div>
+          <div id="status" class="muted" aria-live="polite">Idle</div>
         </div>
-        <iframe id="notesFrame" title="Notes preview (cloud)"></iframe>
-                src="../outputs/notes.html"></div>iframe>
+        <div id="placeholder" class="placeholder">
+          <div class="muted">Upload a file on the right. When processing finishes, notes appear here.</div>
+        </div>
+        <iframe id="notesFrame" title="Notes preview (cloud)" style="display:none;"></iframe>
       </div>
 
-      <!-- Right: uploader + links -->
+      <!-- RIGHT: uploader + links -->
       <div class="card">
-        <div style="font-weight:600; margin-bottom:8px;">Upload & Process</div>
+        <div style="font-weight:600; margin-bottom:10px;">Upload & Process</div>
         <div class="row" style="margin-bottom:8px;">
-          <input id="file" type="file" accept=".mp3,.m4a,.wav,.flac,.aac,.ogg" />
-          <button id="send">Upload</button>
+          <input id="file" type="file" accept=".mp3,.wav,.m4a" />
+          <button onclick="onUploadClick()">Upload</button>
+          <button id="startBtn" onclick="onStartClick()" disabled>Start Processing</button>
         </div>
-        <div class="muted" id="progress">Choose a file and click Upload.</div>
-        <hr style="border-color:#223; margin:12px 0;">
-        <div style="font-weight:600; margin-bottom:6px;">Downloads</div>
-        <div class="links" id="links">
-          <hr style="border-color:#223; margin:12px 0;">
-          <div style="font-weight:600; margin-bottom:6px;">Last commit (repo)</div>
-          <div class="links">
-            <a href="../outputs/notes.html" target="_blank">Notes</a>
-            <a href="../outputs/notes.pdf"  target="_blank">PDF</a>
-            <a href="../outputs/deck.csv"   target="_blank">CSV</a>
-            <a href="../outputs/deck.apkg"  target="_blank">Anki</a>
-            <a href="../dist/lecture_easyread.zip" target="_blank">ZIP</a>
-          </div>
+        <div id="progress" class="muted">Choose a file and click Upload.</div>
+
+        <hr style="border-color:#223; margin:14px 0;">
+        <div style="font-weight:600; margin-bottom:6px;">Downloads (cloud result)</div>
+        <div class="links" id="cloudLinks"></div>
+
+        <hr style="border-color:#223; margin:14px 0;">
+        <div style="font-weight:600; margin-bottom:6px;">Sample (from repo)</div>
+        <div class="links">
+          <!-- Always-available links to the last committed artifacts in the repo -->
+          <a href="/whisper-to-cards/outputs/notes.html" target="_blank">Notes</a>
+          <a href="/whisper-to-cards/outputs/notes.pdf"  target="_blank">PDF</a>
+          <a href="/whisper-to-cards/outputs/deck.csv"   target="_blank">CSV</a>
+          <a href="/whisper-to-cards/outputs/deck.apkg"  target="_blank">Anki</a>
+          <a href="/whisper-to-cards/dist/lecture_easyread.zip" target="_blank">ZIP</a>
         </div>
-        <div style="margin-top:10px" class="muted">
-          Tip: keep the API & worker running in Codespaces. This page is static.
-        </div>
+        <div class="muted" style="margin-top:10px">Tip: keep the API & worker running in Codespaces when uploading. This page is static.</div>
       </div>
+
     </div>
   </div>
 
-  <!-- Uploader script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // ⬅️ Set this to your FastAPI public URL shown in the Codespaces Ports panel
-    const API_BASE = "https://psychic-giggle-666p44v5jpr3r75p-8080.app.github.dev";
+    // ---- configure Supabase (safe to expose) ----
+    const SUPABASE_URL = "https://zgrqhqxjhikxfdundctq.supbase.co";
+    const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpncnFocXhqaGlreGZkdW5kY3RxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwNDU5MDQsImV4cCI6MjA3NTYyMTkwNH0.t87tIBQNTl6OCkLyiSw1wwgmKSrGOIHHEf1VIlRYiQI";
+    const BUCKET = "w2c";
+      // Link to your Action page so “Start Processing” opens it:
+  const ACTION_URL = "https://github.com/tkhatton/whisper-to-cards/actions/workflows/w2c-worker.yml";
 
-    const fileEl = document.getElementById('file');
-    const sendEl = document.getElementById('send');
-    const statusEl = document.getElementById('status');
-    const progressEl = document.getElementById('progress');
-    const linksEl = document.getElementById('links');
-    const notesFrame = document.getElementById('notesFrame');
+  const supa = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-    async function signUpload(name, type) {
-      const r = await fetch(`${API_BASE}/sign-upload`, {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({ filename: name, content_type: type || "application/octet-stream" })
-      });
-      if (!r.ok) throw new Error("sign failed");
-      return r.json();
-    }
-    async function putSigned(url, file) {
-      const r = await fetch(url, { method: "PUT", body: file, headers: { "content-type": file.type || "application/octet-stream", "x-upsert": "true" }});
-      if (!r.ok) throw new Error("upload failed");
-    }
-    async function poll(job_id, ms=5000) {
-      for (;;) {
-        const r = await fetch(`${API_BASE}/status?job_id=` + encodeURIComponent(job_id));
-        const j = await r.json();
-        if (j.status === "complete") return j;
-        if (j.status === "error") throw new Error(j.error || "processing error");
-        await new Promise(s => setTimeout(s, ms));
-      }
-    }
-    function setLinks(outputs) {
-      linksEl.innerHTML = "";
-      const order = [["notes.html","Notes"],["notes.pdf","PDF"],["deck.apkg","Anki"],["deck.csv","CSV"],["bundle.zip","ZIP"]];
-      for (const [key,label] of order) {
-        if (outputs[key]) {
-          const a = document.createElement('a');
-          a.href = outputs[key]; a.target = "_blank"; a.textContent = label;
-          linksEl.appendChild(a);
-        }
-      }
-      if (outputs["notes.html"]) notesFrame.src = outputs["notes.html"];
-    }
+  async function uploadAndQueue(file) {
+    const safe = file.name.replace(/[^a-z0-9._ -]/gi, "_");
+    const objectKey = `incoming/${Date.now()}_${safe}`;
 
-    sendEl.onclick = async () => {
-      const f = fileEl.files[0];
-      if (!f) { progressEl.textContent = "Choose a file first."; return; }
-      try {
-        sendEl.disabled = true;
-        statusEl.textContent = "Queued…"; progressEl.textContent = "Requesting signed URL…";
-        const { ok, job_id, upload_url } = await signUpload(f.name, f.type);
-        if (!ok) throw new Error("sign failed");
-        progressEl.textContent = "Uploading to cloud storage…";
-        await putSigned(upload_url, f);
-        statusEl.textContent = "Processing…"; progressEl.textContent = "This may take a while (transcribe → segment → render → deck).";
-        const job = await poll(job_id);
-        statusEl.innerHTML = "<span class='ok'>Done</span>";
-        progressEl.textContent = "Links ready.";
-        setLinks(job.outputs || {});
-      } catch (e) {
-        statusEl.innerHTML = "<span class='err'>Error</span>";
-        progressEl.textContent = e.message || "Something went wrong.";
-      } finally {
-        sendEl.disabled = false;
+    setStatus("Uploading…");
+    const { error: upErr } = await supa.storage.from(BUCKET).upload(objectKey, file, {
+      cacheControl: "3600", upsert: false, contentType: file.type || "audio/mpeg"
+    });
+    if (upErr) throw upErr;
+
+    const { data, error: insErr } = await supa.from("jobs")
+      .insert({ object_key: objectKey, status: "queued" })
+      .select().single();
+    if (insErr) throw insErr;
+
+    // Store so we can poll this exact job
+    window._w2cJobKey = objectKey;
+    setStatus("Queued. Click Start Processing.");
+    document.getElementById("startBtn").disabled = false;
+  }
+
+  async function onUploadClick() {
+    const f = document.getElementById("file").files[0];
+    if (!f) { alert("Choose a file first"); return; }
+    try { await uploadAndQueue(f); }
+    catch (e) { console.error(e); setStatus("Upload failed."); }
+  }
+
+  function onStartClick() {
+    // open your Action page to click “Run workflow”
+    window.open(ACTION_URL, "_blank");
+    setStatus("Processing… (you can watch the Action run)");
+    pollJob(window._w2cJobKey);
+  }
+
+  async function pollJob(objectKey) {
+    if (!objectKey) return;
+    const start = Date.now();
+    const until = 30 * 60 * 1000;
+    while (Date.now() - start < until) {
+      const { data, error } = await supa
+        .from("jobs")
+        .select("*")
+        .eq("object_key", objectKey)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (error) { console.error(error); break; }
+      if (!data) { await sleep(3000); continue; }
+
+      if (data.status === "complete") {
+        setStatus("Done");
+        showOutputs(data.outputs || {});
+        return;
       }
+      if (data.status === "error") { setStatus("Error during processing."); return; }
+      await sleep(3000);
+    }
+    setStatus("Timed out. Try again later.");
+  }
+
+  function showOutputs(links) {
+    // Swap preview
+    if (links.notes_html) {
+      const frame = document.getElementById("notesFrame");
+      frame.src = links.notes_html;
+      frame.style.display = "block";
+      document.getElementById("placeholder").style.display = "none";
+    }
+    // Fill downloads
+    const dl = document.getElementById("downloads");
+    dl.innerHTML = "";
+    const labels = {
+      notes_html:"Notes (HTML)",
+      notes_pdf:"Notes (PDF)",
+      deck_csv:"Deck (CSV)",
+      deck_apkg:"Deck (APKG)",
+      bundle_zip:"Bundle (ZIP)"
     };
-  </script>
-</body>
-</html>
+    for (const [k, url] of Object.entries(links)) {
+      const a = document.createElement("a");
+      a.href = url; a.target = "_blank";
+      a.textContent = labels[k] || k;
+      a.style.display="block";
+      dl.appendChild(a);
+    }
+  }
+
+  function setStatus(txt){ document.getElementById("status").textContent = txt; }
+  function sleep(ms){ return new Promise(r=>setTimeout(r, ms)); }
+</script>
